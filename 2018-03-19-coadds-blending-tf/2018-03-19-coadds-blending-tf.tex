@@ -177,20 +177,25 @@
 {
     \frametitle{Example of Increased Variance}
  
+    \setbeamerfont*{itemize/enumerate body}{size=\footnotesize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
  
     \begin{itemize}
         \item Template flux, just fitting for an amplitude $A$
-        \item Gaussian PSF and object
-        \item Approximate analytic formula can be derived (Sheldon, Armstrong, Huff, et al. in prep)
-            {\normalsize
+        \item We can calculate directly the increased variance
+        \item Can also do a toy model with Gaussian PSF and object, assume
+            Gaussian final image (Sheldon, Armstrong, Huff, et al. in prep)
                 \begin{align}
-                    \textrm{var}{\hat{A_c}} = 
-                    \textrm{var}{\hat{A}}\left[ 1 + \frac{1}{N_{epoch}}  \left( \frac{S}{N} \right)^2 (1-R)^2 \left( \frac{\Delta \sigma_p}{\sigma_p} \right)^2 \right]
+                    \textrm{var}\hat{A}_{\textrm{coadd}} = 
+                    \textrm{var}\hat{A}_{\textrm{me}} \left[ 1 + 2 (1-R)^2 \left( \frac{\Delta \sigma_p}{\sigma_p} \right)^2 \right]
                 \end{align}
-             }
 
-         \item where $g$ marks the object and $p$ the PSF
-         \item $R = \sigma_g^2/(\sigma_p^2 + \sigma_g^2)$ is 1 for very small galaxies or stars
+         \item $g$ marks the object and $p$ the PSF
+         \item $R = \sigma_g^2/(\sigma_p^2 + \sigma_g^2)$ is 0 for stars, 1 for huge galaxies
+
+         \item Expect the effect may be smaller for shear because the intrinsic shape noise
+             is an important part of the variance.
 
     \end{itemize}
 
@@ -202,7 +207,9 @@
     \frametitle{Comparison of formula with simulation}
  
     \begin{center}
-        \includegraphics[width=\columnwidth]{template-var.png}
+        \colorbox{white}{
+            \includegraphics[width=\columnwidth]{{cnoise-fwhm0.90-frac0.10-ntrial100000}.pdf}
+        }
         \newline
         (Sheldon, Armstrong, Huff, et al. in prep)
     \end{center}
@@ -216,11 +223,15 @@
 
     \begin{itemize}
 
+        \item For LSST, we expect a very minor increase in variance $(< 1\%)$.
+
+        \item For surveys with large seeing variation, we might care more.
+
         \item Kaiser derived a more optimal coadd for which there should be no increase in variance
 
         \item However we use SWARP in DES, and LSST currently also uses standard coadds
 
-        \item From now on all tests will be on standard coadds
+        \item From here on all the tests I show will be on standard coadds
 
     \end{itemize}
 
@@ -251,11 +262,17 @@
 {
     \frametitle{Mitigating correlated noise issues}
 
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
     \begin{itemize}
 
-        \item One can always whiten the noise, but it can result in a significant increase in noise
+        \item Not a big problem for fluxes, but causes a bias for shear measurement
 
-        \item Kaiser claims no loss of information if done correctly (I don't  understand this yet)
+        \item One can whiten the noise, but it can result in a significant increase in noise
+
+        \item (Kaiser claims no loss of information if done correctly, but I don't understand this yet)
 
         \item Alternatively: determine the covariance and use it in analyses
             \begin{itemize}
