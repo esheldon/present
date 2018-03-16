@@ -122,6 +122,7 @@
         \item Mitigating issues with coadds
             \begin{itemize}
                 \item Kaiser coadds
+                \item Coadd the PSF
                 \item Per-object coadds to deal with PSF discontinuities
                 \item Dealing with correlated noise
             \end{itemize}
@@ -131,6 +132,138 @@
                 \item Shear bias tests
             \end{itemize}
         \item Future Work
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Coadds: pros}
+
+    \begin{itemize}
+
+        \item Large data compression:  factor of about 100 for LSST
+
+        \item Corresponding speed up for analysis
+
+        \item Simplifies analysis, don't need to do multi-epoch fitting (but do
+            still need multi-band)
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Coadds: cons}
+
+    \begin{itemize}
+
+        \item The variance of quantities derived from standard coadds is
+            generally higher than a multi-epoch fitting appraoch
+
+        \item The PSF, noise, etc. discontinuous in the coadd at the location
+            of edges in original images
+
+        \item The noise is correlated in standard coadds due to interpolation
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Example of Increased Variance}
+ 
+ 
+    \begin{itemize}
+        \item Template flux, just fitting for an amplitude $A$
+        \item Gaussian PSF and object
+        \item Approximate analytic formula can be derived (Sheldon, Armstrong, Huff, et al. in prep)
+            {\normalsize
+                \begin{align}
+                    \textrm{var}{\hat{A_c}} = 
+                    \textrm{var}{\hat{A}}\left[ 1 + \frac{1}{N_{epoch}}  \left( \frac{S}{N} \right)^2 (1-R)^2 \left( \frac{\Delta \sigma_p}{\sigma_p} \right)^2 \right]
+                \end{align}
+             }
+
+         \item where $g$ marks the object and $p$ the PSF
+         \item $R = \sigma_g^2/(\sigma_p^2 + \sigma_g^2)$ is 1 for very small galaxies or stars
+
+    \end{itemize}
+
+
+}
+
+\frame
+{
+    \frametitle{Comparison of formula with simulation}
+ 
+    \begin{center}
+        \includegraphics[width=\columnwidth]{template-var.png}
+        \newline
+        (Sheldon, Armstrong, Huff, et al. in prep)
+    \end{center}
+
+
+}
+
+\frame
+{
+    \frametitle{Mitigating increased variance: Kaiser Coadds}
+
+    \begin{itemize}
+
+        \item Kaiser derived a more optimal coadd for which there should be no increase in variance
+
+        \item However we use SWARP in DES, and LSST currently also uses standard coadds
+
+        \item From now on all tests will be on standard coadds
+
+    \end{itemize}
+
+}
+
+
+
+\frame
+{
+    \frametitle{Mitigating PSF issues: per object coadds}
+
+    \begin{itemize}
+
+        \item Overcome discontinuities by caodding the PSF reconstructions also (e.g. Annis et al. SDSS coadd)
+
+        \item However if an object crosses an image boundary, the PSF will still not be correct
+
+        \item Solution is per-object coadds: make a coadd for each object
+            separately, only including epochs where the object does not hit an
+            edge (I heard the idea first from Jim Bosch)
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Mitigating correlated noise issues}
+
+    \begin{itemize}
+
+        \item One can always whiten the noise, but it can result in a significant increase in noise
+
+        \item Kaiser claims no loss of information if done correctly (I don't  understand this yet)
+
+        \item Alternatively: determine the covariance and use it in analyses
+            \begin{itemize}
+                \item Run noise images through the coadd process also
+                \item Feed this image into \mcal
+                \item Measure a covariance matrix and use it in BFD (moments only taken once, so this is feasible)
+            \end{itemize}
+
 
     \end{itemize}
 
