@@ -1,0 +1,191 @@
+- Title page
+    - name
+    - institution
+
+- Outline
+    - explain that I want to give significant time to introducing lensing, as
+      it may be unfamiliar to many
+
+- Lensing
+    - Newton quote from Opticks Query 1
+
+    - Discussion of equivalence principle and GR
+        - Einstein 1911
+            - bodies in free fall behave as in an inertial frame
+            - example:  friends shining flashlights?
+        - GR
+            - interpret as curved space-time
+            - geodesics
+
+    - Examples
+    - 1919 eclipse
+    - quasar 0957
+    - clusters of galaxies
+    - details of
+
+    - show the geometry
+    - show cartoon of the total effect
+        - discuss symmetry properties
+
+    - Weak lensing
+        - statistical
+        - enables us to use this probe in any situation, not just special,
+          fortuitous alignments
+
+    - How we do this: measure the shapes of galaxies and look for correlations
+        - exceedingly difficult
+            - PSF
+            - noise produces bias in shear: best shape != shear!
+            - only in last year have techniques developed sufficiently to
+              recover shear accurately
+              - BA14 theoretical developments
+              - Sheldon 2014 I don't have time to discuss this, but it has
+                taken most of my time in the last two years to develop this
+                code
+
+
+- Dark Matter
+
+    - Zwicky 1937
+        - show coma
+        - this method has been used recently as well, with known limitations
+        - show quote about lensing
+
+    - Rotation curves of galaxies
+        - show galaxy
+        - show curve
+        - mass appears to grow out to the edge, what about beyond that?
+
+    - Cold Dark Matter (CDM)
+        - some form of matter that does not significantly emit or absorb light
+        - best candidate is an elementary particle, weakly interacting
+        - so far explains all we see, as I will discuss below
+
+    - Early Successes of CDM
+        - explains rotation curves of galaxies
+        - explains the dynamics of galaxy clusters
+        - explains the large scale distribution of galaxies: without it we
+          would predict a wildly different universe
+        - essential component needed to explain the cosmic microwave
+          background
+
+    - predictions of CDM
+
+        - "universal" radial profile of gravitationally bound dark matter
+          structures, "halos"
+
+          - show picture
+          - say from first principles can prediction ~power law nature, but
+            details are interesting (broken power law)
+
+        - dark matter distributed smoothly throughout the universe, as
+          compared to dissipative baryonic material, which loses energy and
+          collapses into relatively compact structures.
+
+            - correlations in this field known from first principles on the
+              largest scales
+
+        - needed a way to test these predictions
+
+- Measurement Methods
+
+    - Difficulties/limitations of dynamical methods
+        - visible tracers are required
+        - cannot trace out the orbits, the timescales are too long
+            - assumptions must be made about the dynamical state of the system
+            - limits the scale over which it this can be used
+
+    - lensing has none of these limitations
+        - The weak effect can be observed anywhere
+        - The distribution of matter can be studied on a large range of scales
+            - galaxies, galaxy clusters, bound objects
+            - structure on the largest scales in the universe
+
+    - It does have some limitations
+        - it is a weak effect in general (other than special cases)
+        - statistical approach is required
+
+        - But these are unimportant limitations. The theory doesn't predict
+          anything about individual objects anyway: these are messy systems
+          with a complicated history
+
+- Dark Matter distribution in and around Galaxies
+
+    - SDSS project
+
+    - Galaxy-galaxy lensing
+        - source and lens are both galaxies
+        - many sources found behind each lens: average in radial bins
+        - Average the signal from many lenses
+             - remember the prediction is for the average, no loss here
+        - Explore signal as a function of observed properties
+
+    - interpretation as a function of scale
+
+    - Show SDSS results all galaxies
+
+    - As a function of luminosity
+        - Fixed dark matter/light ratio?
+
+    - universal profile
+        - consistent with predictions, but resolution in radius insufficient to
+          strongly constrain profile
+
+- Dark Matter in Galaxy Clusters
+    - Much larger mass, and larger signal
+    - Better resolution results in better constraint on the radial mass profile
+
+    - Cluster mass profile
+
+    - shown in bins of n200
+        - fits to universal profile and 2-halo term
+
+    - M/L profiles
+    - omega_m
+
+- Dark Energy
+    - not much to say: we only have the observed acceleration
+
+    - show homogeneous distribution of matter
+        - our equations only allow deceleration for this stuff
+        - either the equations are wrong or we need something strange to
+        accelerate the universe: dark energy, cosmological constant etc.
+
+    - most basic question: what is the equation of state
+        - w equation
+
+    - lensing can probe this because it depends on the geometry
+
+    - show plot of strength vs. redshift
+
+- Voids
+
+- Dark Energy Survey
+    - some stats
+    - repeat lensing as a function of redshift to constrain dark energy
+        - expected w constraint at percent level
+    - I've been building this since 2003
+    - 
+    - Just ended our 2nd year of data taking
+
+    - Last week finalized our lensing shear catalogs from early data (science
+      verification, pre-year 1)
+        - one of these catalogs is mine, I've spent significant fraction of my
+          time over last two years developing the code (show reference)
+        - calibration consistency between catalogs.
+
+    - preliminary lensing results
+        - 1/20 of final data set
+
+    - will publish proof-of-principle results, focusing on dark matter
+      distributions (not enough data to constrain dark energy)
+    - Expect first dark energy results in a year or so
+
+- LSST
+    - logical successor of DES
+    - factor of 5 more statistical power
+    - expect much better control over systematics, higher quality data.
+    - constrain w to 0.1% level
+    - have begun working my code into the LSST software framework
+
+- summary/conclusions
