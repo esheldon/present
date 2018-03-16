@@ -184,7 +184,7 @@
     \begin{itemize}
         \item Template flux, just fitting for an amplitude $A$
         \item We can calculate directly the increased variance
-        \item Can also do a toy model with Gaussian PSF and object, assume
+        \item Can also calculate a toy model with Gaussian PSF and object, assume
             Gaussian final image (Sheldon, Armstrong, Huff, et al. in prep)
                 \begin{align}
                     \textrm{var}\hat{A}_{\textrm{coadd}} = 
@@ -204,7 +204,7 @@
 
 \frame
 {
-    \frametitle{Comparison of formula with simulation}
+    \frametitle{Fluxes: comparison of formula with simulation}
  
     \begin{center}
         \colorbox{white}{
@@ -280,6 +280,53 @@
                 \item Feed this image into \mcal
                 \item Measure a covariance matrix and use it in BFD (moments only taken once, so this is feasible)
             \end{itemize}
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Increased shear variance}
+
+ 
+    \begin{itemize}
+
+        \item For \mcal\ and BFD we little increase in the noise
+            \begin{itemize}
+                \item \mcal 
+                \item BFD was run with much less statistics, but consistent with unity
+            \end{itemize}
+
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Increased shear bias}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item For \mcal\ and BFD we detect no increase in bias
+        \item \mcal 
+            \begin{align}
+            m = (0.56 \pm 0.36) \times 10^{-3}
+            \end{align}
+            (expect $\sim 0.25 \times 10^{-3}$ due to breakdown of weak shear approx.)
+
+         \item BFD was run with less statistics
+            \begin{align}
+                m = (1.2 \pm 0.7) \times 10^{-3}
+            \end{align}
+
 
 
     \end{itemize}
