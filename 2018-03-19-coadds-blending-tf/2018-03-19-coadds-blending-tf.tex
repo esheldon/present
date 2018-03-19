@@ -206,6 +206,8 @@
 {
     \frametitle{Fluxes: comparison of formula with simulation}
  
+        %\newline
+        $\Delta \sigma_p/\sigma_p = 0.10$
     \begin{center}
         \colorbox{white}{
             \includegraphics[width=\columnwidth]{{cnoise-fwhm0.90-frac0.10-ntrial100000}.pdf}
@@ -227,9 +229,11 @@
 
         \item For surveys with large seeing variation, we might care more.
 
-        \item Kaiser derived a more optimal coadd for which there should be no increase in variance
+        \item Kaiser derived a more optimal coadd for which there should be no
+            increase in variance
 
-        \item However we use SWARP in DES, and LSST currently also uses standard coadds
+        \item However we use SWARP in DES, and LSST currently also uses
+            standard coadds
 
         \item From here on all the tests I show will be on standard coadds
 
@@ -241,7 +245,7 @@
 
 \frame
 {
-    \frametitle{Mitigating PSF issues: per object coadds}
+    \frametitle{Mitigating PSF issues: single object coadds}
 
     \begin{itemize}
 
@@ -249,7 +253,7 @@
 
         \item However if an object crosses an image boundary, the PSF will still not be correct
 
-        \item Solution is per-object coadds: make a coadd for each object
+        \item Solution is single-object coadds: make a coadd for each object
             separately, only including epochs where the object does not hit an
             edge (I heard the idea first from Jim Bosch)
 
@@ -293,13 +297,16 @@
  
     \begin{itemize}
 
-        \item For \mcal\ and BFD we little increase in the noise
+        \item For \mcal\ and BFD we see little increase in the noise
             \begin{itemize}
 
                 \item \mcal\ for the smallest galaxies we would use $(T/T_{\textrm{PSF}} = 0.5)$ and typical $S/N = 15$
-                    the increased noise of $\lesssim 1$\% (need to determine error on that)
+                    the noise in the recovered shear increases by 
+                    \begin{align}
+                    (0.65 \pm 0.02) \%
+                    \end{align}
 
-                \item BFD, Bob reported a noise of 0.0007 for both
+                \item BFD, B. Armstrong reported noise of 0.0007 for both (need more sig. figures)
 
             \end{itemize}
 
@@ -324,12 +331,42 @@
             \end{align}
             (expect $\sim 0.25 \times 10^{-3}$ due to breakdown of weak shear approx.)
 
-         \item BFD was run with less statistics
+        \item BFD (B. Armstrong)
             \begin{align}
                 m = (1.2 \pm 0.7) \times 10^{-3}
             \end{align}
 
 
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Future Work}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+ 
+    \begin{itemize}
+
+        \item In DES edges are important due to the low number of epochs (10).
+
+        \item We need to create a code for the single-object coadds and
+            corresponding PSF coaddition.  May be able to work this into the
+            MEDS maker.  Need to run noise images through as well for
+            correlated noise.
+
+        \item For LSST epochs will be rotated: coadds need to be done on the
+            full images, or very large initial postage stamps,  to avoid
+            artifacts in the ``corners''.
+
+        \item However, for LSST edges are less of a problem due to the large
+            number of epochs.  It would be good to test in simulations if we
+            need the single object coadds at all.
 
     \end{itemize}
 
