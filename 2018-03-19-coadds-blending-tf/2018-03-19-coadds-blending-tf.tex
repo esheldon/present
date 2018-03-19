@@ -123,7 +123,7 @@
             \begin{itemize}
                 \item Kaiser coadds
                 \item Coadd the PSF
-                \item Per-object coadds to deal with PSF discontinuities
+                \item Single-object coadds to deal with additional PSF issues
                 \item Dealing with correlated noise
             \end{itemize}
         \item Simulation tests
@@ -232,8 +232,7 @@
         \item Kaiser derived a more optimal coadd for which there should be no
             increase in variance
 
-        \item However we use SWARP in DES, and LSST currently also uses
-            standard coadds
+        \item However we use in DES and LSST we currently use standard coadds
 
         \item From here on all the tests I show will be on standard coadds
 
@@ -245,11 +244,12 @@
 
 \frame
 {
-    \frametitle{Mitigating PSF issues: single object coadds}
+    \frametitle{Mitigating PSF issues: single-object coadds}
 
     \begin{itemize}
 
-        \item Overcome discontinuities by caodding the PSF reconstructions also (e.g. Annis et al. SDSS coadd)
+        \item Overcome some discontinuities by coadding the PSF reconstructions
+            also (e.g. Annis et al. SDSS coadd)
 
         \item However if an object crosses an image boundary, the PSF will still not be correct
 
@@ -302,7 +302,8 @@
 
         \item DES-like seeing distribution.
 
-        \item Ran with typical DES WCS variations, as well as random rotations to test LSST.
+        \item Ran with typical DES WCS variations
+        \item Also ran tests with random rotations like in LSST.
 
         \item Ran in full multi-epoch mode and coadd mode.
 
@@ -318,10 +319,17 @@
 {
     \frametitle{Increased shear variance}
 
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
  
     \begin{itemize}
 
-        \item Fixed size and flux to test only variation in noise.  DES-like
+        \item Fixed size and flux to test only variation in noise: due to correlated
+            noise, quantities used for selection, such as S/N are different for multi-epoch
+            and coadd measurements.
+            
+        \item DES-like
             seeing and PSF ellipticity distribution.
 
         \item For \mcal\ and BFD we see little increase in the noise
@@ -398,7 +406,7 @@
 
         \item However, for LSST edges are less of a problem due to the large
             number of epochs ($\sim 100$).  It would be good to test in
-            simulations if we need the single object coadds at all.
+            simulations if we need the single-object coadds at all.
 
     \end{itemize}
 
