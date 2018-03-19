@@ -147,8 +147,13 @@
 
         \item Corresponding speed up for analysis
 
-        \item Simplifies analysis, don't need to do multi-epoch fitting (but do
-            still need multi-band)
+        \item Simplifies analysis, don't need to do multi-epoch fitting
+            \begin{itemize}
+
+                \item But do still want simultaneous multi-band fitting. In DES
+                    we found this improves S/N significantly
+
+            \end{itemize}
 
     \end{itemize}
 
@@ -161,7 +166,7 @@
     \begin{itemize}
 
         \item The variance of quantities derived from standard coadds is
-            generally higher than a multi-epoch fitting appraoch
+            generally higher than those calculated using a multi-epoch fitting approach
 
         \item The PSF, noise, etc. discontinuous in the coadd at the location
             of edges in original images
@@ -232,9 +237,9 @@
         \item Kaiser derived a more optimal coadd for which there should be no
             increase in variance
 
-        \item However we use in DES and LSST we currently use standard coadds
+        \item However in DES and LSST we currently use standard coadds
 
-        \item From here on all the tests I show will be on standard coadds
+        \item From here on all the tests I show will be for standard coadds
 
     \end{itemize}
 
@@ -249,12 +254,13 @@
     \begin{itemize}
 
         \item Overcome some discontinuities by coadding the PSF reconstructions
-            also (e.g. Annis et al. SDSS coadd)
+            also (e.g.  SDSS coadd, Annis et al. 2011)
 
-        \item However if an object crosses an image boundary, the PSF will still not be correct
+        \item However if an object straddles an image boundary in one of the
+            epochs, the PSF will still not be correct
 
         \item Solution is single-object coadds: make a coadd for each object
-            separately, only including epochs where the object does not hit an
+            separately, only including epochs where the object does not straddlean
             edge (I heard the idea first from Jim Bosch)
 
 
@@ -274,15 +280,17 @@
 
         \item Not a big problem for fluxes, but causes a bias for shear measurement
 
-        \item One can whiten the noise, but it can result in a significant increase in noise
+        \item One can whiten the noise, but in my experience it results in a significant
+            increase in noise
 
         \item (Kaiser claims no loss of information if done correctly, but I don't understand this yet)
 
         \item Alternatively: determine the covariance and use it in analyses
             \begin{itemize}
                 \item Run noise images through the coadd process also
-                \item Feed this image into \mcal
-                \item Measure a covariance matrix and use it in BFD (moments only taken once, so this is feasible)
+                \item Feed this noise image into \mcal
+                \item For BFD, measure a covariance matrix and use it when calculating moments.
+                    Moments only taken once in BFD, so this is feasible.
             \end{itemize}
 
 
@@ -294,20 +302,23 @@
 {
     \frametitle{Simulation Tests}
 
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
  
     \begin{itemize}
 
-        \item Tested both realistic size and flux distribution, as well as
+        \item Tested realistic galaxy size and flux distribution, as well as
             fixed size and flux (to isolate any increase in noise).
 
         \item DES-like seeing distribution.
 
-        \item Ran with typical DES WCS variations
+        \item Used typical DES WCS variations, including translations.
         \item Also ran tests with random rotations like in LSST.
 
         \item Ran in full multi-epoch mode and coadd mode.
 
-        \item Coadd code by Armstrong \& Sheldon.  Simulation and \mcal\ code
+        \item Blame: Coadd code by Armstrong \& Sheldon.  Simulation and \mcal\ code
             Sheldon.  BFD code Bob Armstrong.
 
     \end{itemize}
@@ -325,25 +336,25 @@
  
     \begin{itemize}
 
-        \item Fixed size and flux to test only variation in noise: due to correlated
-            noise, quantities used for selection, such as S/N are different for multi-epoch
-            and coadd measurements.
+        \item Fixed galaxy size and flux to isolate variation in noise.
+            \begin{itemize}
+                \item Want to avoid selections needed for realistic distributions: With correlated
+                    noise, quantities used for selection, such as S/N, are different
+            \end{itemize}
             
         \item DES-like
             seeing and PSF ellipticity distribution.
 
-        \item For \mcal\ and BFD we see little increase in the noise
-            \begin{itemize}
 
-                \item \mcal\ for the smallest galaxies we would use $(T/T_{\textrm{PSF}} = 0.5)$ and typical $S/N = 15$
-                    the noise in the recovered shear increases by 
-                    \begin{align}
-                    (0.65 \pm 0.02) \%
-                    \end{align}
+        \item \mcal\ for the smallest galaxies we would use $(T/T_{\textrm{PSF}} = 0.5)$ and typical $S/N = 15$
+            the noise in the recovered shear increases by 
+            \begin{align}
+            (0.65 \pm 0.02) \%
+            \end{align}
 
-                \item BFD, B. Armstrong reported noise of 0.0007 for both (need more sig. figures)
+        \item BFD (B. Armstrong) Not sure exactly what size/flux distribution was used.
+            Reported noise of 0.0007 for both (need an error bar)
 
-            \end{itemize}
 
     \end{itemize}
 
@@ -363,12 +374,11 @@
             PSF ellipticity distribution.
 
 
-        \item For \mcal\ and BFD we detect no increase in bias
         \item \mcal 
             \begin{align}
             m = (0.56 \pm 0.36) \times 10^{-3}
             \end{align}
-            (expect $\sim 0.25 \times 10^{-3}$ due to breakdown of weak shear approx.)
+            (expect $\sim 0.25 \times 10^{-3}$ due to breakdown of weak shear approximation)
 
         \item BFD (B. Armstrong)
             \begin{align}
@@ -400,9 +410,9 @@
             MEDS maker.  Need to run noise images through as well for
             correlated noise.
 
-        \item For LSST epochs will be rotated: coadds need to be done on the
-            full images, or very large initial postage stamps,  to avoid
-            artifacts in the ``corners''.
+        \item For LSST exposures will be rotated randomly: coadds need to be
+            done on the full images, or very large initial postage stamps,  to
+            avoid artifacts in the ``corners''.
 
         \item However, for LSST edges are less of a problem due to the large
             number of epochs ($\sim 100$).  It would be good to test in
