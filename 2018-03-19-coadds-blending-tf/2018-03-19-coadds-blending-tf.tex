@@ -292,10 +292,37 @@
 
 \frame
 {
+    \frametitle{Simulation Tests}
+
+ 
+    \begin{itemize}
+
+        \item Tested both realistic size and flux distribution, as well as
+            fixed size and flux (to isolate any increase in noise).
+
+        \item DES-like seeing distribution.
+
+        \item Ran with typical DES WCS variations, as well as random rotations to test LSST.
+
+        \item Ran in full multi-epoch mode and coadd mode.
+
+        \item Coadd code by Armstrong \& Sheldon.  Simulation and \mcal\ code
+            Sheldon.  BFD code Bob Armstrong.
+
+    \end{itemize}
+
+}
+
+
+\frame
+{
     \frametitle{Increased shear variance}
 
  
     \begin{itemize}
+
+        \item Fixed size and flux to test only variation in noise.  DES-like
+            seeing and PSF ellipticity distribution.
 
         \item For \mcal\ and BFD we see little increase in the noise
             \begin{itemize}
@@ -323,6 +350,10 @@
     \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
  
     \begin{itemize}
+
+        \item Realistic size and galaxy flux distribution.  DES-like seeing and
+            PSF ellipticity distribution.
+
 
         \item For \mcal\ and BFD we detect no increase in bias
         \item \mcal 
@@ -353,7 +384,8 @@
  
     \begin{itemize}
 
-        \item In DES edges are important due to the low number of epochs (10).
+        \item In DES edges are important due to the low number of epochs
+            ($\sim10$).
 
         \item We need to create a code for the single-object coadds and
             corresponding PSF coaddition.  May be able to work this into the
@@ -365,8 +397,8 @@
             artifacts in the ``corners''.
 
         \item However, for LSST edges are less of a problem due to the large
-            number of epochs.  It would be good to test in simulations if we
-            need the single object coadds at all.
+            number of epochs ($\sim 100$).  It would be good to test in
+            simulations if we need the single object coadds at all.
 
     \end{itemize}
 
