@@ -152,7 +152,7 @@
 
     \begin{itemize}
 
-        \item We need improved PSF measurements for Y3
+        \item M. Jarvis has shown that we need improved PSF measurements for Y3
 
         \item Can now run \mcal\ using PSFs from PIFF (M. Jarvis et al.).  A
             small MOF+shear run was completed on a testbed using older PIFF
@@ -171,14 +171,19 @@
 
     \begin{itemize}
 
-        \item We need improved astrometry for Y3.
+        \item We also need improved astrometry for Y3 shear measurements.
 
-        \item New astrometry available, including such
-            features as tree rings (G. Bernstein)
+        \item New astrometry available, including such features as tree rings
+            (G. Bernstein)
 
-        \item Should be straightforward to support this,
-            but code needs to be written.
+        \item Should be straightforward to support this, but a little code
+            needs to be written.
 
+        \item Can read the astrometry ``on the fly'' in the \texttt{ngmixer}
+            codebase, already did that for SV
+
+        \item Can also ``insert'' the corrections into the MEDS files.   Just
+            modify the jacobians and postage-stamp coordinates.
 
     \end{itemize}
 
