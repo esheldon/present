@@ -106,11 +106,10 @@
 
     \begin{itemize}
 
-        \item Matt Becker.
-            Idea to simultaneously fit all objects in a blend to 
+        \item Idea to simultaneously fit all objects in a blend to 
             flexible models using \ngmix.
 
-        \item Wanted to use full bulge+disk, but I found a bulge+disk fit to be
+        \item Wanted to use full bulge+disk, but I found a this fit to be
             unstable. Adopted an SDSS-style composite model.  Fit bugle and
             disk models separately, then combine to a single model and re-fit.
 
@@ -121,8 +120,6 @@
             
         \item Each object fitted on average about 12 times, to 3 different
             models!
-
-        \item Slow and sometimes unstable
 
     \end{itemize}
 
@@ -145,13 +142,13 @@
 
         \item Informative prior on the ellipticity.  Uninformative
             priors on size and flux.  Moderately informative prior
-            on center (informative for close neighbors).
+            on center (informative for close blends).
 
         \item At high S/N can describe most galaxies fairly well.
             
-        \item At low S/N
-            provides a stable fit, and since low S/N galaxies are small, 
-            adequate description of the light profiles.
+        \item At low S/N provides a stable fit. Because most low S/N galaxies
+            are also small compared to the PSF, adequate description of the
+            observed light profile.
 
     \end{itemize}
 
@@ -172,39 +169,72 @@
         \item In simulations, very stable, sub-percent failure rate
             even for large groups.
 
-        \item I have fitted up to 200 objects (all of the 12 I tried converged).
+        \item I have fitted up to 225 objects (all of the 24 such groups I tried converged
+            in about 75 minutes).
 
-        \item I haven't done detailed speed tests, but should be
-            about 5-6 times faster than the old MOF.
-
-        \item Performs better in shear tests.
+        \item Performs better in shear tests (see later talk).
 
     \end{itemize}
 
 }
-
 \frame
 {
-    \frametitle{Example deblend}
+    \frametitle{Advantages of this approach}
 
+    \begin{itemize}
+
+        \item Should be 4-5 times faster than the iterative approach
+
+        \item The fitting is ``atomic''.  The entire group succeeds or fails.
+
+        \item Better parameter covariance matrix for each object.
+
+        \item We get some covariance information between objects.
+
+    \end{itemize}
 }
 
 \frame
 {
-    \frametitle{Example large deblend}
+    \frametitle{Example Deblend}
 
+        256 objects, 220 found by SExtractor
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth]{diff-20855-000000.png}
+    \end{center}
 }
 
 \frame
 {
-    \frametitle{Demonstrate crowded field problems}
+    \frametitle{Example Deblend}
 
+        256 objects, 220 found by SExtractor
+    \begin{center}
+        \includegraphics[width=\columnwidth]{example-side-by-side.png}
+    \end{center}
+}
+
+
+
+
+\frame
+{
+    \frametitle{Crowded field problems}
+
+    \begin{itemize}
+
+        \item I fit a simple exponential disk and got very similar residuals
+
+        \item The dominant problem in crowded regions is detection.
+
+    \end{itemize}
 }
 
 \frame
 {
     \frametitle{Shear tests}
 
+    See the later talk about shear tests of the new MOF and the Scarlet deblender
 }
 
 
