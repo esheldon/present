@@ -107,7 +107,11 @@
 
         \item See Melchior et al. \url{https://arxiv.org/abs/1802.10157 }
 
+        \item The number of objects, and nominal center for each object, are inputs.
+
         \item Every pixel is a parameter.
+
+
         \item Use constraints to reduce the dimensionality, e.g.
         \begin{itemize}
             \item Positivity (required)
@@ -216,18 +220,45 @@
 
 
 }
+\frame
+{
+    \frametitle{Scarlet Problems}
+
+    \begin{itemize}
+
+        \item We have been working with Peter and Fred to improve the
+            performance of Scarlet.
+
+        \item Initially we were subtracting the model of the neighbor,
+            but this didn't work well because the model absorbed
+            some of the noise.  Noise model needed for \mcal\ and BFD.
+
+        \item Currently using an SDSS-style ``two-step'' process that takes the
+            models and reweights them to reproduce the observed image exactly.
+
+        \item This is an improvement but not working as well as MOF yet,
+            especially at high S/N.
+
+    \end{itemize}
+
+}
+
 
 \frame
 {
     \frametitle{Summary}
 
     \begin{itemize}
-        \item MOF unbiased in these sims at high S/N.
+        \item New MOF unbiased in these sims at high S/N.
 
-        \item MOF shows separation-dependent biases.
+        \item New MOF shows separation-dependent biases.
 
-        \item Scarlet deblender extremely flexible, but we don't know
-            yet how to use it in the regime tested here.
+        \item Scarlet deblender extremely flexible, clear improvement
+            for large bright galaxies in dense fields.
+            
+        \item we don't know
+            yet how to use it in the regime most useful for shear: 
+            smallish faint galaxies
 
     \end{itemize}
 
