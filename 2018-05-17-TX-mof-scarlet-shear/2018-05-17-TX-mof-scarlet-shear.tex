@@ -99,7 +99,6 @@
 
 
 
-
 \frame
 {
     \frametitle{Scarlet Deblender Introduction}
@@ -108,6 +107,13 @@
 
         \item See Melchior et al. \url{https://arxiv.org/abs/1802.10157 }
 
+        \item Every pixel is a parameter.
+        \item Use constraints to reduce the dimensionality, e.g.
+        \begin{itemize}
+            \item Positivity (required)
+            \item Monotonicity
+            \item Symmetry
+        \end{itemize}
 
     \end{itemize}
 
@@ -115,11 +121,35 @@
 
 \frame
 {
-    \includegraphics[width=.332\linewidth]{HSC_example_3_data}
-    \includegraphics[width=.332\linewidth]{HSC_example_3_model}
-    \includegraphics[width=.332\linewidth]{HSC_example_3_residual}
+
+    \frametitle{Example Scarlet Deblend from HSC}
+
+    %\includegraphics[width=.332\linewidth]{HSC_example_3_data}
+    %\includegraphics[width=.332\linewidth]{HSC_example_3_model}
+    %\includegraphics[width=.332\linewidth]{HSC_example_3_residual}
+
+    \begin{center}
+    \includegraphics[width=.35\linewidth]{HSC_example_3_data}
+    \includegraphics[width=.35\linewidth]{HSC_example_3_model}
+    \includegraphics[width=.35\linewidth]{HSC_example_3_residual}
+    \end{center}
+
 
 }
+
+\frame
+{
+    \frametitle{New MOF Deblender}
+
+    \begin{itemize}
+
+        \item See the previous talk by E. Sheldon.
+
+    \end{itemize}
+
+}
+
+
 
 \frame
 {
@@ -154,6 +184,7 @@
     \newline
     Can see residuals from ``knots'' of star formation.
 }
+
 \frame
 {
     \frametitle{Example MOF de-blended pair. Medium Noise (S/N$\sim 50$.)}
@@ -164,14 +195,43 @@
 
 }
 
-%\frame
-%{
-%    \frametitle{\mcal\ PSF leakage}
+\frame
+{
+    \frametitle{Multiplicative bias $m$}
 
-%    \begin{center}
-%        \includegraphics[width=0.9\columnwidth]{{y3v02-mcal-001-e-vs-epsf0-s2n-10.0-Tratio-0.50}.pdf}
-%    \end{center}
-%}
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{{bias_v_rad_mof_scar_bdk}.png}
+    \end{center}
+
+
+}
+
+\frame
+{
+    \frametitle{Multiplicative bias $m$ (zoomed in)}
+
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{{bias_v_rad_mof_scar_bdk_zoom}.png}
+    \end{center}
+
+
+}
+
+\frame
+{
+    \frametitle{Summary}
+
+    \begin{itemize}
+        \item MOF unbiased in these sims at high S/N.
+
+        \item MOF shows separation-dependent biases.
+
+        \item Scarlet deblender extremely flexible, but we don't know
+            yet how to use it in the regime tested here.
+
+    \end{itemize}
+
+}
 
 
 \end{document}
