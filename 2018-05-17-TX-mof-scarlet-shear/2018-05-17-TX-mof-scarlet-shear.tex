@@ -78,8 +78,8 @@
 
 
 \title{Tests of the Scarlet and (new) MOF Deblenders for Shear Recovery}
-\author{Erin Sheldon}
-\institute{Brookhaven National Laboratory}
+\author{Erin Sheldon for Lorena Mezini}
+\institute{Brookhaven National Laboratory, Stony Brook University}
 
 % http://texblog.net/latex-archive/plaintex/beamer-footline-frame-number/
 % to add the page (frame ) number and not screw up the bottom line
@@ -163,8 +163,8 @@
 
         \item Simulate pairs of galaxies at various separations
 
-        \item For what I will show, there is a ``central'' with which
-            we will measure the shear.
+        \item For what I will show, there is a ``central'' used
+            to measure the shear.
 
         \item There is a ``neighbor'' which is twice as big and 33\% brighter.
 
@@ -231,7 +231,8 @@
 
         \item Initially we were subtracting the model of the neighbor,
             but this didn't work well because the model absorbed
-            some of the noise.  Noise model needed for \mcal\ and BFD.
+            some of the noise.  An accurate
+            noise model is needed for \mcal\ and BFD.
 
         \item Currently using an SDSS-style ``two-step'' process that takes the
             models and reweights them to reproduce the observed image exactly.
@@ -251,14 +252,18 @@
     \begin{itemize}
         \item New MOF unbiased in these sims at high S/N.
 
-        \item New MOF shows separation-dependent biases.
+        \item New MOF shows separation-dependent biases, as expected, but
+            approaches zero bias rapidly with increasing separation.
+
+        \item Scarlet deblender results in a complex shear bias as 
+            a function of separation.  Surprisingly worse at low
+            noise.
 
         \item Scarlet deblender extremely flexible, clear improvement
             for large bright galaxies in dense fields.
             
-        \item we don't know
-            yet how to use it in the regime most useful for shear: 
-            smallish faint galaxies
+        \item We don't know yet how best to use it in the regime most
+            useful for shear: smallish faint galaxies
 
     \end{itemize}
 
