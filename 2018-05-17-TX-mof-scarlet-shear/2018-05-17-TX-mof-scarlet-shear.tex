@@ -1,0 +1,177 @@
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem}
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+\definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{brightred}{rgb}{1.,0.4,0.4}
+\definecolor{mygray}{RGB}{200,200,200}
+\definecolor{lightsteelblue}{RGB}{176,196,222}
+\definecolor{lightskyblue}{RGB}{135,206,250}
+\definecolor{cadetblue}{RGB}{95,158,160}
+
+\usetheme{default}
+\usecolortheme{mule}
+
+\usefonttheme{serif}
+
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\newcommand{\mcal}{\textsc{metacalibration}}
+\newcommand{\Mcal}{\textsc{Metacalibration}}
+
+\newcommand{\mcalR}{\mbox{\boldmath $R$}}
+\newcommand{\mcalRscalar}{\mbox{$R$}}
+
+\newcommand{\mcalRmean}{\mbox{\boldmath $\langle R \rangle$}}
+\newcommand{\mcalRscalarmean}{\mbox{$\langle R \rangle$}}
+
+\newcommand{\mcalRpsf}{$R^{p}$}
+\newcommand{\mcalRpsfnoise}{$R^{p}_\eta$}
+\newcommand{\mcalRo}{\mbox{\boldmath $R_o$}}
+\newcommand{\mcalRnoise}{\mbox{\boldmath $R_\eta$}}
+
+\newcommand{\mcalRmeanalpha}{\mbox{\boldmath $\langle R_\alpha \rangle$}}
+\newcommand{\mcalRmeanbeta}{\mbox{\boldmath $\langle R_\beta \rangle$}}
+
+\newcommand{\mcalRg}{\mbox{\boldmath $R_\gamma$}}
+\newcommand{\mcalRS}{\mbox{\boldmath $R_S$}}
+\newcommand{\mcalRgmean}{\mbox{\boldmath $\langle R_\gamma \rangle$}}
+\newcommand{\mcalRSmean}{\mbox{\boldmath $\langle R_S \rangle$}}
+
+\newcommand{\mcalRtwopt}{\mbox{\boldmath $R^{2pt}$}}
+\newcommand{\mcalRtwoptmean}{\mbox{\boldmath $\langle R^{2pt} \rangle$}}
+
+
+\newcommand{\mcalRmodel}{\mbox{\boldmath $R^{model}$}}
+\newcommand{\mcalRnoisemodel}{\mbox{\boldmath $R^{model}_\eta$}}
+
+
+\newcommand{\vecg}{\mbox{\boldmath $\gamma$}}
+\newcommand{\vest}{\mbox{\boldmath $e$}}
+
+\newcommand{\snr}{$S/N$}
+\newcommand{\snT}{$(S/N)_{\textrm{size}}$}
+%\newcommand{\snT}{$\left( \frac{S}{N}\right)_{\textrm{size}}$}
+\newcommand{\snflux}{$(S/N)_{\textrm{flux}}$}
+%\newcommand{\snflux}{$\left( \frac{S}{N}\right)_{\textrm{flux}}$}
+
+\newcommand{\lensfit}{\texttt{LENSFIT}}
+\newcommand{\numba}{\texttt{Numba}}
+\newcommand{\python}{\texttt{Python}}
+\newcommand{\ngmix}{\texttt{ngmix}}
+\newcommand{\ngmixer}{\texttt{ngmixer}}
+\newcommand{\shear}{{\bf g}}
+\newcommand{\redmapper}{redMaPPer}
+\newcommand{\est}{$e$}
+
+
+\newcommand{\prelim}{{\bf{\it Preliminary}}}
+
+\newcommand{\uberseg}{{\color{lightsteelblue} {\"u}berseg}}
+\newcommand{\MOF}{{\color{brightred}MOF}}
+
+
+\title{Tests of the Scarlet and (new) MOF Deblenders for Shear Recovery}
+\author{Erin Sheldon}
+\institute{Brookhaven National Laboratory}
+
+% http://texblog.net/latex-archive/plaintex/beamer-footline-frame-number/
+% to add the page (frame ) number and not screw up the bottom line
+% works for split themes?
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+      \insertshorttitle\hfill%
+        \insertframenumber\,/\,\inserttotalframenumber}
+
+% suppress navigation bar
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}{}
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+
+
+
+\frame
+{
+    \frametitle{Scarlet Deblender Introduction}
+
+    \begin{itemize}
+
+        \item See Melchior et al. \url{https://arxiv.org/abs/1802.10157 }
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \includegraphics[width=.332\linewidth]{HSC_example_3_data}
+    \includegraphics[width=.332\linewidth]{HSC_example_3_model}
+    \includegraphics[width=.332\linewidth]{HSC_example_3_residual}
+
+}
+
+\frame
+{
+    \frametitle{Controlled Deblend Simulations}
+
+    \begin{itemize}
+
+        \item Simulate pairs of galaxies at various separations
+
+        \item For what I will show, there is a ``central'' with which
+            we will measure the shear.
+
+        \item There is a ``neighbor'' which is twice as big and 33\% brighter.
+
+        \item We have tried many models for these objects.  Shown here
+            are examples for bulge+disk with knots of star formation.
+
+        \item Unlike the new MOF model, the scale length of bulge and disk are
+            different, they are not coelliptical or co-centric.  The knots follow
+            the disk and can absorb up to 25\% of the disk flux.
+
+    \end{itemize}
+
+}
+\frame
+{
+    \frametitle{Example MOF de-blended pair. Low Noise.}
+
+    \includegraphics[width=0.9\linewidth]{{bdk-N0.1-r07-example}.png}
+
+    Left is original, right is MOF deblended.
+    \newline
+    Can see residuals from ``knots'' of star formation.
+}
+\frame
+{
+    \frametitle{Example MOF de-blended pair. Medium Noise (S/N$\sim 50$.)}
+
+    \includegraphics[width=0.9\linewidth]{{bdk-N10-r07-example}.png}
+
+    Left is original, right is MOF deblended.
+
+}
+
+%\frame
+%{
+%    \frametitle{\mcal\ PSF leakage}
+
+%    \begin{center}
+%        \includegraphics[width=0.9\columnwidth]{{y3v02-mcal-001-e-vs-epsf0-s2n-10.0-Tratio-0.50}.pdf}
+%    \end{center}
+%}
+
+
+\end{document}
