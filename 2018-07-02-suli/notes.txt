@@ -1,0 +1,10 @@
+- explain correlations by showing plots of galaxies and
+  dark matter where the density of close places is
+  related (both high and low)
+
+- show Y1 results from DES instead of cfht
+- include new images
+
+
+- maybe favor some pictures of explanation now that we can rely on Paul's
+lecture
