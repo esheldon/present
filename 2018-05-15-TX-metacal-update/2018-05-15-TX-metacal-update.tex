@@ -1,0 +1,274 @@
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem}
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+\definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{brightred}{rgb}{1.,0.4,0.4}
+\definecolor{mygray}{RGB}{200,200,200}
+\definecolor{lightsteelblue}{RGB}{176,196,222}
+\definecolor{lightskyblue}{RGB}{135,206,250}
+\definecolor{cadetblue}{RGB}{95,158,160}
+
+\usetheme{default}
+\usecolortheme{mule}
+
+\usefonttheme{serif}
+
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\newcommand{\mcal}{\textsc{metacalibration}}
+\newcommand{\Mcal}{\textsc{Metacalibration}}
+
+\newcommand{\mcalR}{\mbox{\boldmath $R$}}
+\newcommand{\mcalRscalar}{\mbox{$R$}}
+
+\newcommand{\mcalRmean}{\mbox{\boldmath $\langle R \rangle$}}
+\newcommand{\mcalRscalarmean}{\mbox{$\langle R \rangle$}}
+
+\newcommand{\mcalRpsf}{$R^{p}$}
+\newcommand{\mcalRpsfnoise}{$R^{p}_\eta$}
+\newcommand{\mcalRo}{\mbox{\boldmath $R_o$}}
+\newcommand{\mcalRnoise}{\mbox{\boldmath $R_\eta$}}
+
+\newcommand{\mcalRmeanalpha}{\mbox{\boldmath $\langle R_\alpha \rangle$}}
+\newcommand{\mcalRmeanbeta}{\mbox{\boldmath $\langle R_\beta \rangle$}}
+
+\newcommand{\mcalRg}{\mbox{\boldmath $R_\gamma$}}
+\newcommand{\mcalRS}{\mbox{\boldmath $R_S$}}
+\newcommand{\mcalRgmean}{\mbox{\boldmath $\langle R_\gamma \rangle$}}
+\newcommand{\mcalRSmean}{\mbox{\boldmath $\langle R_S \rangle$}}
+
+\newcommand{\mcalRtwopt}{\mbox{\boldmath $R^{2pt}$}}
+\newcommand{\mcalRtwoptmean}{\mbox{\boldmath $\langle R^{2pt} \rangle$}}
+
+
+\newcommand{\mcalRmodel}{\mbox{\boldmath $R^{model}$}}
+\newcommand{\mcalRnoisemodel}{\mbox{\boldmath $R^{model}_\eta$}}
+
+
+\newcommand{\vecg}{\mbox{\boldmath $\gamma$}}
+\newcommand{\vest}{\mbox{\boldmath $e$}}
+
+\newcommand{\snr}{$S/N$}
+\newcommand{\snT}{$(S/N)_{\textrm{size}}$}
+%\newcommand{\snT}{$\left( \frac{S}{N}\right)_{\textrm{size}}$}
+\newcommand{\snflux}{$(S/N)_{\textrm{flux}}$}
+%\newcommand{\snflux}{$\left( \frac{S}{N}\right)_{\textrm{flux}}$}
+
+\newcommand{\lensfit}{\texttt{LENSFIT}}
+\newcommand{\numba}{\texttt{Numba}}
+\newcommand{\python}{\texttt{Python}}
+\newcommand{\ngmix}{\texttt{ngmix}}
+\newcommand{\ngmixer}{\texttt{ngmixer}}
+\newcommand{\shear}{{\bf g}}
+\newcommand{\redmapper}{redMaPPer}
+\newcommand{\est}{$e$}
+
+
+\newcommand{\prelim}{{\bf{\it Preliminary}}}
+
+\newcommand{\uberseg}{{\color{lightsteelblue} {\"u}berseg}}
+\newcommand{\MOF}{{\color{brightred}MOF}}
+
+
+\title{\mcal\ update}
+\author{Erin Sheldon}
+\institute{Brookhaven National Laboratory}
+
+% http://texblog.net/latex-archive/plaintex/beamer-footline-frame-number/
+% to add the page (frame ) number and not screw up the bottom line
+% works for split themes?
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+      \insertshorttitle\hfill%
+        \insertframenumber\,/\,\inserttotalframenumber}
+
+% suppress navigation bar
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}{}
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+
+
+
+\frame
+{
+    \frametitle{\mcal\ Status}
+
+    \begin{itemize}
+
+        \item A catalog exists on the full Y3 area: 
+            {\color{gold} \texttt{y3v02-mcal-v01}}
+            \begin{itemize}
+                \item Shears measured using $riz$ images.
+                \item PSFs from standard DESDM PSFEx 
+
+                \item Deblending using MOF (multi-object fitting)
+                    {\color{gold} \texttt{y3v02-mof-v01}}
+
+                \item Astrometry using standard DESDM
+                \item Database table \texttt{NSEVILLA.Y3V02\_MCAL\_001}
+                \item Flat files also available
+            \end{itemize}
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{\mcal\ PSF leakage}
+
+    \begin{center}
+        \includegraphics[width=0.9\columnwidth]{{y3v02-mcal-001-e-vs-epsf0-s2n-10.0-Tratio-0.50}.pdf}
+    \end{center}
+}
+
+\frame
+{
+    \frametitle{\mcal+MOF Deblending tests}
+
+    \begin{center}
+        \includegraphics[width=\columnwidth]{{compare-mof-nbrdist-crop-neg}.png}
+    \end{center}
+}
+
+
+
+
+
+\frame
+{
+    \frametitle{Planned Y3 Improvements: PSF}
+
+    \begin{itemize}
+
+        \item M. Jarvis has shown that we need improved PSF measurements for Y3
+
+        \item Can now run \mcal\ using PSFs from PIFF (M. Jarvis et al.).  A
+            small MOF+shear run was completed on a testbed using older PIFF
+            outputs.
+
+        \item Improved PIFF is available over a portion of the Y3 area.
+            Will perform tests this week.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Planned Y3 Improvements: Astrometry}
+
+    \begin{itemize}
+
+        \item We also need improved astrometry for Y3 shear measurements.
+
+        \item New astrometry available, including such features as tree rings
+            (G. Bernstein)
+
+        \item Should be straightforward to support this, but a little code
+            needs to be written.
+
+        \item Can read the astrometry ``on the fly'' in the \texttt{ngmixer}
+            codebase, already did that for SV
+
+        \item Can also ``insert'' the corrections into the MEDS files.   Just
+            modify the jacobians and postage-stamp coordinates.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Planned Y3 Improvements: Simulations}
+
+    \begin{itemize}
+
+        \item A significant set of simulations is planned
+            for testing shear recovery end-to-end (McCrann, et al.).
+
+        \item Should be useful for \mcal, BFD and MCCL
+
+        \item Plan to use these for validation, not calibration.  
+            Should provide an improved test of deblending and
+            shear recovery.
+
+        \item Should think a bit how we want to put shears in, and how to
+            analyze.  The current sim has high shear, up to 0.08, which will
+            cause a bias in \mcal\ and BFD due to a breakdown of the weak shear
+            approximation.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Planned Y3 Improvements: Balrog}
+
+    \begin{itemize}
+
+        \item Inserting objects into the single-epoch data, and
+            repeating data reduction through to coadds, 
+            deblending, photozs and shear recovery.
+
+        \item How shall we validate the deblending and shear recovery
+            using Balrog?
+
+        \item What kind of shear pattern should we use?  There can be
+            additive errors, so we probably should use non-constant
+            shear and fit for $m, c$ etc.
+
+
+    \end{itemize}
+
+}
+
+
+\frame
+{
+    \frametitle{Possible Improvements: Deblending with new PSFs}
+
+    \begin{itemize}
+
+        \item The deblending will also benefit from improved
+            PSFs and astrometry.
+
+        \item Re-running MOF may not be needed: The deblending involves
+            subtracting light from neighbors, PSF and astrometry effects should
+            be less important.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Possible Improvements: New Deblender}
+
+    \begin{itemize}
+
+        \item Two new deblenders are in development, see 
+            the Deblending II session on Thursday
+
+        \item Probably a Y5 goal, unless we find deblending is
+            the limiting factor for our cosmology analysis.
+
+    \end{itemize}
+
+}
+
+
+
+\end{document}
