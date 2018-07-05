@@ -12,6 +12,13 @@
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{itemize/enumerate body begin}{\small}
 \setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
+
+
+\newcommand{\mcal}{\textsc{metacalibration}}
+\newcommand{\Mcal}{\textsc{Metacalibration}}
+\newcommand{\ngmix}{\texttt{ngmix}}
+\newcommand{\imshape}{\textsc{im3shape}}
+
 %
 %Global Background must be put in preamble
 %-rescale the 16:9 image to slide size choice
@@ -172,7 +179,51 @@
         \begin{column}{0.5\textwidth}
             \begin{itemize}
 
-                \item blah
+                \item Year 1 Cosmology results using lensing and galaxy clustering are out
+                    \begin{itemize}
+                        \item Cosmic shear (shear correlation function)
+                        \item Galaxy density correlation function
+                        \item Galaxy-shear cross correlation function
+                    \end{itemize}
+
+                \item Shear and photometry measurements by Erin Sheldon of BNL
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{3x2-fig10.png}
+                \newline
+                {\tiny DES Collaboration 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{DES Shear Catalog: \Mcal}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item New shear measurement technique \mcal\ (Sheldon \& Huff
+                    2017)
+
+                \item First method demonstrated to be accurate enough for
+                    current and future lensing surveys (LSST).
+
+                \item Implemented in DES by Erin Sheldon.  Code 
+                    is free software available as part of the \ngmix\ package.
+
+                \item All measurements done by Sheldon using mainly BNL computer
+                    resources (about 10\% using SLAC)
 
             \end{itemize}
 
@@ -181,13 +232,333 @@
             \centering
                 \includegraphics[width=\linewidth]{shearcat-fig2.png}
                 \newline
-                {\tiny Zuntz, Sheldon et al. 2018}
+                {\tiny Zunts, Sheldon et al. 2018}
         \end{column}
 
     \end{columns}
 
+}
+
+\frame
+{
+
+    \frametitle{DES Photometry}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Multi-object fitting:  New object deblender developed by
+                    Sheldon and Matt Becker using \ngmix
+
+                \item Assigns the light appropriately to each member of a group
+                    of objects.
+
+                \item Used as primary photometry in DES
+                    \begin{itemize}
+
+                        \item Used for as flux measurements for photometric
+                            redshift determination
+
+                        \item Used to define the galaxies in
+                            the large scale structure sample
+
+                        \item Used in the RedMapper galaxy cluster
+                            finder.
+
+                    \end{itemize}
+
+                \item Deblended images are a crucial input for \mcal.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{dndz-fig4.png}
+                \newline
+                {\tiny Hoyle et al. 2018}
+        \end{column}
+
+    \end{columns}
 
 }
+
+\frame
+{
+
+    \frametitle{Cosmic Shear}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Cosmic shear is basically the correlation
+                    function of the shear.
+
+                \item The primary shear catalog was \mcal.  We also
+                    had a comparision code \imshape\ which we
+                    found to give consistent results.
+
+                \item Most accurate and precise cosmic shear measurements to
+                    date.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{xi_notomo.pdf}
+                \newline
+                {\tiny Troxel et al. 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{Galaxy-shear Cross Correlations}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Cross-correlation between the positions
+                    of luminous red galaxies and the shear.
+
+                \item Again, the primary shear catalog was \mcal.
+
+                \item Most accurate and precise galaxy-shear cross
+                    correlations to date.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{ggl-fig2a.png}
+                \newline
+                {\tiny Prat et al. 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{Galaxy Correlations}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Completes the triumverate:  auto and cross correlations
+                    of galaxies and shear.
+
+                \item The fluxes came from the MOF deblender used to define
+                    the sample, which is luminous red galaxies 
+                    (RedMagic; Rykoff et al).
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[height=0.9\textheight]{galclustering-fig7a.png}
+                \newline
+                {\tiny Elvin-Poole et al. 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{Photometric Redshifts}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Statistical inference of the redshift distribution
+                    of the galaxies in the shear catalog.
+
+                \item The galaxy fluxes came from the MOF deblender.
+
+                \item Accurate photozs are crucial for interpreting
+                    the shear signals we measure.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{dndz-fig4.png}
+                \newline
+                {\tiny Hoyle et al. 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{DES Year 1 Cosmology Results}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item These combined shear and galaxy clustering signals
+                    are then fit simultaneously to constrain cosmological
+                    parameters.
+
+                \item The most accurate and precise cosmological
+                    constraints to date using weak lensing.
+
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{3x2-fig10.png}
+                \newline
+                {\tiny DES Collaboration 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+
+\frame
+{
+
+    \frametitle{DES Year 1 Cosmology Results}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Measurements agree with those from the
+                    Planck Cosmic Microwave Background measurements
+                    as well as Baryonic Acoustic Oscillation
+                    and Supernova measurements.
+
+                \item The combination  of all these probes gives
+                    our best constraints to date of the properties
+                    Dark Energy
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{dpnl_w_4.pdf}
+                \newline
+                {\tiny DES Collaboration 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
+\frame
+{
+
+    \frametitle{DES Year 3 Analysis}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item DES Year 3 analysis is under way
+
+                \item Large increase in area over Year 1, with
+                    comparable depth.
+
+                \item The MOF deblender processing was completed
+                    last year.
+
+                \item Finalizing shear catalog now.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{{y3a2_gold_1.0_auto_v1.1_depth_Y}.png}
+                \newline
+                {\tiny Year 3 Galaxy Depth}
+        \end{column}
+
+    \end{columns}
+
+}
+
+
+\frame
+{
+
+    \frametitle{Summary}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item DES Year 1 results provide the best
+                    cosmological constraints to date using
+                    weak gravitational lensing
+
+                \item BNL has made fundamential contributions to this work by
+                    providing the shear and basic object photometry used in
+                    all measurements.
+
+                \item DES Year 3 analysis is proceeding, expect exciting
+                    new results soon!
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \centering
+                \includegraphics[width=\linewidth]{dpnl_w_4.pdf}
+                \newline
+                {\tiny DES Collaboration 2018}
+        \end{column}
+
+    \end{columns}
+
+}
+
 
 
 
