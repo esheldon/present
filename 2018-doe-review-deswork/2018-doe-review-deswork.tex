@@ -19,6 +19,15 @@
 \newcommand{\ngmix}{\texttt{ngmix}}
 \newcommand{\imshape}{\textsc{im3shape}}
 
+\newcommand{\bdkfull}{Bulge+Disk+Knots}
+\newcommand{\bdksim}{\texttt{BDK}}
+\newcommand{\bdstar}{\texttt{BDK+Stars}}
+\newcommand{\bdmask}{\texttt{Mask}}
+\newcommand{\rgsim}{\texttt{RG}}
+\newcommand{\pimprovement}{90}
+
+\newcommand{\snr}{$S/N$}
+
 %
 %Global Background must be put in preamble
 %-rescale the 16:9 image to slide size choice
@@ -238,6 +247,62 @@
     \end{columns}
 
 }
+
+\frame
+{
+
+    \frametitle{Shear Measurement Problem Solved?}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+
+                \item Yes. \Mcal\ will give the right answer if you
+                    give it good inputs
+
+                \item What is not solved is how to get good inputs
+
+                \item Object detection
+
+                \item Object deblending
+
+                \item Point Spread Function (PSF). This is very close.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.6\textwidth}
+
+            \begin{table}
+                \centering
+                \begin{tabular}{ l cc}
+                    \hline
+                    Selection   &      $m$               & $c$  \\
+                                    & $[10^{-3}]$     & $[10^{-5}]$  \\
+                    \hline
+                    \hline
+                    \rule{0pt}{3ex}$\mbox{\snr} > 7 $ & $+0.55 \pm 0.34$ & $+0.79 \pm 0.67$ \\
+                    $\mbox{\snr} > 10 $ & $+0.03 \pm 0.31$ & $-0.15 \pm 0.62$ \\
+                    $\mbox{\snr} > 13 $ & $+0.03 \pm 0.31$ & $+0.27 \pm 0.63$ \\
+                    $\mbox{\snr} > 16 $ & $+0.26 \pm 0.34$ & $+0.44 \pm 0.67$ \\
+                    $\mbox{\snr} > 19 $ & $+0.05 \pm 0.37$ & $+0.18 \pm 0.73$ \\
+                    \hline
+                \end{tabular}
+
+            \end{table}
+
+
+
+
+        \end{column}
+
+    \end{columns}
+
+}
+
+
 
 \frame
 {
