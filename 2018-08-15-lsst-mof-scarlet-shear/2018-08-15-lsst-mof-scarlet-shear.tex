@@ -78,7 +78,7 @@
 
 
 \title{Tests of the Scarlet and Multi-object Fitting Deblenders for
-Shear Recovery}
+Weak Lensing Shear Recovery}
 \author{Erin Sheldon and Lorena Mezini}
 \institute{Brookhaven National Laboratory, Stony Brook University}
 
@@ -100,11 +100,12 @@ Shear Recovery}
 
 \frame
 {
-    \frametitle{Project to Test Scarlet for Shear Recovery}
+    \frametitle{Testing Scarlet for Shear Recovery}
 
     \begin{itemize}
 
-        \item Motivation was to test scarlet statistically for shear recovery.
+        \item Motivation was to test Scarlet statistically for
+            weak lensing shear recovery.
             
         \item Test in regime most interesting for weak lensing:  objects
             are small blobs after pixelization and smearing by the PSF.
@@ -169,7 +170,7 @@ Shear Recovery}
     \begin{itemize}
 
         \item New Implementation of the Dark Energy Survey MOF deblender
-            (original Matt Becker)
+            (original Matt Becker using my \ngmix\ code base)
 
         \item Fit all objects in a blend simulateously
             with flexible models (original MOF was iterative)
@@ -236,11 +237,23 @@ Shear Recovery}
     \end{itemize}
 
 }
+
+\frame
+{
+    \frametitle{Example Simulated Galaxies (Large)}
+
+    \centering
+    \includegraphics[width=0.7\linewidth]{{example-gals-007.pdf}}
+}
+
+
 \frame
 {
     \frametitle{Example MOF de-blended pair. Low Noise.}
 
+    \begin{center}
     \includegraphics[width=0.9\linewidth]{{bdk-N0.1-r07-example}.png}
+    \end{center}
 
     Left is original, right is MOF deblended.
     \newline
@@ -251,7 +264,9 @@ Shear Recovery}
 {
     \frametitle{Example MOF de-blended pair. Medium Noise (S/N$\sim 50$.)}
 
+    \begin{center}
     \includegraphics[width=0.9\linewidth]{{bdk-N10-r07-example}.png}
+    \end{center}
 
     Left is original, right is MOF deblended.
 
