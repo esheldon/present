@@ -259,7 +259,7 @@ Shear Recovery}
 
 \frame
 {
-    \frametitle{Multiplicative bias $m$}
+    \frametitle{Multiplicative bias $m$ as a function of separation}
 
     \begin{center}
     \includegraphics[width=0.8\linewidth]{{bias_v_rad_mof_scar_bdk}.png}
@@ -281,15 +281,15 @@ Shear Recovery}
 
 \frame
 {
-    \frametitle{Scarlet Problems}
+    \frametitle{Main Shear Test Results}
 
     \begin{itemize}
 
         \item MOF has expected behavior
             \begin{itemize}
-                \item No bias at all for high S/N objects
-                \item No biasat large separations
-                \item Small bias for close separations and lower S/N.
+                \item No bias for high S/N objects
+                \item No bias at large separations
+                \item Small bias for close separations and moderate S/N.
             \end{itemize}
 
         \item Scarlet shows surprising behavior
@@ -309,7 +309,7 @@ Shear Recovery}
 \frame
 {
 
-    \frametitle{A clue: Recovered Position offsets, relative to Truth}
+    \frametitle{A Clue: Recovered Position Offsets, Relative to Truth}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -340,7 +340,7 @@ Shear Recovery}
         \item Scarlet positions look erratic.
 
         \item Not shown: sometimes the center can jump far outside the image,
-            like $10^10$ pixels away.
+            like $10^{10}$ pixels away.
 
         \item Fred and Peter think they understand this behavior and are
             working on a fix.
@@ -355,23 +355,75 @@ Shear Recovery}
     \frametitle{Summary}
 
     \begin{itemize}
-        \item New MOF unbiased in these sims at high S/N.
 
-        \item New MOF shows separation-dependent biases, as expected, but
-            approaches zero bias rapidly with increasing separation.
+        \item Scarlet is currently showing some surprising behavior
+            for shear recovery.
 
-        \item Scarlet deblender results in a complex shear bias as 
-            a function of separation.  Surprisingly worse at low
-            noise.
+        \item We are working with Fred and Peter to fix it.
 
-        \item Scarlet deblender extremely flexible, clear improvement
-            for large bright galaxies in dense fields.
-            
-        \item We don't know yet how best to use it in the regime most
-            useful for shear: smallish faint galaxies
+        \item Lessons learned
+            \begin{itemize}
+
+                \item For weak lensing, simpler may be better.  Should we
+                    adopt different constraints for Scarlet when
+                    using it for weak lensing?
+
+                \item Scarlet is very promising but if you want it to work for
+                    your science case, then you need to test it!
+
+                \item The scarlet developers are very responsive and
+                    helpful.
+
+            \end{itemize}
 
     \end{itemize}
 
+}
+
+\frame
+{
+    \frametitle{Extra Slides}
+
+}
+
+\frame
+{
+    \frametitle{Detection vs Deblending}
+
+    \begin{itemize}
+
+        \item For faint blobs detection is more of an issue
+            than deblending.
+
+        \item If you know the positioins of the objects in the
+            field, MOF will produce a model with small residuals
+
+        \item If the detection is imperfect, there will be
+            large residuals, independent of the deblender or model
+            that is fit.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Example Deblend}
+
+        256 objects, 220 found by SExtractor
+    \begin{center}
+        \includegraphics[trim={5cm 33cm 5cm 7cm},clip,width=\columnwidth]{diff-20855-000000.png}
+    \end{center}
+}
+
+\frame
+{
+    \frametitle{Example Deblend}
+
+        256 objects, 220 found by SExtractor
+    \begin{center}
+        \includegraphics[trim={5cm 3cm 5cm 37cm},clip,width=\columnwidth]{diff-20855-000000.png}
+    \end{center}
 }
 
 
