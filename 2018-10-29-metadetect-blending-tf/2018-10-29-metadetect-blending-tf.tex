@@ -295,8 +295,8 @@
 
                 \item Interpret as a shear-dependent detection bias.
 
-                \item We can mitigate the effect; I will explain the other symbols
-                    later.
+                \item We can mitigate the effect empirically; I will explain
+                    the other symbols later.
 
             \end{itemize}
         \end{column}
@@ -308,6 +308,49 @@
     \end{columns}
 \end{frame}
 
+
+\frame
+{
+    \frametitle{More Realistic Tests}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item Same object types and survey parameters as the pair tests.
+
+        \item Distribution of flux and size taken from the COSMOS catalogs.
+
+        \item Two different number densities tested: 10/sq arcmin and 20/sq
+            arcmin effective number density after typical cuts on $S/N > 10$
+            and $T/T_{PSF} > 0.5$.
+
+    \end{itemize}
+
+}
+
+\begin{frame}
+    \frametitle{More realistic sims}
+ 
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\columnwidth]{10persqarcmin.png}
+                \newline
+                $n_{eff}=$10/sq. arcmin
+            \end{center}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\columnwidth]{20persqarcmin.png}
+                \newline
+                $n_{eff}=$20/sq. arcmin
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 
 
