@@ -188,10 +188,101 @@
             calibration from the data itself using sheared versions of the images.
             \url{https://github.com/esheldon/ngmix}
 
+
     \end{itemize}
 
 }
 
+
+\frame
+{
+    \frametitle{\Mcal\ Refresher}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item Suppose we have a biased shear estimator {\color{gold} \vest}.  Then we can write
+            {\color{gold}
+\begin{align} \label{eq:Eexpand}
+    \vest &= \vest|_{\gamma=0} + \frac{ \partial \vest }{ \partial \vecg}\bigg|_{\gamma=0} \vecg  + ... \nonumber \\
+          &\equiv \vest|_{\gamma=0} + \mbox{\mcalR}\vecg  + ...
+\end{align}
+            } 
+
+        \item For an ensemble mean
+            {\color{gold}
+                \begin{align}
+                    \langle \vest \rangle &= \langle \vest \rangle |_{\gamma=0} + \langle \mbox{\mcalR} \vecg \rangle + ... \nonumber \\
+                                          &\approx \langle \mbox{\mcalR} \vecg \rangle,
+                \end{align}
+                }
+
+            \item The shear is weighted by responses {\color{cadetblue} \mcalR}.  If we know the
+                responses, we can form a weighted average:
+            {\color{gold}
+\begin{align} \label{eq:rcorr}
+    \langle \vecg_m \rangle &\approx \langle \mbox{\mcalR} \rangle^{-1}  \langle \vest \rangle \approx \langle \mbox{\mcalR} \rangle^{-1} \langle \mcalR \vecg \rangle.
+\end{align}
+            }
+    \end{itemize}
+}
+
+\frame
+{
+    \frametitle{Numerical Derivative}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+
+       \begin{itemize}
+
+        \item Use image manipulation to estimate the derivative of the
+            estimator with respect to shear
+            {\color{gold}
+                \begin{equation}
+                    \mcalR = \frac{\vest^+ - \vest^-}{\Delta \vecg} \nonumber 
+                \end{equation}
+            }
+            \begin{itemize}
+                \item Deconvolve the PSF
+                \item Shear the image by a small amount
+                \item Reconvolve by a new function.  Should be larger than PSF to suppress
+                    noise amplification.  We use a circular one to avoid
+                    additive biases.
+
+                \item {\color{lightsteelblue} Add noise field to cancel correlated noise}
+            \end{itemize}
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{\Mcal\ images}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\Large}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+
+    \begin{itemize}
+        \item \Mcal\ involves making 5 images.
+        \item 4 that are sheared 
+            ($\gamma_1^+$, $\gamma_1^-$, $\gamma_2^+$,$\gamma_2^-$)
+        \item 1 that is not sheared but uses the same circularized
+            PSF as the sheared images.
+
+
+    \end{itemize}
+
+}
 
 \frame
 {
@@ -218,6 +309,9 @@
             \end{itemize}
         \item \snr\ for each object ranged between 20 and 40, so the objects
             are well above detection threshold
+
+        \item \Mcal\ is unbiased for these models when they appear
+            individually.
 
     \end{itemize}
 
@@ -323,7 +417,15 @@
 
         \item Same object types and survey parameters as the pair tests.
 
-        \item Distribution of flux and size taken from the COSMOS catalogs.
+        \item Distribution of flux and size taken from the COSMOS catalogs
+            that comes with Galsim.
+            \begin{itemize}
+                \item Note this catalog lacks large bright galaxies. See images
+                    on the next page.
+            \end{itemize}
+
+        \item \Mcal\ is unbiased for models with these properties when they
+            appear individually.
 
         \item Noise appropriate for DES Y5
 
@@ -332,6 +434,7 @@
         \item sim2: \neff=20/sq arcmin
             %acheived by just doubling the number of galaxies.
             %i.e. not by lowering the noise appropriately.
+
 
     \end{itemize}
 
@@ -350,9 +453,9 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{center}
-                \includegraphics[width=\columnwidth]{20persqarcmin.png}
+                \includegraphics[width=\columnwidth]{35persqarcmin.png}
                 \newline
-                \neff=20/sq. arcmin
+                \neff=35/sq. arcmin
             \end{center}
         \end{column}
     \end{columns}
@@ -391,6 +494,43 @@
 
 
 \end{frame}
+
+
+\frame
+{
+    \frametitle{Including Detection in the \mcal\ process}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item There is a shear-dependent detection bias.
+
+        \item By bias, I mean everything that is done to find detections,
+            not just determining what is above threshold.
+
+        \item We can use \mcal\ to mitigate these, but it requires
+            inserting the creation of sheared images {\em before}
+            detection.
+
+        \item The program:
+            \begin{enumerate}
+
+                \item Make 5 sheared images of a region of sky (not just for one object).
+
+                \item Run detection on those to get 5 catalogs.
+                \item Perform a measurement on those.  This could include
+                    deblending.
+                \item Calculate the shear (or whatever statistic)
+                    and the shear response using
+                    for all the catalogs.
+            \end{enumerate}
+
+    \end{itemize}
+
+}
 
 
 
@@ -466,6 +606,41 @@
 
 
 \end{frame}
+
+\frame
+{
+    \frametitle{Challenges for Real Data}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item Requires calculating the statistic of interest 5 times, once for
+            each catalog. Should not be a problem.
+
+        \item We need to identify regions of sky usefully large for
+            detection and for which the PSF is approximately constant.
+            e.g. 1x1 arcminute patches.
+
+        \item We need to deal with parts of the image that cannot be
+            deconvolved; stuff that happens on the detector such as bad pixels,
+            bleed trails from bright stars, cosmic rays.
+
+        \item We need to merge catalogs from between the different patches, so
+            the patches should include some padding.  We need to test if this
+            merging causes shear dependent selection effects.
+
+        \item We need a continuous PSF, so we need these coadds to be made
+            excluding images that have a boundary in the region of interest.
+            We generally call these ``coadds in cells''.
+            See my talk on coadds and Jim  Bosche's talk on coadds.
+
+    \end{itemize}
+
+}
+
 
 
 %\frame
