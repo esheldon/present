@@ -532,11 +532,45 @@
 
 }
 
+\begin{frame}
+    \frametitle{Pair test including detection in the \mcal\ process}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\footnotesize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item The yellow circles represent results including deblending.
+
+                \item The magenta pluses represent results without deblending, just
+                    measuring moments at the detected location using a circular
+                    Gaussian weight function.
+
+                \item The bias is greatly reduced, even at separations where
+                    detection is highly uncertain.
+
+                \item The results are equally good without deblending.  This
+                    indicates that the biases come from shear-dependent
+                    detection  not shear-dependent deblending.
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\columnwidth]{pairs-mc-bdkpair-negate.png}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 
 
 
 \begin{frame}
-    \frametitle{Results when \mcal\ includes the detection phase.}
+    \frametitle{Results on more realistic sims.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -572,7 +606,7 @@
 
 
 \begin{frame}
-    \frametitle{\mcal\ includes the detection phase and no deblending.}
+    \frametitle{Results on more realistic sims without deblending.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
