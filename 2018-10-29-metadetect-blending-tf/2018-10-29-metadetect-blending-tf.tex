@@ -339,7 +339,7 @@
             \begin{center}
                 \includegraphics[width=\columnwidth]{10persqarcmin.png}
                 \newline
-                $n_{eff}=$10/sq. arcmin
+                $n_{eff}=$9/sq. arcmin
             \end{center}
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -350,6 +350,35 @@
             \end{center}
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metacalibration results for more realistic sims}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|c|c|}
+            \hline
+            Method         & \snr\ Cut & m             \\
+                           &           & $[10^{-2}]$   \\
+            \hline
+
+            \hline
+            MOF+metacal    & \snr$ > 15$ & $-0.041 \pm 0.006$  \\
+            MOF+metacal    & \snr$ > 20$ & $-0.038 \pm 0.008$  \\
+
+            \hline
+        \end{tabular}
+        \caption{Bias in more realistic simulations with $n_{eff} \sim 9$.  In all cases a cut
+            of $T/T_{PSF} > 0.5$ was also applied.
+        \label{tab:mcal:deblending}}
+    \end{table}
+
+
 \end{frame}
 
 
