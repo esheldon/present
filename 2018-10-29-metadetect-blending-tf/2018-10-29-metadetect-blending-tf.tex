@@ -67,6 +67,8 @@
 %\newcommand{\snflux}{$\left( \frac{S}{N}\right)_{\textrm{flux}}$}
 \newcommand{\hlr}{$r_{50}$}
 
+\newcommand{\neff}{$n_{eff}$}
+
 \newcommand{\lensfit}{\texttt{LENSFIT}}
 \newcommand{\numba}{\texttt{Numba}}
 \newcommand{\python}{\texttt{Python}}
@@ -323,9 +325,13 @@
 
         \item Distribution of flux and size taken from the COSMOS catalogs.
 
-        \item Two different number densities tested: 10/sq arcmin and 20/sq
-            arcmin effective number density after typical cuts on $S/N > 10$
-            and $T/T_{PSF} > 0.5$.
+        \item Noise appropriate for DES Y5
+
+        \item sim1: \neff=10/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
+            
+        \item sim2: \neff=20/sq arcmin
+            %acheived by just doubling the number of galaxies.
+            %i.e. not by lowering the noise appropriately.
 
     \end{itemize}
 
@@ -339,14 +345,14 @@
             \begin{center}
                 \includegraphics[width=\columnwidth]{10persqarcmin.png}
                 \newline
-                $n_{eff}=$9/sq. arcmin
+                \neff=10/sq. arcmin
             \end{center}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{center}
                 \includegraphics[width=\columnwidth]{20persqarcmin.png}
                 \newline
-                $n_{eff}=$20/sq. arcmin
+                \neff=20/sq. arcmin
             \end{center}
         \end{column}
     \end{columns}
@@ -368,13 +374,13 @@
             \hline
 
             \hline
-            $n_{eff}=10$    & MOF+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & MOF+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & MOF+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=10    & MOF+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff=10    & MOF+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff=10    & MOF+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
             \hline
-            $n_{eff}=20$    & MOF+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & MOF+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & MOF+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=20    & MOF+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff=20    & MOF+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff=20    & MOF+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
             \hline
 
         \end{tabular}
@@ -405,13 +411,13 @@
             \hline
 
             \hline
-            $n_{eff}=10$    & metadetect+MOF    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & metadetect+MOF    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & metadetect+MOF    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=10    & metadetect+MOF    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff=10    & metadetect+MOF    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff=10    & metadetect+MOF    & \snr$ > 20$ & $XXX \pm XXX$  \\
             \hline
-            $n_{eff}=20$    & metadetect+MOF    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & metadetect+MOF    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & metadetect+MOF    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=20    & metadetect+MOF    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff=20    & metadetect+MOF    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff=20    & metadetect+MOF    & \snr$ > 20$ & $XXX \pm XXX$  \\
             \hline
 
         \end{tabular}
@@ -441,13 +447,13 @@
             \hline
 
             \hline
-            $n_{eff}=10$    & metadetect+moments    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & metadetect+moments    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=10$    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 10$ & $0.000 \pm 0.001$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 15$ & $0.000 \pm 0.002$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 20$ & $-0.004 \pm 0.003$  \\
             \hline
-            $n_{eff}=20$    & metadetect+moments    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & metadetect+moments    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            $n_{eff}=20$    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff=20    & metadetect+moments    & \snr$ > 10$ & $0.002 \pm 0.001$  \\
+            \neff=20    & metadetect+moments    & \snr$ > 15$ & $0.001 \pm 0.002$  \\
+            \neff=20    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
             \hline
 
         \end{tabular}
