@@ -280,7 +280,7 @@
     \begin{itemize}
         \item \Mcal\ involves making 5 images.
         \item 4 that are sheared 
-            ($\gamma_1^+$, $\gamma_1^-$, $\gamma_2^+$,$\gamma_2^-$)
+            {\color{gold} ($\gamma_1^+$, $\gamma_1^-$, $\gamma_2^+$,$\gamma_2^-$)}
         \item 1 that is not sheared but is convolved by the same circularized
             PSF used for the sheared images.
 
@@ -366,7 +366,7 @@
         \begin{column}{0.4\textwidth}
             \begin{itemize}
 
-                \item $\gamma_{meas} = (1+m) \gamma_{true}$
+                \item {\color{gold} $\gamma_{meas} = (1+m) \gamma_{true}$}
 
                 \item Cyan triangles are \mcal\ using deblending from MOF.
 
@@ -394,7 +394,7 @@
         \begin{column}{0.4\textwidth}
             \begin{itemize}
 
-                \item Interpret as a shear-dependent detection bias.
+                \item Interpret as a {\color{lightsteelblue} shear-dependent detection bias}.
 
                 \item We can mitigate the effect empirically; I will explain
                     the other symbols later.
@@ -434,9 +434,9 @@
 
         \item Noise appropriate for DES Y5
 
-        \item sim1: \neff=10/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
+        \item {\color{lightsteelblue} sim1}: \neff={\color{green} 10}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
             
-        \item sim2: \neff=35/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.
+        \item {\color{lightsteelblue} sim2}: \neff={\color{brightred} 35}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.
             LSST-like density, but still used DES pixel and seeing (mistake)
             and I had to ``fake'' the catalog to go deeper.
 
@@ -482,13 +482,13 @@
             \hline
 
             \hline
-            \neff=10    & MOF+metacal    & \snr$ > 10$ & $-0.037 \pm 0.004$  \\
-            \neff=10    & MOF+metacal    & \snr$ > 15$ & $-0.029 \pm 0.004$  \\
-            \neff=10    & MOF+metacal    & \snr$ > 20$ & $-0.021 \pm 0.005$  \\
+            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 10$ & $-0.037 \pm 0.004$  \\
+            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 15$ & $-0.029 \pm 0.004$  \\
+            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 20$ & $-0.021 \pm 0.005$  \\
             \hline
-            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 10$ & $-0.061 \pm 0.002$  \\
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 15$ & $-0.054 \pm 0.002$  \\
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 20$ & $-0.048 \pm 0.002$  \\
             \hline
 
 
@@ -516,13 +516,13 @@
  
     \begin{itemize}
 
-        \item There is a shear-dependent detection bias.
+        \item There is a {\color{lightsteelblue} shear-dependent detection bias}.
 
         \item By bias, I mean everything that is done to find detections,
             not just determining what is above threshold.
 
-        \item We can use \mcal\ to mitigate these effects, but it involves
-            creating the sheared images {\em before} detection.
+        \item We can use \mcal\ to mitigate these effects. It involves
+            creating the sheared images {\color{lightsteelblue} {\em before detection}}.
 
         \item The program:
             \begin{enumerate}
@@ -565,9 +565,10 @@
                     measuring moments at the detected location using a circular
                     Gaussian weight function.
 
-                \item The results are equally good without deblending.  This
-                    indicates that the biases come from shear-dependent
-                    detection  not shear-dependent deblending.
+                \item The results are {\color{lightsteelblue} equally good
+                    without deblending}.  This indicates that the biases come
+                    from shear-dependent detection  not shear-dependent
+                    deblending.
 
             \end{itemize}
         \end{column}
@@ -598,9 +599,9 @@
             \hline
 
             \hline
-            \neff=10    & metadetect+MOF    & \snr$ > 10$ & $0.002 \pm 0.001$  \\
-            \neff=10    & metadetect+MOF    & \snr$ > 15$ & $0.001 \pm 0.001$  \\
-            \neff=10    & metadetect+MOF    & \snr$ > 20$ & $0.003 \pm 0.002$  \\
+            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 10$ & $0.002 \pm 0.001$  \\
+            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 15$ & $0.001 \pm 0.001$  \\
+            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 20$ & $0.003 \pm 0.002$  \\
             \hline
 
         \end{tabular}
@@ -630,9 +631,9 @@
             \hline
 
             \hline
-            \neff=10    & metadetect+moments    & \snr$ > 10$ & $+0.0001 \pm 0.0014$  \\
-            \neff=10    & metadetect+moments    & \snr$ > 15$ & $-0.0002 \pm 0.0022$  \\
-            \neff=10    & metadetect+moments    & \snr$ > 20$ & $-0.0037 \pm 0.0037$  \\
+            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 10$ & $+0.0001 \pm 0.0014$  \\
+            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 15$ & $-0.0002 \pm 0.0017$  \\
+            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 20$ & $-0.0037 \pm 0.0025$  \\
             \hline
             \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $-0.0002 \pm 0.0008$  \\
             \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $-0.0009 \pm 0.0008$  \\
