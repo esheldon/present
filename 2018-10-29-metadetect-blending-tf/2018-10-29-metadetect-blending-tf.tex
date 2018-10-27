@@ -154,12 +154,17 @@
     \begin{itemize}
 
         \item By detection I mean the process of finding ``objects''.
+            \begin{itemize}
+                \item Finding regions above threshold
+                \item Determining how many objects there are in a region over threshold
+                \item Finding ``peaks''
+            \end{itemize}
 
         \item There are many different ways to do this, and it can include some
             kind of segmentation, as well as merging objects or splitting of
             objects at some level.
 
-        \item By deblending I mean a second the stage of assigning light to the
+        \item By deblending I mean a second process of assigning light to the
             individual detections.
 
         \item In principle these can be combined, or the process could be iterative.
@@ -204,7 +209,7 @@
  
     \begin{itemize}
 
-        \item Suppose we have a biased shear estimator {\color{gold} \vest}.  Then we can write
+        \item Suppose we have a biased shear estimator {\color{gold} \vest} of the shear {\color{gold} \vecg}.  Then we can write
             {\color{gold}
 \begin{align} \label{eq:Eexpand}
     \vest &= \vest|_{\gamma=0} + \frac{ \partial \vest }{ \partial \vecg}\bigg|_{\gamma=0} \vecg  + ... \nonumber \\
@@ -212,7 +217,7 @@
 \end{align}
             } 
 
-        \item For an ensemble mean
+        \item For an ensemble mean, and for small shear {\color{gold} \vecg}
             {\color{gold}
                 \begin{align}
                     \langle \vest \rangle &= \langle \vest \rangle |_{\gamma=0} + \langle \mbox{\mcalR} \vecg \rangle + ... \nonumber \\
@@ -252,8 +257,8 @@
                 \item Deconvolve the PSF
                 \item Shear the image by a small amount
                 \item Reconvolve by a new function.  Should be larger than PSF to suppress
-                    noise amplification.  We use a circular one to avoid
-                    additive biases.
+                    noise amplification.  We use a circular one to remove
+                    additive PSF biases.
 
                 \item {\color{lightsteelblue} Add noise field to cancel correlated noise}
             \end{itemize}
@@ -276,8 +281,8 @@
         \item \Mcal\ involves making 5 images.
         \item 4 that are sheared 
             ($\gamma_1^+$, $\gamma_1^-$, $\gamma_2^+$,$\gamma_2^-$)
-        \item 1 that is not sheared but uses the same circularized
-            PSF as the sheared images.
+        \item 1 that is not sheared but is convolved by the same circularized
+            PSF used for the sheared images.
 
 
     \end{itemize}
@@ -337,11 +342,11 @@
             \end{minipage}%
             \begin{minipage}{.5\textwidth}
                 {\footnotesize
-                    4.0'': two objects found every time.
+                    4.0'': 2 objects detected every trial.
                     \newline
-                    1.5'': two objects found half the time.
+                    1.5'': 2 objects detected half the trials.
                     \newline
-                    1.0'': one object found every time.
+                    1.0'': 1 object detected every trial.
                 }
             \end{minipage}
         \end{figure}
@@ -366,7 +371,7 @@
                 \item Cyan triangles are \mcal\ using deblending from MOF.
 
                 \item Large bias seen when detection is highly uncertain: at 1.5'' sep
-                    two objects are found only half the time.
+                    two objects are detected in only half the trials.
 
             \end{itemize}
         \end{column}
@@ -417,7 +422,7 @@
 
         \item Same object types and survey parameters as the pair tests.
 
-        \item Distribution of flux and size taken from the COSMOS catalogs
+        \item Distribution of flux and size taken from the COSMOS $i<25.2$ catalog
             that comes with Galsim.
             \begin{itemize}
                 \item Note this catalog lacks large bright galaxies. See images
@@ -431,8 +436,9 @@
 
         \item sim1: \neff=10/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
             
-        \item sim2: \neff=35/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$,
-            to mimic LSST
+        \item sim2: \neff=35/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.
+            LSST-like density, but still used DES pixel and seeing (mistake)
+            and I had to ``fake'' the catalog to go deeper.
 
 
     \end{itemize}
@@ -480,10 +486,19 @@
             \neff=10    & MOF+metacal    & \snr$ > 15$ & $-0.029 \pm 0.004$  \\
             \neff=10    & MOF+metacal    & \snr$ > 20$ & $-0.021 \pm 0.005$  \\
             \hline
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \hline
+
 
         \end{tabular}
         \caption{Bias in more realistic simulations.  In all cases a cut
-            of $T/T_{PSF} > 0.5$ was also applied.
+            of $T/T_{PSF} > 0.5$ was also applied.  The full MOF was not
+            run for the \neff=35 sim due to lack of time.  Note the uberseg+metacal
+            results generally agree with the MOF+metacal results for these
+            sims.
+
         \label{tab:mcal:deblending}}
     \end{table}
 
@@ -506,21 +521,24 @@
         \item By bias, I mean everything that is done to find detections,
             not just determining what is above threshold.
 
-        \item We can use \mcal\ to mitigate these, but it requires
-            inserting the creation of sheared images {\em before}
-            detection.
+        \item We can use \mcal\ to mitigate these effects, but it involves
+            creating the sheared images {\em before} detection.
 
         \item The program:
             \begin{enumerate}
 
-                \item Make 5 sheared images of a region of sky (not just for one object).
+                \item Make the 5 \mcal\ images of a region of sky (not just for
+                    one object).
 
-                \item Run detection on those to get 5 catalogs.
-                \item Perform a measurement on those.  This could include
-                    deblending.
-                \item Calculate the shear (or whatever statistic)
-                    and the shear response using
-                    for all the catalogs.
+                \item Run detection on each those to get 5 catalogs.
+
+                \item Perform a measurement algorithm for each object.  This
+                    could include deblending.
+
+                \item Calculate the shear (or whatever statistic) using {\em
+                    each} of the 5 catalogs.  The 4 sheared versions are used
+                    to calculate the reponse.
+
             \end{enumerate}
 
     \end{itemize}
@@ -540,12 +558,12 @@
 
                 \item The yellow circles represent results including deblending.
 
+                \item The bias is greatly reduced, even at separations where
+                    detection is highly uncertain.
+
                 \item The magenta pluses represent results without deblending, just
                     measuring moments at the detected location using a circular
                     Gaussian weight function.
-
-                \item The bias is greatly reduced, even at separations where
-                    detection is highly uncertain.
 
                 \item The results are equally good without deblending.  This
                     indicates that the biases come from shear-dependent
@@ -565,7 +583,7 @@
 
 
 \begin{frame}
-    \frametitle{Results on more realistic sims.}
+    \frametitle{\Mcal\ detection results on more realistic sims.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -597,7 +615,7 @@
 
 
 \begin{frame}
-    \frametitle{Results on more realistic sims without deblending.}
+    \frametitle{\Mcal\ detection results on more realistic sims without deblending.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -612,13 +630,13 @@
             \hline
 
             \hline
-            \neff=10    & metadetect+moments    & \snr$ > 10$ & $0.000 \pm 0.001$  \\
-            \neff=10    & metadetect+moments    & \snr$ > 15$ & $0.000 \pm 0.002$  \\
-            \neff=10    & metadetect+moments    & \snr$ > 20$ & $-0.004 \pm 0.003$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 10$ & $+0.0001 \pm 0.0014$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 15$ & $-0.0002 \pm 0.0022$  \\
+            \neff=10    & metadetect+moments    & \snr$ > 20$ & $-0.0037 \pm 0.0037$  \\
             \hline
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $-0.0002 \pm 0.0008$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $-0.0009 \pm 0.0008$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $-0.0005 \pm 0.0008$  \\
             \hline
 
         \end{tabular}
@@ -642,25 +660,25 @@
  
     \begin{itemize}
 
-        \item Requires calculating the statistic of interest 5 times, once for
-            each catalog. Should not be a problem.
+        %\item Requires calculating the statistic of interest 5 times, once for
+        %    each catalog. Should not be a problem.
 
-        \item We need to identify regions of sky usefully large for
-            detection and for which the PSF is approximately constant.
+        \item Must identify regions of sky large enough for
+            good detection and for which the PSF is approximately constant.
             e.g. 1x1 arcminute patches.
 
-        \item We need to deal with parts of the image that cannot be
-            deconvolved; stuff that happens on the detector such as bad pixels,
-            bleed trails from bright stars, cosmic rays.
+        \item Must deal with parts of the image that cannot be deconvolved. For
+            example effects that occur in the detector such as bad pixels, bleed trails
+            from bright stars, cosmic rays, etc.
 
-        \item We need to merge catalogs from between the different patches, so
+        \item Must merge catalogs from between the different patches, so
             the patches should include some padding.  We need to test if this
             merging causes shear dependent selection effects.
 
         \item We need a continuous PSF, so we need these coadds to be made
             excluding images that have a boundary in the region of interest.
             We generally call these ``coadds in cells''.
-            See my talk on coadds and Jim  Bosche's talk on coadds.
+            See Jim  Bosche's talk on coadds and my talk on coadds.
 
     \end{itemize}
 
