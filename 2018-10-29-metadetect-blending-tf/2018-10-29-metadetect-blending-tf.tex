@@ -145,6 +145,28 @@
 
 \frame
 {
+    \frametitle{Prelude}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item These results are {\em preliminary}.  Some results are only
+                a few days old.
+
+        \item These studies were partly inspired by the simulation tests
+            done by Niall MacCrann for DES.
+
+    \end{itemize}
+
+}
+
+
+
+\frame
+{
     \frametitle{Detection and Deblending}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
@@ -172,6 +194,8 @@
     \end{itemize}
 
 }
+
+
 
 \frame
 {
@@ -445,6 +469,32 @@
 
 }
 
+\frame
+{
+    \frametitle{Using the WeakLensingDeblending Package}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item Using this package as a library.
+
+        \item Shearing the entire scene, rather than shearing each object
+            and then placing it which is how WeakLensingDeblending
+            draws images.
+            
+        \item This way the positions also move, which is what happens
+            during the \mcal\ shearing operations.
+
+        \item I only have limited results in this configuration.
+
+    \end{itemize}
+
+}
+
+
 \begin{frame}
     \frametitle{More realistic sims}
  
@@ -465,6 +515,19 @@
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}
+    \frametitle{WeakLensingDeblending Sims}
+ 
+    \begin{center}
+        \includegraphics[height=0.75\textheight]{descwl-example1.png}
+        \newline
+        \neff=35/sq. arcmin
+    \end{center}
+
+\end{frame}
+
+
 
 \begin{frame}
     \frametitle{Metacalibration results for more realistic sims}
@@ -653,6 +716,68 @@
 
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{\Mcal\ detection results on WeakLensingDeblending sims.}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|l|c|c|}
+            \hline
+            Sim & Method         & \snr\ Cut & m             \\
+            %    &          &           & $[10^{-2}]$   \\
+            \hline
+
+            \hline
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \hline
+
+        \end{tabular}
+        \caption{Bias in LSST WeakLensingDeblending simulations when \mcal\ includes
+            the detection phase.  No deblending was performed, 
+            moments were measured using a circular Gaussian weight function.
+            In all cases a cut of $T/T_{PSF} > 0.5$ was also applied.
+        \label{tab:mcal:deblending}}
+    \end{table}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\Mcal\ detection results on WeakLensingDeblending sims.}
+
+    \begin{itemize}
+
+        \item I also ran the WeakLensingDeblending simulation where I shear the
+            objects ``in place'', one at a time rather than shearing the entire
+            scene, 
+
+        \item I saw biases as large as -1\%, but it depended on the cuts
+            applied.  This dependence implies the detection effects are not
+            being corrected.
+
+        \item Real galaxies are at different redshifts, so it is some kind of
+            ``hybrid'' where different parts of the scene are all sheared
+            together.
+
+        \item Should try to simulate that.
+
+    \end{itemize}
+
+
+
+\end{frame}
+
+
+
+
+
 \frame
 {
     \frametitle{Challenges for Real Data}
@@ -682,6 +807,10 @@
             excluding images that have a boundary in the region of interest.
             We generally call these ``coadds in cells''.
             See Jim  Bosche's talk on coadds and my talk on coadds.
+
+        \item Objects are at different redshifts, so we will need to be a bit
+            smarter about the \mcal\ image shearing to avoid potential
+            percent level biases.
 
     \end{itemize}
 
