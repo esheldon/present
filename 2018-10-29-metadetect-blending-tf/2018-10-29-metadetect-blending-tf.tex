@@ -433,6 +433,23 @@
     \end{columns}
 \end{frame}
 
+\frame
+{
+    \frametitle{More realistic tests:  DES and LSST Densities}
+
+    \begin{itemize}
+
+        \item Simulations with many galaxies.
+
+        \item DES Y5 we expect \neff=10 to 12.
+
+        \item For LSST Y10, I tuned for {\color{brightred} \neff=35} for
+            {\color{gold} \snr$ > 10 ~ \&\& ~ T/T_{PSF} > 0.5$}, thinking I was
+            following the expectation from  Chang et al. 2013.  I realized too
+            late that they actually preduct 48/sq. arcmin for those cuts.
+            
+    \end{itemize}
+}
 
 \frame
 {
@@ -460,14 +477,36 @@
 
         \item {\color{lightsteelblue} sim1}: \neff={\color{green} 10}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
             
-        \item {\color{lightsteelblue} sim2}: \neff={\color{brightred} 35}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.
-            LSST-like density, but still used DES pixel and seeing (mistake)
-            and I had to ``fake'' the catalog to go deeper.
+        \item {\color{lightsteelblue} sim2}: \neff={\color{brightred} 35}/sq
+            arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.  Raw density about
+            80/sq arcmin.  LSST-like density, but still used DES pixel and
+            seeing (mistake) and I had to ``fake'' the catalog to go deeper.
 
 
     \end{itemize}
 
 }
+
+
+
+\begin{frame}
+    \frametitle{More realistic sims: \neff=10/sq. arcmin}
+ 
+    \begin{center}
+        \includegraphics[height=0.8\textheight]{10persqarcmin.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{More realistic sims: \neff=35/sq. arcmin}
+ 
+    \begin{center}
+        \includegraphics[height=0.8\textheight]{35persqarcmin.png}
+    \end{center}
+
+\end{frame}
+
+
 
 \frame
 {
@@ -480,10 +519,17 @@
     \begin{itemize}
 
         \item Using this package as a library.
+            
+        \item First attempt I got {\color{brightred} \neff=50} for
+            {\color{gold} \snr$ > 10 ~ \&\& ~ T/T_{PSF} > 0.5$} which I thought
+            was too high (as mentioned above).  So I artificially lowered
+            the density to get \neff=35 which was a mistake; it turns
+            out 50 is probably about right.
+
 
         \item Shearing the entire scene, rather than shearing each object
-            and then placing it which is how WeakLensingDeblending
-            draws images.
+            first then drawing it, which is how WeakLensingDeblending
+            works.
             
         \item This way the positions also move, which is what happens
             during the \mcal\ shearing operations.
@@ -496,33 +542,10 @@
 
 
 \begin{frame}
-    \frametitle{More realistic sims}
- 
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\columnwidth]{10persqarcmin.png}
-                \newline
-                \neff=10/sq. arcmin
-            \end{center}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\columnwidth]{35persqarcmin.png}
-                \newline
-                \neff=35/sq. arcmin
-            \end{center}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}
-    \frametitle{WeakLensingDeblending Sims}
+    \frametitle{WeakLensingDeblending Sims: \neff=35/sq. arcmin}
  
     \begin{center}
-        \includegraphics[height=0.75\textheight]{descwl-example1.png}
-        \newline
-        \neff=35/sq. arcmin
+        \includegraphics[height=0.8\textheight]{descwl-example1.png}
     \end{center}
 
 \end{frame}
@@ -733,9 +756,9 @@
             \hline
 
             \hline
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $XXX \pm XXX$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $XXX \pm XXX$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $-0.0009 \pm 0.0012$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $-0.0013 \pm 0.0012$  \\
+            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $-0.0011 \pm 0.0013$  \\
             \hline
 
         \end{tabular}
@@ -752,19 +775,23 @@
 \begin{frame}
     \frametitle{\Mcal\ detection results on WeakLensingDeblending sims.}
 
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
     \begin{itemize}
 
-        \item I also ran the WeakLensingDeblending simulation where I shear the
+        \item I also ran the WeakLensingDeblending simulation where I sheared the
             objects ``in place'', one at a time rather than shearing the entire
             scene, 
 
-        \item I saw biases as large as -1\%, but it depended on the cuts
-            applied.  This dependence implies the detection effects are not
-            being corrected.
+        \item I saw biases as large as $-1$\% for LSST ($-0.3$\% DES), but it
+            depended on the cuts applied.  This dependence implies the
+            detection effects are not being corrected.
 
-        \item Real galaxies are at different redshifts, so it is some kind of
-            ``hybrid'' where different parts of the scene are all sheared
-            together.
+        \item Real galaxies are at different redshifts and experience different
+            shears. So a real scene is necessarily a hybrid
+            where the different planes are sheared separately.
 
         \item Should try to simulate that.
 
