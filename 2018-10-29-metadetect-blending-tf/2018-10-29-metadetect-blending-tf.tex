@@ -146,14 +146,14 @@
 {
     \frametitle{Prelude}
 
-    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
     \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
  
     \begin{itemize}
 
-        \item These results are {\em preliminary}.  Some results are only
-                a few days old.
+        \item These results are {\em preliminary}.  Some results were obtained
+            in the last day.
 
         \item These studies were partly inspired by the simulation tests
             done by Niall MacCrann for DES.
@@ -207,10 +207,13 @@
     \begin{itemize}
 
         \item For all the tests I will show, detection was performed using SExtractor
-            with the proposed settings for the final DES processing.
+            with the proposed settings for the final DES processing.  These settings
+            are quite liberal yet also admit a relatively small fraction of ``fake''
+            noise detections.  Generally $S/N > 5$.
 
-        \item All deblending is done as a second stage using a new implementation
-            of the Multi-object Fitter (MOF) from DES. \url{https://github.com/esheldon/mof}
+        \item When deblending was performed, it was done as a second stage
+            using a new implementation of the Multi-object Fitter (MOF) from
+            DES. \url{https://github.com/esheldon/mof}
 
         \item All shear tests were performed using \mcal, which derives a shear
             calibration from the data itself using sheared versions of the images.
@@ -232,7 +235,7 @@
  
     \begin{itemize}
 
-        \item Suppose we have a biased shear estimator {\color{gold} \vest} of the shear {\color{gold} \vecg}.  Then we can write
+        \item Suppose we have a biased estimator {\color{gold} \vest} for the shear {\color{gold} \vecg}.  Then we can write
             {\color{gold}
 \begin{align} \label{eq:Eexpand}
     \vest &= \vest|_{\gamma=0} + \frac{ \partial \vest }{ \partial \vecg}\bigg|_{\gamma=0} \vecg  + ... \nonumber \\
@@ -322,7 +325,7 @@
  
     \begin{itemize}
 
-        \item DES pixel scale (0.263'') and typcal seeing (0.9'')
+        \item DES pixel scale (0.263'') and typical seeing (0.9'')
         \item Generate images of two objects at fixed separation, but random
             relative position angle.
 
@@ -417,7 +420,8 @@
         \begin{column}{0.4\textwidth}
             \begin{itemize}
 
-                \item Interpret as a {\color{lightsteelblue} shear-dependent detection bias}.
+                \item I will demonstrate that we can interpret this as a
+                    {\color{lightsteelblue} shear-dependent detection bias}.
 
                 \item We can mitigate the effect empirically; I will explain
                     the other symbols later.
@@ -448,7 +452,7 @@
 
         \item For my own LSST sims, I tuned for a number densitiy of 80 based
             on Chang et al. 2013.  However, I realized last night their
-            prediction was after a cut at $S/N > 10$, well above the typical
+            prediction {\em after} a cut at $S/N > 10$, well above the typical
             detection threshold.  So the numbers for LSST below are more
             typical of mid-survey.  I will label them mid-LSST
             
@@ -769,7 +773,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{\Mcal\ detection results on WeakLensingDeblending sims.}
+    \frametitle{Shearing in place.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -777,12 +781,16 @@
  
     \begin{itemize}
 
+        \item In the above, the simulations had constant shear and the
+            entire scene was sheared.  This matches what \mcal\ does.
+
         \item I also ran the simulations where I sheared the objects ``in
             place'', one at a time rather than shearing the entire scene.
 
         \item I saw biases as large as $-1$\% for mid-LSST ($-0.3$\% DES), but it
             depended on the cuts applied.  This dependence on cuts implies the
-            detection effects are not being corrected.
+            detection effects are not being corrected in that case, because
+            the \mcal\ process does not match the simulation.
 
         \item Real galaxies are at different redshifts and experience different
             shears. So a real scene is necessarily a hybrid: there will be
@@ -839,6 +847,29 @@
 
 }
 
+
+\frame
+{
+    \frametitle{Summary}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+    %\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    %\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
+    \begin{itemize}
+
+        \item Shear measurements in real data will be dominated by
+            shear-dependent detection effects.
+
+        \item These effects can be effectively mitigated using
+            \mcal\ in conjunction with detection.
+
+        \item We still need to understand the more subtle effects that occur
+            when objects experience different shears.
+
+    \end{itemize}
+
+}
 
 
 %\frame
