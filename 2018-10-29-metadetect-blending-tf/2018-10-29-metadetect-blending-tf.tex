@@ -137,7 +137,6 @@
         \item Shear measurement tests with pairs of galaxies
         \item More realistic tests
         \item Mitigating detection bias with \mcal.
-        \item Prospects for LSST
 
     \end{itemize}
 
@@ -437,19 +436,24 @@
 {
     \frametitle{More realistic tests:  DES and LSST Densities}
 
+    \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+ 
     \begin{itemize}
 
-        \item Simulations with many galaxies.
+        \item Simulations with many galaxies, randomly placed.
 
-        \item DES Y5 we expect \neff=10 to 12.
+        \item DES we expect a raw density of about 30-35/sq arcmin.
 
-        \item For LSST Y10, I tuned for {\color{brightred} \neff=35} for
-            {\color{gold} \snr$ > 10 ~ \&\& ~ T/T_{PSF} > 0.5$}, thinking I was
-            following the expectation from  Chang et al. 2013.  I realized too
-            late that they actually predict 48/sq. arcmin for those cuts.
+        \item For my own LSST sims, I tuned for a number densitiy of 80 based
+            on Chang et al. 2013.  However, I realized last night their
+            prediction was after a cut at $S/N > 10$, well above the typical
+            detection threshold.  So the numbers for LSST below are more
+            typical of mid-survey.  I will label them mid-LSST
             
-        \item I will do some more runs with the proper settings.  But I will
-            not be surprised if we can reach \neff=48 with \mcal.
+        \item Fortunately I got lucky in the queues last night and was able to
+            run some WeakLensingDeblending sims with about the right density.
 
     \end{itemize}
 }
@@ -476,15 +480,10 @@
         \item \Mcal\ is unbiased for models with these properties when they
             appear individually.
 
-        \item Noise appropriate for DES Y5
-
-        \item {\color{lightsteelblue} sim1}: \neff={\color{green} 10}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
+        \item {\color{lightsteelblue} DES}: Density about 37/sq. arcmin
+            %\neff={\color{green} 10}/sq arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$
             
-        \item {\color{lightsteelblue} sim2}: \neff={\color{brightred} 35}/sq
-            arcmin for $S/N > 10$ and $T/T_{PSF} > 0.5$.  Raw density about
-            80/sq arcmin.  LSST-like density, but still used DES pixel and
-            seeing (mistake) and I had to ``fake'' the catalog to go deeper.
-
+        \item {\color{lightsteelblue} mid-LSST}: Density about 80/sq. arcmin
 
     \end{itemize}
 
@@ -493,7 +492,7 @@
 
 
 \begin{frame}
-    \frametitle{More realistic sims: \neff=10/sq. arcmin}
+    \frametitle{More realistic sims: DES-like}
  
     \begin{center}
         \includegraphics[height=0.8\textheight]{10persqarcmin.png}
@@ -501,7 +500,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{More realistic sims: \neff=35/sq. arcmin}
+    \frametitle{More realistic sims: mid-LSST-like}
  
     \begin{center}
         \includegraphics[height=0.8\textheight]{35persqarcmin.png}
@@ -521,21 +520,18 @@
  
     \begin{itemize}
 
-        \item Using this package as a library.
+        \item Using this package as a library to generate many random
+            scenes.
             
-        \item First attempt I got {\color{brightred} \neff=50} for
-            {\color{gold} \snr$ > 10 ~ \&\& ~ T/T_{PSF} > 0.5$} which I thought
-            was too high (as mentioned above).  So I artificially lowered
-            the density to get \neff=35 which was a mistake; it turns
-            out 50 is probably about right.
+        \item I get density for LSST about $n=128$/sq. arcmin, with
+            {\color{brightred} \neff=65} for $S/N > 10$ and $T/T_{PSF} > 0.5$!
 
-
-        \item Shearing the entire scene, rather than shearing each object
+        \item Sheared the entire scene, rather than shearing each object
             first then drawing it, which is how WeakLensingDeblending
             works.
             
-        \item This way the positions also move, which is what happens
-            during the \mcal\ shearing operations.
+        \item When shearing the entire scenen, the positions also move, which
+            is what happens during the \mcal\ shearing operations.
 
         \item I only have early results in this configuration.
 
@@ -545,7 +541,7 @@
 
 
 \begin{frame}
-    \frametitle{WeakLensingDeblending Sims: \neff=35/sq. arcmin}
+    \frametitle{WeakLensingDeblending Sims: LSST like}
  
     \begin{center}
         \includegraphics[height=0.8\textheight]{descwl-example1.png}
@@ -571,25 +567,22 @@
             \hline
 
             \hline
-            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 10$ & $-0.016 \pm 0.003$  \\
-            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 15$ & $-0.038 \pm 0.003$  \\
-            \neff={\color{green} 10} & MOF+metacal    & \snr$ > 20$ & $-0.053 \pm 0.003$  \\
+            {\color{green} DES} & MOF+metacal    & \snr$ > 10$ & $-0.016 \pm 0.003$  \\
+            {\color{green} DES} & MOF+metacal    & \snr$ > 15$ & $-0.038 \pm 0.003$  \\
+            {\color{green} DES} & MOF+metacal    & \snr$ > 20$ & $-0.053 \pm 0.003$  \\
             \hline
             %\neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 10$ & $-0.061 \pm 0.002$  \\
             %\neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 15$ & $-0.054 \pm 0.002$  \\
             %\neff={\color{brightred}35}  & uberseg+metacal    & \snr$ > 20$ & $-0.048 \pm 0.002$  \\
-            \neff={\color{brightred}35}  & MOF+metacal    & \snr$ > 10$ & $-0.131 \pm 0.005$  \\
-            \neff={\color{brightred}35}  & MOF+metacal    & \snr$ > 15$ & $-0.124 \pm 0.005$  \\
-            \neff={\color{brightred}35}  & MOF+metacal    & \snr$ > 20$ & $-0.149 \pm 0.005$  \\
+            {\color{brightred}mid-LSST}  & MOF+metacal    & \snr$ > 10$ & $-0.131 \pm 0.005$  \\
+            {\color{brightred}mid-LSST}  & MOF+metacal    & \snr$ > 15$ & $-0.124 \pm 0.005$  \\
+            {\color{brightred}mid-LSST}  & MOF+metacal    & \snr$ > 20$ & $-0.149 \pm 0.005$  \\
             \hline
 
 
         \end{tabular}
         \caption{Bias in more realistic simulations.  In all cases a cut
-            of $T/T_{PSF} > 0.5$ was also applied.  The full MOF was not
-            run for the \neff=35 sim due to lack of time.  Note the uberseg+metacal
-            results generally agree with the MOF+metacal results for these
-            sims.
+            of $T/T_{PSF} > 0.5$ was also applied.
 
         \label{tab:mcal:deblending}}
     \end{table}
@@ -690,9 +683,9 @@
             \hline
 
             \hline
-            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 10$ & $0.002 \pm 0.001$  \\
-            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 15$ & $0.001 \pm 0.001$  \\
-            \neff={\color{green} 10} & metadetect+MOF    & \snr$ > 20$ & $0.003 \pm 0.002$  \\
+            {\color{green} DES} & metadetect+MOF    & \snr$ > 10$ & $0.002 \pm 0.001$  \\
+            {\color{green} DES} & metadetect+MOF    & \snr$ > 15$ & $0.001 \pm 0.001$  \\
+            {\color{green} DES} & metadetect+MOF    & \snr$ > 20$ & $0.003 \pm 0.002$  \\
             \hline
 
         \end{tabular}
@@ -722,13 +715,13 @@
             \hline
 
             \hline
-            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 10$ & $+0.0001 \pm 0.0014$  \\
-            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 15$ & $-0.0002 \pm 0.0017$  \\
-            \neff={\color{green} 10} & metadetect+moments    & \snr$ > 20$ & $-0.0037 \pm 0.0025$  \\
+            {\color{green} DES} & metadetect+moments    & \snr$ > 10$ & $+0.0001 \pm 0.0014$  \\
+            {\color{green} DES} & metadetect+moments    & \snr$ > 15$ & $-0.0002 \pm 0.0017$  \\
+            {\color{green} DES} & metadetect+moments    & \snr$ > 20$ & $-0.0037 \pm 0.0025$  \\
             \hline
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $-0.0002 \pm 0.0008$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $-0.0009 \pm 0.0008$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $-0.0005 \pm 0.0008$  \\
+            {\color{brightred}mid-LSST}    & metadetect+moments    & \snr$ > 10$ & $-0.0002 \pm 0.0008$  \\
+            {\color{brightred}mid-LSST}    & metadetect+moments    & \snr$ > 15$ & $-0.0009 \pm 0.0008$  \\
+            {\color{brightred}mid-LSST}    & metadetect+moments    & \snr$ > 20$ & $-0.0005 \pm 0.0008$  \\
             \hline
 
         \end{tabular}
@@ -759,13 +752,13 @@
             \hline
 
             \hline
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 10$ & $-0.0009 \pm 0.0012$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 15$ & $-0.0013 \pm 0.0012$  \\
-            \neff={\color{brightred}35}    & metadetect+moments    & \snr$ > 20$ & $-0.0011 \pm 0.0013$  \\
+            {\color{brightred}LSST}    & metadetect+moments    & \snr$ > 10$ & $+0.0018 \pm 0.0021$  \\
+            {\color{brightred}LSST}    & metadetect+moments    & \snr$ > 15$ & $-0.0004 \pm 0.0021$  \\
+            {\color{brightred}LSST}    & metadetect+moments    & \snr$ > 20$ & $+0.0006 \pm 0.0022$  \\
             \hline
 
         \end{tabular}
-        \caption{Bias in LSST WeakLensingDeblending simulations when \mcal\ includes
+        \caption{Bias in LSST Y10 WeakLensingDeblending simulations when \mcal\ includes
             the detection phase.  No deblending was performed, 
             moments were measured using a circular Gaussian weight function.
             In all cases a cut of $T/T_{PSF} > 0.5$ was also applied.
@@ -784,20 +777,19 @@
  
     \begin{itemize}
 
-        \item I also ran the WeakLensingDeblending simulation where I sheared the
-            objects ``in place'', one at a time rather than shearing the entire
-            scene.
+        \item I also ran the simulations where I sheared the objects ``in
+            place'', one at a time rather than shearing the entire scene.
 
-        \item I saw biases as large as $-1$\% for LSST ($-0.3$\% DES), but it
-            depended on the cuts applied.  This dependence implies the
+        \item I saw biases as large as $-1$\% for mid-LSST ($-0.3$\% DES), but it
+            depended on the cuts applied.  This dependence on cuts implies the
             detection effects are not being corrected.
 
         \item Real galaxies are at different redshifts and experience different
-            shears. So a real scene is necessarily a hybrid
-            where the different planes are sheared separately.
+            shears. So a real scene is necessarily a hybrid: there will be
+            different planes sheared separately.
 
-        \item We should try to simulate that to see how bit the effect is
-            realistically, and figure out if we need to do something different.
+        \item We should try simulate more realstic scenes to see how big the
+            effect is on the recovered shear.
 
     \end{itemize}
 
@@ -830,14 +822,14 @@
             example effects that occur in the detector such as bad pixels, bleed trails
             from bright stars, cosmic rays, etc.
 
-        \item Must merge catalogs from between the different patches, so
+        \item Must merge catalogs from the different patches, so
             the patches should include some padding.  We need to test if this
             merging causes shear dependent selection effects.
 
         \item We need a continuous PSF, so we need these coadds to be made
             excluding images that have a boundary in the region of interest.
             We generally call these ``coadds in cells''.
-            See Jim  Bosche's talk on coadds and my talk on coadds.
+            See Jim Bosche's BTF talk on coadds and my BTF talk on coadds.
 
         \item Objects are at different redshifts, so we will need to be a bit
             smarter about the \mcal\ image shearing to avoid potential
