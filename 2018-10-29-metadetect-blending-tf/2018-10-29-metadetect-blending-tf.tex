@@ -446,14 +446,17 @@
         \item For LSST Y10, I tuned for {\color{brightred} \neff=35} for
             {\color{gold} \snr$ > 10 ~ \&\& ~ T/T_{PSF} > 0.5$}, thinking I was
             following the expectation from  Chang et al. 2013.  I realized too
-            late that they actually preduct 48/sq. arcmin for those cuts.
+            late that they actually predict 48/sq. arcmin for those cuts.
             
+        \item I will do some more runs with the proper settings.  But I will
+            not be surprised if we can reach \neff=48 with \mcal.
+
     \end{itemize}
 }
 
 \frame
 {
-    \frametitle{More Realistic Tests}
+    \frametitle{More Realistic Tests: my own sims}
 
     \setbeamerfont*{itemize/enumerate body}{size=\normalsize}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -534,7 +537,7 @@
         \item This way the positions also move, which is what happens
             during the \mcal\ shearing operations.
 
-        \item I only have limited results in this configuration.
+        \item I only have early results in this configuration.
 
     \end{itemize}
 
@@ -553,7 +556,7 @@
 
 
 \begin{frame}
-    \frametitle{Metacalibration results for more realistic sims}
+    \frametitle{Standard Metacalibration results for my own more realistic sims}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -619,7 +622,7 @@
                 \item Make the 5 \mcal\ images of a region of sky (not just for
                     one object).
 
-                \item Run detection on each those to get 5 catalogs.
+                \item Run detection on each image to get 5 catalogs.
 
                 \item Perform a measurement algorithm for each object.  This
                     could include deblending.
@@ -672,7 +675,7 @@
 
 
 \begin{frame}
-    \frametitle{\Mcal\ detection results on more realistic sims.}
+    \frametitle{\Mcal\ detection results on my own more realistic sims.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -704,7 +707,7 @@
 
 
 \begin{frame}
-    \frametitle{\Mcal\ detection results on more realistic sims without deblending.}
+    \frametitle{\Mcal\ detection results on my own more realistic sims without deblending.}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
     \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -783,7 +786,7 @@
 
         \item I also ran the WeakLensingDeblending simulation where I sheared the
             objects ``in place'', one at a time rather than shearing the entire
-            scene, 
+            scene.
 
         \item I saw biases as large as $-1$\% for LSST ($-0.3$\% DES), but it
             depended on the cuts applied.  This dependence implies the
@@ -793,7 +796,8 @@
             shears. So a real scene is necessarily a hybrid
             where the different planes are sheared separately.
 
-        \item Should try to simulate that.
+        \item We should try to simulate that to see how bit the effect is
+            realistically, and figure out if we need to do something different.
 
     \end{itemize}
 
