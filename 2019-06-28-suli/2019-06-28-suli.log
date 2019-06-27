@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.22)  26 JUN 2019 09:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.22)  27 JUN 2019 09:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,278 +875,298 @@ Overfull \vbox (2.42119pt too high) detected at line 222
 [11
 
  <./orangepie.jpg>]
-<wiener3yr_map_2284x2284.jpg, id=90, 2292.565pt x 2292.565pt>
-File: wiener3yr_map_2284x2284.jpg Graphic file (type jpg)
-<use wiener3yr_map_2284x2284.jpg>
-Package pdftex.def Info: wiener3yr_map_2284x2284.jpg  used on input line 261.
-(pdftex.def)             Requested size: 153.64493pt x 153.63954pt.
- [12
-
- <./wiener3yr_map_2284x2284.jpg>]
-File: wiener3yr_map_2284x2284.jpg Graphic file (type jpg)
-<use wiener3yr_map_2284x2284.jpg>
-Package pdftex.def Info: wiener3yr_map_2284x2284.jpg  used on input line 270.
-(pdftex.def)             Requested size: 230.46739pt x 230.4593pt.
-
-Overfull \vbox (4.25018pt too high) detected at line 270
- []
-
-[13
-
-]
-<CMB_Timeline300_no_WMAP.jpg, id=102, 1927.2pt x 1252.68pt>
+<CMB_Timeline300_no_WMAP.jpg, id=90, 1927.2pt x 1252.68pt>
 File: CMB_Timeline300_no_WMAP.jpg Graphic file (type jpg)
 <use CMB_Timeline300_no_WMAP.jpg>
-Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 309.
+Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 311.
 (pdftex.def)             Requested size: 153.64493pt x 99.85327pt.
- [14
+ [12
 
  <./CMB_Timeline300_no_WMAP.jpg>]
 File: CMB_Timeline300_no_WMAP.jpg Graphic file (type jpg)
 <use CMB_Timeline300_no_WMAP.jpg>
-Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 342.
+Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 344.
 (pdftex.def)             Requested size: 153.64493pt x 99.85327pt.
- [15
+ [13
 
 ]
 File: CMB_Timeline300_no_WMAP.jpg Graphic file (type jpg)
 <use CMB_Timeline300_no_WMAP.jpg>
-Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 350.
+Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 352.
 (pdftex.def)             Requested size: 276.559pt x 179.75117pt.
- [16
+ [14
 
 ]
-<m64-black-eye-galaxy.jpg, id=119, 1606.0pt x 1205.50375pt>
+<m64-black-eye-galaxy.jpg, id=108, 1606.0pt x 1205.50375pt>
 File: m64-black-eye-galaxy.jpg Graphic file (type jpg)
 <use m64-black-eye-galaxy.jpg>
-Package pdftex.def Info: m64-black-eye-galaxy.jpg  used on input line 383.
+Package pdftex.def Info: m64-black-eye-galaxy.jpg  used on input line 385.
 (pdftex.def)             Requested size: 153.64493pt x 115.315pt.
 File: CMB_Timeline300_no_WMAP.jpg Graphic file (type jpg)
 <use CMB_Timeline300_no_WMAP.jpg>
-Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 383.
+Package pdftex.def Info: CMB_Timeline300_no_WMAP.jpg  used on input line 385.
 (pdftex.def)             Requested size: 153.64493pt x 99.85327pt.
- [17
+ [15
 
- <./m64-black-eye-galaxy.jpg>] [18
+ <./m64-black-eye-galaxy.jpg>] [16
 
 ]
-<A_Horseshoe_Einstein_Ring_from_Hubble.JPG, id=130, 763.35187pt x 504.38437pt>
+<A_Horseshoe_Einstein_Ring_from_Hubble.JPG, id=119, 763.35187pt x 504.38437pt>
 File: A_Horseshoe_Einstein_Ring_from_Hubble.JPG Graphic file (type jpg)
 <use A_Horseshoe_Einstein_Ring_from_Hubble.JPG>
 Package pdftex.def Info: A_Horseshoe_Einstein_Ring_from_Hubble.JPG  used on inp
-ut line 402.
+ut line 404.
 (pdftex.def)             Requested size: 307.28987pt x 203.04314pt.
- [19
+ [17
 
  <./A_Horseshoe_Einstein_Ring_from_Hubble.JPG>]
-<abell-1689-hubble.jpg, id=137, 928.1877pt x 963.6pt>
+<abell-1689-hubble.jpg, id=125, 928.1877pt x 963.6pt>
 File: abell-1689-hubble.jpg Graphic file (type jpg)
 <use abell-1689-hubble.jpg>
-Package pdftex.def Info: abell-1689-hubble.jpg  used on input line 411.
+Package pdftex.def Info: abell-1689-hubble.jpg  used on input line 413.
 (pdftex.def)             Requested size: 259.25345pt x 269.14662pt.
 
-Overfull \vbox (28.1pt too high) detected at line 411
+Overfull \vbox (28.1pt too high) detected at line 413
  []
 
-[20
+[18
 
  <./abell-1689-hubble.jpg>]
-<lens_geometry_invert.pdf, id=143, 615.29875pt x 433.62pt>
+<lens_geometry_invert.pdf, id=131, 615.29875pt x 433.62pt>
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 440.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 442.
 (pdftex.def)             Requested size: 153.64493pt x 108.2724pt.
- [21
+ [19
 
  <./lens_geometry_invert.pdf>]
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 447.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 449.
 (pdftex.def)             Requested size: 261.19826pt x 184.07764pt.
- [22
+ [20
 
 ]
-<optics-halliday-resnick-crop.jpg, id=164, 2905.85625pt x 1857.94125pt>
+<optics-halliday-resnick-crop.jpg, id=152, 2905.85625pt x 1857.94125pt>
 File: optics-halliday-resnick-crop.jpg Graphic file (type jpg)
 <use optics-halliday-resnick-crop.jpg>
 Package pdftex.def Info: optics-halliday-resnick-crop.jpg  used on input line 4
-83.
+85.
 (pdftex.def)             Requested size: 153.64493pt x 98.23227pt.
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 483.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 485.
 (pdftex.def)             Requested size: 153.64493pt x 108.2724pt.
- [23
+ [21
 
  <./optics-halliday-resnick-crop.jpg>]
 File: optics-halliday-resnick-crop.jpg Graphic file (type jpg)
 <use optics-halliday-resnick-crop.jpg>
 Package pdftex.def Info: optics-halliday-resnick-crop.jpg  used on input line 5
-23.
+25.
 (pdftex.def)             Requested size: 153.64493pt x 98.23227pt.
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 523.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 525.
 (pdftex.def)             Requested size: 153.64493pt x 108.2724pt.
- [24
+ [22
 
 ]
-<QSO_B0957+0561-crop.jpg, id=176, 599.23875pt x 507.8975pt>
+<QSO_B0957+0561-crop.jpg, id=165, 599.23875pt x 507.8975pt>
 File: QSO_B0957+0561-crop.jpg Graphic file (type jpg)
 <use QSO_B0957+0561-crop.jpg>
-Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 532.
+Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 534.
 (pdftex.def)             Requested size: 122.91406pt x 104.1739pt.
- [25
+ [23
 
  <./QSO_B0957+0561-crop.jpg>]
 File: QSO_B0957+0561-crop.jpg Graphic file (type jpg)
 <use QSO_B0957+0561-crop.jpg>
-Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 566.
+Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 568.
 (pdftex.def)             Requested size: 107.55098pt x 91.1541pt.
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 566.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 568.
 (pdftex.def)             Requested size: 153.64493pt x 108.2724pt.
- [26
+ [24
 
 ]
 File: QSO_B0957+0561-crop.jpg Graphic file (type jpg)
 <use QSO_B0957+0561-crop.jpg>
-Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 605.
+Package pdftex.def Info: QSO_B0957+0561-crop.jpg  used on input line 604.
 (pdftex.def)             Requested size: 107.55098pt x 91.1541pt.
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 605.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 604.
 (pdftex.def)             Requested size: 153.64493pt x 108.2724pt.
 
-[27
+[25
 
 ]
-<DES0428-4748-gri-crop.jpg, id=193, 2854.665pt x 2854.665pt>
+<scinv-example-invert.pdf, id=182, 490.83376pt x 477.785pt>
+File: scinv-example-invert.pdf Graphic file (type pdf)
+<use scinv-example-invert.pdf>
+Package pdftex.def Info: scinv-example-invert.pdf  used on input line 635.
+(pdftex.def)             Requested size: 153.64493pt x 149.55531pt.
+ [26
+
+ <./scinv-example-invert.pdf>]
+<DES0428-4748-gri-crop.jpg, id=190, 2854.665pt x 2854.665pt>
 File: DES0428-4748-gri-crop.jpg Graphic file (type jpg)
 <use DES0428-4748-gri-crop.jpg>
-Package pdftex.def Info: DES0428-4748-gri-crop.jpg  used on input line 642.
+Package pdftex.def Info: DES0428-4748-gri-crop.jpg  used on input line 672.
 (pdftex.def)             Requested size: 153.64493pt x 153.63126pt.
- [28
+ [27
 
  <./DES0428-4748-gri-crop.jpg>]
 File: lens_geometry_invert.pdf Graphic file (type pdf)
 <use lens_geometry_invert.pdf>
-Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 681.
+Package pdftex.def Info: lens_geometry_invert.pdf  used on input line 711.
 (pdftex.def)             Requested size: 122.9164pt x 86.6166pt.
-<shear-illustration-crop2.jpg, id=199, 403.5075pt x 369.38pt>
+<shear-illustration-crop2.jpg, id=196, 403.5075pt x 369.38pt>
 File: shear-illustration-crop2.jpg Graphic file (type jpg)
 <use shear-illustration-crop2.jpg>
-Package pdftex.def Info: shear-illustration-crop2.jpg  used on input line 681.
+Package pdftex.def Info: shear-illustration-crop2.jpg  used on input line 711.
 (pdftex.def)             Requested size: 107.55098pt x 98.45448pt.
- [29
+
+[28
 
  <./shear-illustration-crop2.jpg>]
 File: UDF_half.jpg Graphic file (type jpg)
 <use UDF_half.jpg>
-Package pdftex.def Info: UDF_half.jpg  used on input line 712.
+Package pdftex.def Info: UDF_half.jpg  used on input line 742.
 (pdftex.def)             Requested size: 153.64493pt x 153.6399pt.
+ [29
 
-[30
+] [30
 
 ] [31
 
-] [32
-
 ]
 File: orangepie.jpg Graphic file (type jpg)
 <use orangepie.jpg>
-Package pdftex.def Info: orangepie.jpg  used on input line 798.
+Package pdftex.def Info: orangepie.jpg  used on input line 825.
 (pdftex.def)             Requested size: 153.64493pt x 154.3364pt.
- [33
+ [32
+
+] [33
 
 ] [34
 
-] [35
-
-] [36
-
 ]
 File: orangepie.jpg Graphic file (type jpg)
 <use orangepie.jpg>
-Package pdftex.def Info: orangepie.jpg  used on input line 926.
+Package pdftex.def Info: orangepie.jpg  used on input line 937.
 (pdftex.def)             Requested size: 153.64493pt x 154.3364pt.
+ [35
+
+]
+<zentner-halo-model-inv.png, id=241, 945.5325pt x 949.5475pt>
+File: zentner-halo-model-inv.png Graphic file (type png)
+<use zentner-halo-model-inv.png>
+Package pdftex.def Info: zentner-halo-model-inv.png  used on input line 977.
+(pdftex.def)             Requested size: 153.64493pt x 154.29239pt.
+
+[36
+
+ <./zentner-halo-model-inv.png (PNG copy)>]
+File: zentner-halo-model-inv.png Graphic file (type png)
+<use zentner-halo-model-inv.png>
+Package pdftex.def Info: zentner-halo-model-inv.png  used on input line 1018.
+(pdftex.def)             Requested size: 153.64493pt x 154.29239pt.
  [37
 
 ]
-<zentner-halo-model-inv.png, id=250, 945.5325pt x 949.5475pt>
+<M104b_peris2048_scale_small.jpg, id=256, 681.54625pt x 468.75125pt>
+File: M104b_peris2048_scale_small.jpg Graphic file (type jpg)
+<use M104b_peris2048_scale_small.jpg>
+Package pdftex.def Info: M104b_peris2048_scale_small.jpg  used on input line 10
+53.
+(pdftex.def)             Requested size: 122.9164pt x 84.53609pt.
 File: zentner-halo-model-inv.png Graphic file (type png)
 <use zentner-halo-model-inv.png>
-Package pdftex.def Info: zentner-halo-model-inv.png  used on input line 965.
-(pdftex.def)             Requested size: 153.64493pt x 154.29239pt.
+Package pdftex.def Info: zentner-halo-model-inv.png  used on input line 1053.
+(pdftex.def)             Requested size: 122.9164pt x 123.43102pt.
  [38
 
- <./zentner-halo-model-inv.png (PNG copy)>]
-File: abell-1689-hubble.jpg Graphic file (type jpg)
-<use abell-1689-hubble.jpg>
-Package pdftex.def Info: abell-1689-hubble.jpg  used on input line 1007.
-(pdftex.def)             Requested size: 153.64493pt x 159.50175pt.
+ <./M104b_peris2048_scale_small.jpg>]
+File: scinv-example-invert.pdf Graphic file (type pdf)
+<use scinv-example-invert.pdf>
+Package pdftex.def Info: scinv-example-invert.pdf  used on input line 1084.
+(pdftex.def)             Requested size: 153.64493pt x 149.55531pt.
  [39
 
 ]
-<sun226_fig.png, id=261, 2829.57124pt x 2053.6725pt>
-File: sun226_fig.png Graphic file (type png)
-<use sun226_fig.png>
-Package pdftex.def Info: sun226_fig.png  used on input line 1051.
-(pdftex.def)             Requested size: 153.64493pt x 111.4952pt.
+<blanco-dustin-lang.jpg, id=267, 1445.4pt x 1815.78375pt>
+File: blanco-dustin-lang.jpg Graphic file (type jpg)
+<use blanco-dustin-lang.jpg>
+Package pdftex.def Info: blanco-dustin-lang.jpg  used on input line 1117.
+(pdftex.def)             Requested size: 149.95193pt x 188.40181pt.
  [40
 
- <./sun226_fig.png>]
-<xi_notomo_neg.png, id=267, 1367.1075pt x 1589.94pt>
-File: xi_notomo_neg.png Graphic file (type png)
-<use xi_notomo_neg.png>
-Package pdftex.def Info: xi_notomo_neg.png  used on input line 1087.
-(pdftex.def)             Requested size: 153.64493pt x 178.67857pt.
+ <./blanco-dustin-lang.jpg>]
+<ctio_blanco_crew_2013Oct-30-small-balance.jpg, id=273, 806.01125pt x 1207.5112
+5pt>
+File: ctio_blanco_crew_2013Oct-30-small-balance.jpg Graphic file (type jpg)
+<use ctio_blanco_crew_2013Oct-30-small-balance.jpg>
+Package pdftex.def Info: ctio_blanco_crew_2013Oct-30-small-balance.jpg  used on
+ input line 1152.
+(pdftex.def)             Requested size: 125.75446pt x 188.40181pt.
  [41
 
- <./xi_notomo_neg.png (PNG copy)>]
-<3x2-fig10.png, id=273, 615.29875pt x 570.13pt>
-File: 3x2-fig10.png Graphic file (type png)
-<use 3x2-fig10.png>
-Package pdftex.def Info: 3x2-fig10.png  used on input line 1125.
-(pdftex.def)             Requested size: 153.64493pt x 142.35815pt.
+ <./ctio_blanco_crew_2013Oct-30-small-balance.jpg>]
+<DES0421-5457-gri-ngc1566.jpg, id=279, 3081.5125pt x 3023.295pt>
+File: DES0421-5457-gri-ngc1566.jpg Graphic file (type jpg)
+<use DES0421-5457-gri-ngc1566.jpg>
+Package pdftex.def Info: DES0421-5457-gri-ngc1566.jpg  used on input line 1161.
+
+(pdftex.def)             Requested size: 245.83282pt x 241.17656pt.
+
+Overfull \vbox (1.36743pt too high) detected at line 1161
+ []
 
 [42
 
- <./3x2-fig10.png>] [43
+ <./DES0421-5457-gri-ngc1566.jpg>]
+<xi_all_idit_bias_icolor-crop.png, id=285, 1317.92375pt x 1716.4125pt>
+File: xi_all_idit_bias_icolor-crop.png Graphic file (type png)
+<use xi_all_idit_bias_icolor-crop.png>
+Package pdftex.def Info: xi_all_idit_bias_icolor-crop.png  used on input line 1
+202.
+(pdftex.def)             Requested size: 153.64493pt x 200.09398pt.
+ [43
 
-] [44
+ <./xi_all_idit_bias_icolor-crop.png (PNG copy)>]
+<xi_notomo_neg.png, id=292, 1367.1075pt x 1589.94pt>
+File: xi_notomo_neg.png Graphic file (type png)
+<use xi_notomo_neg.png>
+Package pdftex.def Info: xi_notomo_neg.png  used on input line 1239.
+(pdftex.def)             Requested size: 153.64493pt x 178.67857pt.
+ [44
 
-] [45
+ <./xi_notomo_neg.png (PNG copy)>]
+<3x2-fig10.png, id=298, 615.29875pt x 570.13pt>
+File: 3x2-fig10.png Graphic file (type png)
+<use 3x2-fig10.png>
+Package pdftex.def Info: 3x2-fig10.png  used on input line 1274.
+(pdftex.def)             Requested size: 153.64493pt x 142.35815pt.
+ [45
 
-]
-<sn94d_hiz_big.jpg, id=298, 654.445pt x 654.445pt>
-File: sn94d_hiz_big.jpg Graphic file (type jpg)
-<use sn94d_hiz_big.jpg>
-Package pdftex.def Info: sn94d_hiz_big.jpg  used on input line 1217.
-(pdftex.def)             Requested size: 242.23073pt x 242.23032pt.
-
-Overfull \vbox (2.42119pt too high) detected at line 1217
- []
+ <./3x2-fig10.png>]
+File: 3x2-fig10.png Graphic file (type png)
+<use 3x2-fig10.png>
+Package pdftex.def Info: 3x2-fig10.png  used on input line 1310.
+(pdftex.def)             Requested size: 153.64493pt x 142.35815pt.
 
 [46
 
- <./sn94d_hiz_big.jpg>]
-<snhubblediag_betoule_inv.png, id=304, 571.13374pt x 696.6025pt>
-File: snhubblediag_betoule_inv.png Graphic file (type png)
-<use snhubblediag_betoule_inv.png>
-Package pdftex.def Info: snhubblediag_betoule_inv.png  used on input line 1248.
-
-(pdftex.def)             Requested size: 153.64493pt x 187.39429pt.
- [47
-
- <./snhubblediag_betoule_inv.png>]
+]
 <DES0022-4831-four.jpg, id=312, 1898.09125pt x 1430.34375pt>
 File: DES0022-4831-four.jpg Graphic file (type jpg)
 <use DES0022-4831-four.jpg>
-Package pdftex.def Info: DES0022-4831-four.jpg  used on input line 1288.
+Package pdftex.def Info: DES0022-4831-four.jpg  used on input line 1348.
 (pdftex.def)             Requested size: 184.37344pt x 138.91777pt.
- [48
+ [47
 
  <./DES0022-4831-four.jpg>]
 \tf@nav=\write6
@@ -1158,39 +1178,42 @@ Package pdftex.def Info: DES0022-4831-four.jpg  used on input line 1288.
 \tf@snm=\write8
 \openout8 = `2019-06-28-suli.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1292.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1292.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1352.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1352.
  (./2019-06-28-suli.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1292.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1292.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1352.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1352.
 
 Package rerunfilecheck Info: File `2019-06-28-suli.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17416 strings out of 492982
- 330548 string characters out of 6134896
- 395476 words of memory out of 5000000
- 20463 multiletter control sequences out of 15000+600000
- 15729 words of font info for 61 fonts, out of 8000000 for 9000
+ 17404 strings out of 492982
+ 330522 string characters out of 6134896
+ 396476 words of memory out of 5000000
+ 20447 multiletter control sequences out of 15000+600000
+ 17274 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,12n,61p,778b,621s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 2019-06-28-suli.pdf (48 pages, 15943784 bytes).
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on 2019-06-28-suli.pdf (47 pages, 19587811 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 282 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 

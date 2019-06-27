@@ -94,7 +94,7 @@ the Universe}
     \begin{itemize}
 
         \item Very brief introduction to cosmology
-        \item Introductioin to Gravitational Lensing
+        \item Introduction to Gravitational Lensing
         \item How we learn about cosmology using lensing
         \item Some examples
 
@@ -223,6 +223,7 @@ the Universe}
 
 
 
+\begin{comment}
 \frame
 {
 
@@ -269,6 +270,7 @@ the Universe}
     {\normalsize Image of the universe 300,000 years after the big bang (Tegmark, WMAP)}
 }
 
+\end{comment}
 
 \frame
 {
@@ -585,9 +587,6 @@ the Universe}
                     probe the expansion history of the universe and measure
                     the effects of Dark Energy
 
-                \item In practice we really measure distance {\em ratios}, but
-                    that's useful as well.
-
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -595,6 +594,37 @@ the Universe}
                 \includegraphics[width=0.7\textwidth]{QSO_B0957+0561-crop.jpg}
                 \newline
                 \includegraphics[width=\textwidth]{lens_geometry_invert.pdf}
+            \end{center}
+
+            
+        \end{column}
+    \end{columns}
+
+
+}
+
+\frame
+{
+
+    \frametitle{Using Gravitational Lensing}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item In practice we really measure distance {\em ratios}, but
+                    that's useful as well.
+
+                \item This shows how strong the lensing effect is for
+                    sources at different distances behind the lens
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{scinv-example-invert.pdf}
             \end{center}
 
             
@@ -633,7 +663,7 @@ the Universe}
             \begin{center}
                 \includegraphics[width=\textwidth]{DES0428-4748-gri-crop.jpg}
                 \newline
-                {\tiny Dark Energy Survey, color image Erin Sheldon}
+                {\tiny Dark Energy Survey, color image E. Sheldon}
             \end{center}
 
             
@@ -791,9 +821,6 @@ the Universe}
     \end{center}
 
     Show Movie Mellenium Simulation
-    \newline
-    Show Movie Feng Yu
-
 
 }
 
@@ -857,30 +884,13 @@ the Universe}
                 \item {\color{gold} $\langle z(|\Delta \vec{r}|) \rangle$}
 
                 \item {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
-                    \rangle$ }: Correlation function
+                    \rangle \propto \xi(|\vec{r_1} - \vec{r_2}|$) }: Correlation function
 
             \end{itemize}
 
     \end{itemize}
 
 }
-
-\frame
-{
-
-    \frametitle{Cosmology with Distance, Redshift and Density}
-
-
-    \begin{itemize}
-
-        \item I'll give two examples of how we do this in practice
-
-
-    \end{itemize}
-
-}
-
-
 
 
 \frame
@@ -895,8 +905,9 @@ the Universe}
             \begin{itemize}
 
                 \item The theory predicts the correlation function of
-                    dark matter {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
-                    \rangle$ }
+                    dark matter 
+                    {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
+                    \rangle \propto \xi(|\vec{r_1} - \vec{r_2}|$) }
 
                 \item For example, if a point in the universe has high density, a nearby
                     point probably also has high density. Similarly
@@ -937,8 +948,9 @@ the Universe}
             \begin{itemize}
 
                 \item The theory predicts the correlation function of
-                    dark matter {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
-                    \rangle$ }
+                    dark matter
+                    {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
+                    \rangle \propto \xi(|\vec{r_1} - \vec{r_2}|$) }
 
                 \item Depends on the mean density and variance of the matter 
                     in the universe
@@ -970,7 +982,7 @@ the Universe}
 
     \frametitle{Dark Matter Correlation Function}
 
-    \setbeamerfont*{itemize/enumerate body}{size=\small}
+    \setbeamerfont*{itemize/enumerate body}{size=\footnotesize}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -980,24 +992,58 @@ the Universe}
                     causes correlations in the ellipticities of background
                     galaxies
 
-                \item Recall, the theory predicts the correlation function of
-                    dark matter {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
-                    \rangle$ }
-
                 \item We can measure the correlation function in the
                     ellipticity {\color{gold} $\langle e(\vec{\theta_1})
                     e(\vec{\theta_2}) \rangle$ }
 
-                \item The two correlation functions are directly related
+                \item Because the correlations in the ellipticities are caused
+                    by mass, this is closely related to the correlation
+                    function of the mass, which is what the theory predicts
+                    {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
+                    \rangle$ }
 
             \end{itemize}
 
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{center}
-                \includegraphics[width=\textwidth]{abell-1689-hubble.jpg}
-                \newline
-                {\tiny HST/NASA}
+                \includegraphics[width=\textwidth]{zentner-halo-model-inv.png}
+            \end{center}
+            {\tiny A. Zentner}
+        \end{column}
+
+    \end{columns}
+
+
+}
+
+\frame
+{
+
+    \frametitle{Dark Matter Correlation Function}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\footnotesize}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item We can do a special measurement where we look
+                    specifically around foreground objects, rather
+                    than just correlating all shapes
+
+                \item Then we measure the mean amount of mass in the lens, for
+                    example galaxies.
+
+                \item Can we measure the dark matter in galaxies?
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{M104b_peris2048_scale_small.jpg}
+                \includegraphics[width=0.8\textwidth]{zentner-halo-model-inv.png}
             \end{center}
         \end{column}
 
@@ -1009,40 +1055,60 @@ the Universe}
 \frame
 {
 
-    \frametitle{Measuring Shear Correlation Function}
+    \frametitle{Using Gravitational Lensing}
 
     \setbeamerfont*{itemize/enumerate body}{size=\small}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \begin{enumerate}
+            \begin{itemize}
 
-                \item Find Objects
+                \item Plus, with lensing we can re-measure the signal for
+                    objects at different {\em redshifts} learn about their {\em
+                    distances} from us.
 
-                \item Measure ellipticities
+                \item This is especially useful for studying Dark Energy
 
-                \item Correct for blurring by atmosphere and telescope
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{scinv-example-invert.pdf}
+            \end{center}
 
-                \item Measure the correlation function
-                    {\color{gold} $\langle e(\vec{\theta_1}) e(\vec{\theta_2}) \rangle$ }
-                \item Statistically infer redshifts from
-                    images through different color filters
+            
+        \end{column}
+    \end{columns}
 
 
-            \end{enumerate}
+}
 
-            After 30 years we now have an algorithm to calibrate
-                this measurement accurately (Sheldon \& Huff 2017)
+\frame
+{
+
+    \frametitle{Dark Energy Survey}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item We perform weak lensing measurements using data we take
+                    with the Blanco telescope in Chile
+
+                \item We built a new camera specifically to do weak lensing and
+                    study Dark Energy
+
+            \end{itemize}
 
         \end{column}
         \begin{column}{0.5\textwidth}
-
             \begin{center}
-                \includegraphics[width=\textwidth]{sun226_fig.png}
+                \includegraphics[height=0.7\textheight]{blanco-dustin-lang.jpg}
                 \newline
-                {\tiny Source Extractor (Bertin)}
+                {\tiny Blanco Telescope in Chile (D. Lang)}
             \end{center}
-
         \end{column}
 
     \end{columns}
@@ -1050,6 +1116,90 @@ the Universe}
 
 }
 
+
+
+\frame
+{
+
+    \frametitle{Dark Energy Survey}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item We perform weak lensing measurements using data we take
+                    with the Blanco telescope in Chile
+
+                \item We built a new camera specifically to do weak lensing and
+                    study Dark Energy
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[height=0.7\textheight]{ctio_blanco_crew_2013Oct-30-small-balance.jpg}
+                \newline
+                {\tiny Blanco Telescope in Chile (B. Nord)}
+            \end{center}
+        \end{column}
+
+    \end{columns}
+
+
+}
+
+
+\frame
+{
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{DES0421-5457-gri-ngc1566.jpg}
+    \end{center}
+    {\normalsize Dark Energy Survey (E. Sheldon)}
+}
+
+
+\frame
+{
+
+    \frametitle{Dark Matter in Galaxies}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item Measure the correlation of ellipticities with
+                    positions of galaxies
+
+                \item If all the light were in stars only, the curve would
+                    be much steeper on small scales
+
+                \item On large scales the signal is due to nearby objects, but
+                    the amplitude is way too high if the mass were only from
+                    stars
+
+                \item In excellent agreement with prediction of cold dark
+                    matter theory
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{xi_all_idit_bias_icolor-crop.png}
+                \newline
+                {\tiny E. Sheldon}
+            \end{center}
+        \end{column}
+
+    \end{columns}
+
+
+}
 
 
 \frame
@@ -1063,12 +1213,14 @@ the Universe}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
 
-                \item Best measurement to date is from the Dark Energy Survey
+                \item Now just correlate the shapes, don't look around
+                    specific points {\color{gold} $\langle e(\vec{\theta_1})
+                    e(\vec{\theta_2}) \rangle$ }
 
-                \item These results are from the first year of
-                    five.
-
-                \item LSST, starting in a few years, will be even better.
+                \item Recall this is realted to the correlation function
+                    of the density field
+                    {\color{gold} $\langle \rho(\vec{r_1}) \rho(\vec{r_2})
+                    \rangle \propto \xi(|\vec{r_1} - \vec{r_2}|$) }
 
             \end{itemize}
 
@@ -1076,6 +1228,41 @@ the Universe}
         \begin{column}{0.5\textwidth}
             \begin{center}
                 \includegraphics[width=\textwidth]{xi_notomo_neg.png}
+                \newline
+                {\tiny Dark Energy Survey}
+            \end{center}
+        \end{column}
+
+    \end{columns}
+
+
+}
+
+
+\frame
+{
+
+    \frametitle{Weak Lensing Shear And Cosmology}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+
+                \item DES constrains {\color{gold} $\Omega_m$}, {\color{gold} $\Omega_\Lambda$}
+                    and the mass variance very well.
+
+                \item Agrees with the cosmic microwave background.
+                    
+                \item Combining the two is even better.
+
+            \end{itemize}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{3x2-fig10.png}
                 \newline
                 {\tiny Dark Energy Survey}
             \end{center}
@@ -1097,16 +1284,14 @@ the Universe}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
 
-                \item DES constrains {\color{gold} $\Omega_m$}, {\color{gold} $\Omega_\Lambda$}
-                    and the mass variance very well.
+                \item At the end of this year we will have results from a lot more data.
 
-                \item Agrees with the cosmic microwave background.
-                    
-                \item Combining the two is even better.
+                \item We will address some burning questions: Does the dark
+                    energy evolve or is it vacuum energy? (see Paul's talk).
 
-                \item Soon we can start asking more interesting questions: Does the
-                    dark energy evolve or is it Einstein's cosmological constant? (see
-                    Paul's talk).
+                \item There are hints of discrepancy between measurements of
+                    the time right after the big bang and measurements now.  Do
+                    we confirm these discrepancies?
 
             \end{itemize}
 
@@ -1125,128 +1310,6 @@ the Universe}
 }
 
 
-\frame
-{
-
-    \frametitle{Cosmology with Galaxy Surveys: Distances and Redshift}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\large}
-
-    \begin{itemize}
-
-        \item In terms of the expansion, it is the combination of {\color{gold}
-            $|\Delta \vec{r} (t)| $ } and {\color{gold} $z(|\Delta \vec{r}|)$}
-            that is powerful
-
-
-        \item Let's call this combination  {\color{gold} $D(z)$}, the relationship
-            between the distance and redshift.
-
-        \item Typically one of the points is fixed on us, and the other is
-            some distant galaxy. So {\color{gold} $D(z)$} means the distance
-            to some galaxy with known redshift $z$.
-
-        \item We can measure $z$ directly on a spectrum.  The key is getting
-            the distance.
-
-        \item A good  method is the standard candle.
-
-    \end{itemize}
-
-}
-
-\frame
-{
-
-    \frametitle{Standard Candles}
-
-
-    \begin{itemize}
-
-        \item If you know the intrinsic luminosity of an object, then you can
-            calculate the distance from the {\em apparent brightness}
-
-        \item {\color{gold} $\ell = \frac{L}{4 \pi d^2}$ }
-
-        \item Type 1A supernovae are such objects.
-
-    \end{itemize}
-
-}
-
-\frame
-{
-
-    \frametitle{Type 1A Supernovae}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\large}
-
-    \begin{itemize}
-
-        \item We can measure {\color{gold} $D(Z)$} using galaxy surveys
-
-            \begin{enumerate}
-
-                \item Take images of the sky, identify objects, measure their brightness
-
-                \item Take more images, on a regular schedule
-
-                \item Watch for a star to go Supernova in a distant
-                    galaxy: they get a lot brighter
-
-                \item Get a spectrum and determine the redshift.
-
-                \item Infer the distance
-
-                \item Average over lots of these to get {\color{gold} $\langle
-                    D(z) \rangle$ }
-
-            \end{enumerate}
-
-    \end{itemize}
-
-}
-
-\frame
-{
-
-    \begin{center}
-        \includegraphics[height=0.9\textheight]{sn94d_hiz_big.jpg}
-    \end{center}
-    {\normalsize High-Z Supernova Search Team/HST }
-}
-\frame
-{
-
-    \frametitle{Type 1A Supernovae}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\large}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{itemize}
-
-                \item This is how Dark Energy was discovered 
-
-                \item No predictions without dark energy are consistent
-                    with the measurements
-
-                \item Confirmed by other methods (BAO)
-
-            \end{itemize}
-
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{snhubblediag_betoule_inv.png}
-            \end{center}
-        \end{column}
-
-    \end{columns}
-
-
-}
-
 
 \frame
 {
@@ -1259,14 +1322,11 @@ the Universe}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
 
-                \item With galaxy surveys we have made great
-                    discoveries such as the expansion of
-                    the universe, dark matter and dark energy.
-                    
+                \item Lensing is a powerful tool to measure mass in the
+                    universe
+
                 \item We can test our theory of the universe and measure the
                     detailed properties of dark matter and dark energy.
-
-                \item It all starts with pictures
 
                 \item Expect exciting results in the near future!
 
