@@ -1,0 +1,150 @@
+- alg. or pipe. I have developed
+- lessons learned
+- unexpected challenges encountered
+- what I would do differently or *additionally*
+
+
+
+- Identify the critical problems that are unsolved
+    - There are unsolved problems which *must be solved* if we are to succeed.
+    - Dedicate as many resources as possible to solving these problems
+        - This will require some convincing.
+    - Spend as little time as possible on solved problems (more on this later)
+
+- Example from my experience
+    - DES was proposed in ~2003 with weak lensing as a primary probe.
+    - Weak lensing measurement is still not a fully solved problem in 2020,
+      although recently candidate algorithms have been introduced that work in
+      principle.
+    - There are hundreds of people in the project whose science depends
+      directly on the weak lensing calibration.
+    - Over the years there has been at most a few persons full time sustained
+      effort was spent on this problem within DES, at a given time. At times
+      this effort has been less than one.
+    - The situation is very similar in LSST right now.
+
+- Use existing solutions if they are good enough.
+    - These solutions might not fit perfectly, you may have to bend them out
+      of shape or adapt to their idiosyncrasies
+    - In most cases it will save so much time and frustration that it is worth it
+    - There is often more than one solution available, especially in cases
+      where the software industry has already solved the problem.
+    - Remember, there are unsolved problems which *must be solved* if we are
+      to succeed.  We must put our effort towards these problems.
+
+- Aggressively test your algorithms with validation simulations
+    - Build up simulations in such a way that you can toggle all the relevant
+      features, independently if possible
+    - Turn on features one at a time until you a) find a problem which you fix
+      or b) you reach full planned simulation complexity and your algorithm
+      provides acceptable accuracy.
+    - Each test must be much more precise than the expected sensitivity of the
+      measurements you plan to make.  This is necessary but can be resource
+      intensive.
+
+- Aggressively test your algorithms
+    - Validation tests are in addition to unit tests, which may also be partly
+      simulation based
+      - Use extensive unit tests and continuous integration (e.g. circleci on
+      github)
+
+- Confirmation bias is even more relevant for validation simulations than for
+  real data analysis.
+    - The process is by definition iterative, you find problems and fix them
+    - It is easy to fool yourself:  you stop when you measure no bias.
+    - Always quote least 99.7% confidence regions.  With simulations you run
+      thousands of tests and 2 sigma fluctuations will be seen often.
+
+- Calibration simulations are harder than good data analysis
+    - If you want to use a sim for estimating large calibration corrections,
+      you have to actually know what you are doing
+    - Often with good data analysis, you don't have to understand everything
+      you've done.  
+        - We don't do photometric calibration by simulating the instrument.
+          Rather we calibrate to a reference in a regime where the response is
+          linear
+    - If you calibrate with a sim you need to understand what you put in and
+      it must match the real world well enough.
+    - If you must calibrate with sims, try to develop algorithms so that
+      corrections are small.
+          - If the correction 1% you are less sensitive to the errors in your
+            simulations.
+
+- What are we in DESC doing for weak lensing shear in LSST?
+    - LSST DM needs the community to deliver state of the art algorithms
+    - We in DESC plan to deliver at least two algorithms
+        - Metacalibration (Sheldon \& Becker)
+        - BFD (Armstrong)
+    - What do we need to do?
+
+- What are we in DESC doing for weak lensing shear in LSST?
+    - We need to do coadding in small regions of sky
+    - For lensing we need a *continuous PSF*.
+    - We must only coadd images that do not have an edge in the region of sky.
+    - We waste less if we use smaller regions, and there are additional
+      advantages for metacal (I can explain if there is interest).
+    - We may be able to simply redefine the patch size and remove CCD images
+      with edges, this is TBD.
+    - We detect on a combined multi-band coadd and process in multi
+    band simultaneously 
+
+- What are we in DESC doing for weak lensing shear in LSST?
+    - We need to coadd the PSF exactly the same way we coadd the images
+
+- What are we in DESC doing for weak lensing shear in LSST?
+    - We need to propagate a noise image through all of the relevant
+      processing stages.
+    - Coadding produces correlated noise.
+    - Interpolation produces biases and correlated noise
+    - With modern algorithms such as metacalibration and BFD we can propagate
+      these effects using the noise image to produce unbiased results, all
+      else being equal.
+
+- What are we in DESC doing for weak lensing shear in LSST?
+    - We need to run detection and all relevant algorithms on these coadds.
+    - For metacalibration we need to rerun algorithms on sheared images as
+      well (I can explain if there is interest).
+
+- How are we in DESC doing weak lensing for LSST?
+    - All code is open source on github, heavily unit tested with continuous
+      integration
+
+- How are we in DESC doing weak lensing for LSST?
+    - Trying to re-use as much DM Stack code as possible.
+        - Use the stack for everything we can.
+        - We had to write code to include the sub-pixel shifts in the PSF
+          coaddition (we will feed this back to DM if there is interest)
+        - Not currently possible to propagate noise images through the image
+          CR interpolatioin, for technical reasons, so we are doing our own noise
+          propagation and interpolation.  We will work with DM to make
+          this work in the stack.
+        - We may eventually need improved astrometry, to deal e.g. with tree
+          rings.
+        - We will need to mask bright stars, no code for that yet
+
+- How are we in DESC doing weak lensing for LSST?
+    - Using existing external codes for metacalibration (ngmix)
+    - BFD is under development but should be ready for testing soon.
+
+- How are we in DESC doing weak lensing for LSST?
+    - We are developing image simulations in parallel with the analysis code.
+    - We can toggle each feature independently.
+
+- How are we in DESC doing weak lensing for LSST?
+    - Simulations currently have
+        - field dithers, rotations
+        - TAN WCS with variations in pixel scale and wcs shear
+        - cosmic rays, bad columns
+        - realistic galaxy size and mag distributions and bulge+disk+agn model
+          (WeakLensingDeblending) More complexity will be added, but for
+          modern algorithms this is not critical for most testing.
+        - realistic star mags and galactic density variations following DC2
+        - Primitive Star saturation and fake bleed trails
+        - TODO realistic astrometric distortions, more realistic bright star
+          effects (Jim Chiang helping to use DC2 examples)
+
+- How are we in DESC doing weak lensing for LSST?
+    - show image
+
+- Testing philosophy in practice
+    - show figure
