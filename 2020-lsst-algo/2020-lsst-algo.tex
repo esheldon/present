@@ -1,0 +1,280 @@
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem}
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+\definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{brightred}{rgb}{1.,0.4,0.4}
+\definecolor{mygray}{RGB}{200,200,200}
+\definecolor{lightsteelblue}{RGB}{176,196,222}
+\definecolor{lightskyblue}{RGB}{135,206,250}
+\definecolor{cadetblue}{RGB}{95,158,160}
+
+\usetheme{default}
+\usecolortheme{mule}
+
+\usefonttheme{serif}
+
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\newcommand{\mcal}{\textsc{metacalibration}}
+\newcommand{\Mcal}{\textsc{Metacalibration}}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+      \insertshorttitle\hfill%
+        \insertframenumber\,/\,\inserttotalframenumber}
+
+% suppress navigation bar
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}{}
+
+
+\title{Weak Lensing Algorithms and Lessons Learned from Precursor Experiments}
+\author{Erin Sheldon}
+\institute{Brookhaven National Laboratory}
+\date{Match 19, 2020}
+%
+
+\begin{document}
+\setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+\setbeamerfont*{itemize/enumerate body}{size=\Large}
+\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+
+%
+\frame
+{
+
+    % \frametitle{Introduction}
+
+    {\huge The charge from the organizing committee: }
+    \newline
+
+    \begin{quote}
+    ``...to speak on algorithms and pipelines you have developed or
+    used in other surveys, lessons learnt, particularly any unexpected
+    challenges you have encountered, and to highlight what you would do
+    differently or additionally with LSST in order to maximize scientific
+    return.''
+    \end{quote}
+
+
+}
+
+\frame
+{
+
+    \frametitle{Outline}
+
+    %\setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item Lessons from precursor surveys
+        \item What we in DESC need for weak lensing shear
+        \item What we in DESC are doing for weak lensing shear
+
+    \end{itemize}
+
+}
+
+
+\frame
+{
+    \frametitle{Precursor Survey Work}
+
+    \begin{itemize}
+
+        \item SDSS shear pipeline development and lensing analysis
+
+        \item BOSS target selection framework
+
+        \item DES shear pipeline development and lensing analysis
+
+        \item What did I/we learn from all this, and how are we implementing
+            that knowledge for LSST?
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Lesson: Identify the Critical Problems that are Unsolved}
+
+    \begin{itemize}
+
+        \item There are unsolved problems which {\em must be solved} if we are to succeed.
+
+        \item Dedicate as many resources as possible to solving these problems
+
+            \begin{itemize}
+                \item This will require some {\em convincing}
+            \end{itemize}
+
+        \item Spend as little time as possible on solved problems (more on this later)
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Examples from My Experience}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item DES was proposed in about 2003 with weak lensing as a primary probe.
+
+        \item Weak lensing measurement is still not a fully solved problem in
+            2020, although recently candidate algorithms have been introduced
+            that work in principle.
+
+        % \item There are hundreds of people in the project whose science depends
+        %     directly on the weak lensing calibration.
+
+        \item  Over the years there has been at most a few persons full time
+            sustained effort spent on this problem within DES, at a given time.
+            At times this effort has been {\em less than one}.
+
+        \item The situation is very similar in LSST right now.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Lesson: Use Existing Solutions if they are Good Enough}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item These solutions might not fit perfectly, I may have to bend
+            them out of shape or adapt to their idiosyncrasies
+
+        \item In most cases it will save so much time and frustration that it
+            is worth it
+
+        \item There is often more than one solution available, especially in
+            cases where the software industry has already solved the problem.
+
+        \item There are unsolved problems which {\em must be solved} if we are
+            to succeed.  We must put our effort towards those problems.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Lesson: Aggressively test algorithms with validation simulations}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item Build up simulations in such a way that I can toggle all the
+            relevant features, independently if possible
+
+        \item Turn on features one at a time until I a) find a problem which I
+            will try to fix or b) I reach full planned simulation complexity
+            and the algorithm provides acceptable accuracy.
+
+        \item Each test must be much more precise than the expected precision
+            of the measurements I plan to make on real data.  For example, I
+            want to be confident there is no bias with at least 99.7\%
+            confidence.  This is necessary but can be resource intensive.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Lesson: Use best software practices, e.g. Unit Tests}
+
+    \begin{itemize}
+
+        \item Validation tests are in addition to unit tests, which may also be
+            partly simulation based
+
+        \item Use extensive unit tests and continuous integration (e.g. circleci
+            on github)
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Lesson: Confirmation bias is even more relevant for validation
+    simulations than for real data analysis }
+
+    \begin{itemize}
+
+        \item The process is by definition iterative, I find problems and fix
+            them
+
+        \item I have many opportunities to fool myself:  I tend to stop when I
+            measure no bias and move on to the next test.
+
+        \item Always quote least 99.7\% confidence regions.  I will run
+            thousands of tests and 2 sigma fluctuations will be seen regularly.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Lesson: Calibration simulations are harder than good data analysis}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\small}
+
+    \begin{itemize}
+
+        \item Often with data analysis, I don't need to understand everything that
+            I measured, or how it is measured.
+
+            \begin{itemize}
+
+                \item E.g., we don't do photometric calibration by simulating the
+                    instrument.  Rather we calibrate to references in a regime
+                    where the machine response is linear
+
+            \end{itemize}
+
+
+        \item But, if I want to use a sim for estimating a large correction
+            factor, I must know what I am doing. I need to understand what I
+            put into the sim and it must match the real world very well.
+
+        \item I should put as much effort as possible into developing
+            algorithms that require small corrections.
+
+            \begin{itemize}
+    
+                \item If the correction is 1\% I will be less sensitive to the errors in
+                    my simulations than if the correction is 10\%.
+
+            \end{itemize}
+
+    \end{itemize}
+
+}
+
+
+\end{document}
