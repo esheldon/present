@@ -77,6 +77,7 @@
 
     \begin{itemize}
 
+        \item The challenge
         \item Lessons from precursor surveys
         \item What we in DESC need for weak lensing shear
         \item What we in DESC are doing for weak lensing shear
@@ -85,6 +86,30 @@
 
 }
 
+\frame
+{
+    \frametitle{The Challenge}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item We have set the bar extremely high.  We want to make full use of the
+            great data we will receive from the Rubin Observatory.
+
+        \item For example, for the weak lensing probe we need to recover the
+            signal with an accuracy of about 0.1\%.  At the time of writing,
+            the most accurate measurements in the literature are at the 1-2\%
+            level.
+
+        \item Other probes also have very tight requirements.
+
+        \item In order to meet these goals we must put forth a huge effort, and
+            work with great discipline.
+
+    \end{itemize}
+
+}
 
 \frame
 {
@@ -133,25 +158,48 @@
 
     \begin{itemize}
 
-        \item DES was proposed in about 2003 with weak lensing as a primary
-            probe.  We thought we were close to a solution.
+        \item DES was proposed in about 2003 with weak lensing (WL) as a primary
+            probe.  We thought we would soon have a WL method that
+            would meet our needs.
 
         \item Weak lensing measurement is still not a fully solved problem in
-            2020, although recently candidate algorithms have been introduced
-            that work in principle.
+            2020.  Only recently have candidate algorithms been introduced that
+            can work in principle.
 
         % \item There are hundreds of people in the project whose science depends
         %     directly on the weak lensing calibration.
 
-        \item  Over the years there has been at most a few persons full time
-            sustained effort spent on this problem within DES, at a given time.
-            At times this effort has been {\em less than one}.
+        \item  Over the years there have been at most a few persons full time
+            sustained effort (FTE) spent on this problem within DES, at a given
+            time.  More typically it has been about 1.0, shared between a few
+            people, as most people have multiple duties.
 
-        \item The situation is very similar in LSST right now.
+            %At times this effort has been {\em less than one}.
 
     \end{itemize}
 
 }
+\frame
+{
+    \frametitle{Effort on Unsolved Problems in LSST}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item The situation is very similar in LSST right now, with about 1.5
+            FTE on WL calibration.
+
+        \item We have good candidates (metacalibration, BFD) but limited effort.
+
+        \item If we fail we must fall back to {\em calibration from simulations}.
+            %which as far as I know would be unprecedented for a major physics experiment.
+
+    \end{itemize}
+
+}
+
+
 
 \frame
 {
@@ -161,7 +209,7 @@
 
     \begin{itemize}
 
-        \item These solutions might not fit perfectly, I may have to bend
+        \item These solutions might not fit perfectly, we may have to bend
             them out of shape or adapt to their idiosyncrasies
 
         \item In most cases it will save so much time and frustration that it
@@ -185,15 +233,15 @@
 
     \begin{itemize}
 
-        \item Build up simulations in such a way that I can toggle all the
+        \item Build up simulations in such a way that we can toggle all the
             relevant features, independently if possible
 
-        \item Turn on features one at a time until I a) find a problem which I
-            will try to fix or b) I reach full planned simulation complexity
+        \item Turn on features one at a time until we a) find a problem which we
+            will try to fix or b) we reach full planned simulation complexity
             and the algorithm provides acceptable accuracy.
 
         \item Each test must be much more precise than the expected precision
-            of the measurements I plan to make on real data.  For example, I
+            of the measurements we plan to make on real data.  For example, we
             want to be confident there is no bias with at least 99.7\%
             confidence.  This is necessary but can be resource intensive.
 
@@ -225,18 +273,34 @@
 
     \begin{itemize}
 
-        \item The process is by definition iterative, I find problems and fix
+        \item The process is by definition iterative, we find problems and fix
             them
 
-        \item I have many opportunities to fool myself:  I tend to stop when I
+        \item We have many opportunities to fool ourselves:  We tend to stop when we
             measure no bias and move on to the next test.
 
-        \item Always quote least 99.7\% confidence regions.  I will run
+        \item Always quote least 99.7\% confidence regions.  We will run
             thousands of tests and 2 sigma fluctuations will be seen regularly.
 
     \end{itemize}
 
 }
+
+\frame
+{
+
+    \frametitle{There May be Some Remaining Bias in the Validation Sims}
+
+    \begin{itemize}
+
+        \item There may be some remaining biases which we need to correct.
+
+        \item How should we approach these corrections?
+
+    \end{itemize}
+
+}
+
 
 \frame
 {
@@ -247,29 +311,28 @@
 
     \begin{itemize}
 
-        \item Often with data analysis, I don't need to understand everything that
-            I measured, or how it is measured.
+        \item Often with data analysis, we don't need to understand everything that
+            we measured, or how it is measured.
 
             \begin{itemize}
 
-                \item E.g., we don't do photometric calibration by simulating the
-                    instrument.  Rather we calibrate to references in a regime
-                    where the machine response is linear
+                \item We don't do photometric calibration by simulating the
+                    instrument.  We calibrate to reference sources in a regime
+                    where the machine response is linear.
 
             \end{itemize}
 
+        \item If we want to use a sim for estimating a large correction factor,
+            we must know what we are doing. We need to understand what we put
+            into the sim and it must match the real world very well.
 
-        \item But, if I want to use a sim for estimating a large correction
-            factor, I must know what I am doing. I need to understand what I
-            put into the sim and it must match the real world very well.
-
-        \item I should put as much effort as possible into developing
+        \item Therefore we should put as much effort as possible into developing
             algorithms that require small corrections.
 
             \begin{itemize}
     
-                \item If the correction is 1\% I will be less sensitive to the errors in
-                    my simulations than if the correction is 10\%.
+                \item If the correction is 1\% we will be less sensitive to the
+                    errors in the simulations than if the correction is 10\%.
 
             \end{itemize}
 
