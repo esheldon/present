@@ -15,8 +15,8 @@
 \definecolor{lightskyblue}{RGB}{135,206,250}
 \definecolor{cadetblue}{RGB}{95,158,160}
 
-\usetheme{default}
-\usecolortheme{mule}
+%\usetheme{default}
+%\usecolortheme{mule}
 
 \usefonttheme{serif}
 
@@ -40,13 +40,16 @@
 \date{Match 19, 2020}
 %
 
+
 \begin{document}
-\setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+%\setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
 
 \setbeamerfont*{itemize/enumerate body}{size=\Large}
 \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
 \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
 
+\frame{\titlepage}
 
 %
 \frame
@@ -79,7 +82,6 @@
 
         \item The challenge
         \item Lessons from precursor surveys
-        \item What we in DESC need for weak lensing shear
         \item What we in DESC are doing for weak lensing shear
 
     \end{itemize}
@@ -104,8 +106,8 @@
 
         \item Other probes also have very tight requirements.
 
-        \item In order to meet these goals we must put forth a huge effort, and
-            work with great discipline.
+        \item In order to meet these goals we must put forth a huge effort,
+            embrace novel ideas and work with great discipline.
 
     \end{itemize}
 
@@ -123,7 +125,7 @@
 
         \item DES shear pipeline development and lensing analysis
 
-        \item What did I/we learn from all this, and how are we implementing
+        \item What did we learn from all this, and how are we implementing
             that knowledge for LSST?
 
     \end{itemize}
@@ -192,7 +194,8 @@
 
         \item We have good candidates (metacalibration, BFD) but limited effort.
 
-        \item If we fail we must fall back to {\em calibration from simulations}.
+        \item If we fail we must fall back to {\em calibration from simulations}.  More
+            on this later.
             %which as far as I know would be unprecedented for a major physics experiment.
 
     \end{itemize}
@@ -293,7 +296,11 @@
 
     \begin{itemize}
 
-        \item There may be some remaining biases which we need to correct.
+        \item There may be some remaining biases in our measurements which we
+            need to correct.
+
+        \item For lensing we have no calibration sources, so we need to use
+            simulations
 
         \item How should we approach these corrections?
 
@@ -316,9 +323,10 @@
 
             \begin{itemize}
 
-                \item We don't do photometric calibration by simulating the
-                    instrument.  We calibrate to reference sources in a regime
-                    where the machine response is linear.
+                \item We don't do absolute photometric calibration by
+                    simulating the instrument.  We calibrate to reference
+                    sources in a regime where the machine response is
+                    approximately linear.
 
             \end{itemize}
 
@@ -331,12 +339,334 @@
 
             \begin{itemize}
     
-                \item If the correction is 1\% we will be less sensitive to the
-                    errors in the simulations than if the correction is 10\%.
+                \item If the correction is 0.5\% we will be less sensitive to the
+                    inevitable errors in the simulations than if the correction is 10\%.
 
             \end{itemize}
 
     \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{What are we doing in DESC for weak lensing shear?}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item LSST DM needs the community to deliver state of the art algorithms.
+            Shear algorithms are still an area of research.
+
+        \item Pipeline scientists (PS) Sheldon, Becker and Armstrong
+            are working on this at about 1.3 FTE
+            
+        \item DESC PS are technically not funded to do research, only to
+            implement existing algorithms.  So the research happens outside of
+            DESC or ``in our spare time''.
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{What are we doing in DESC for weak lensing shear?}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item We in DESC plan to deliver at least two algorithms.
+
+            \begin{itemize}
+                \item Metacalibration (DESC PS Sheldon \& Becker)
+                \item BFD (DESC PS Armstrong)
+            \end{itemize}
+
+        \item I'm not going to go into details of our algorithms because they
+            are not of general interest.
+            \begin{itemize}
+
+                \item Both methods work well enough for isolated sources.
+                    
+                \item Metacalibration includes a detection phase to deal with
+                    blending (Sheldon et al. 2019).
+            \end{itemize}
+
+        \item What are we doing to make these work for Rubin Obs. data?
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Coadding}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+        \item We coadd in small regions of sky
+            \begin{itemize}
+                \item For lensing we need a {\em continuous PSF}.
+                \item We must only coadd images that do not have an edge in the region of sky.
+                \item We waste less if we use smaller regions
+
+                \item Too small is difficult for metacal, as we also need to
+                    rerun detection on sheared versions of the images. About an
+                    arcminute is what we currently use, but we have not
+                    optimized this.
+
+                \item Technically, we may be able to simply redefine the patch size and remove CCD images
+                  with edges, this is TBD.
+
+            \end{itemize}
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{PSF Coadding}
+
+    \begin{itemize}
+        \item We coadd the PSF exactly the same way we coadd the images
+
+        \item This is different than the stack PSF coadding, more on that later.
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Noise propagation}
+
+    \begin{itemize}
+
+        \item We propagate a noise image through all of the relevant processing
+            stages.
+
+        \begin{itemize}
+            \item Coadding produces correlated noise.
+            \item Interpolation produces biases and correlated noise
+
+            \item With modern algorithms such as metacalibration and BFD we can propagate
+              these effects using the noise image to produce unbiased results, all
+              else being equal.
+        \end{itemize}
+
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Noise propagation}
+
+    \begin{itemize}
+
+        \item For metacal the noise field should match the background noise (Sheldon \& Huff 2017)
+            
+        \item BFD the noise field should include the noise from undetected
+            sources.  However, the covariance matrix can be updated by
+            measuring the effect of undetected sources in the data (Eckert et
+            al. 2020, in prep).
+
+    \end{itemize}
+
+}
+
+
+\frame
+{
+
+    \frametitle{Detection}
+
+
+    \begin{itemize}
+
+        \item We detect on a combined multi-band straight coadd
+
+        \item We process objects in multiple bands simultaneously 
+            \begin{itemize}
+                \item At this stage metacal and BFD are working separately
+                \item I think the details are mostly not of general interest, but
+                    I'm be happy to discuss on slack.
+            \end{itemize}
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{How are we in DESC doing the work?}
+
+    \begin{itemize}
+
+        \item All code for working with the stack, metacal, and the sims is is
+            open source on github, heavily unit tested with continuous
+            integration.
+
+    \end{itemize}
+
+}
+
+
+\frame
+{
+
+    \frametitle{Using Existing Solutions}
+
+    \begin{itemize}
+
+                \item Use the stack for everything we can
+                    \begin{itemize}
+                        \item Take the calibrated exposures as input
+                        \item Use the stack coadding code
+                        \item Use the stack detection code
+                        \item Use the stack WCS code
+                    \end{itemize}
+
+    \end{itemize}
+
+}
+\frame
+{
+
+    \frametitle{Feed back our solutions when we can't}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+
+                \item We had to write code to include the sub-pixel shifts in
+                    the PSF coaddition.  Important because the resampling
+                    causes a small amount of blurring and we need this to be in
+                    the PSF (we can feed this back to DM)
+
+                \item Not currently possible to propagate noise images through the image
+                  CR interpolation, for technical reasons, so we are doing our own noise
+                  propagation and interpolation.  We will work with DM to make
+                  this work in the stack.
+
+                \item We will need to mask bright stars, we hope we can pull code
+                    from HSC to do this, but we may need something custom.
+
+
+
+    \end{itemize}
+
+}
+
+
+
+\frame
+{
+
+    \frametitle{Using externally developed codes}
+
+    \begin{itemize}
+
+        \item Using existing external codes for metacalibration \texttt{ngmix + galsim}.  (Development
+            officially happens outside of DESC)
+
+        \item BFD is under development but should be ready for testing soon.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Aggressive testing with validation simulations}
+
+    \begin{itemize}
+
+        \item We are developing image simulations in parallel with the analysis code.
+        \item We can toggle each feature independently.
+
+    \end{itemize}
+
+}
+
+\frame
+{
+
+    \frametitle{Simulation Features}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+                \item field dithers, rotations
+                \item TAN WCS with variations in pixel scale and wcs shear
+                \item cosmic rays, bad columns
+                \item realistic galaxy size and mag distributions and bulge+disk+agn model
+                  (WeakLensingDeblending) More complexity will be added, but for
+                  modern algorithms this is not critical for most testing.
+    \end{itemize}
+}
+
+\frame
+{
+
+    \frametitle{Simulation Features cont..}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+            \begin{itemize}
+              \item realistic star mags and galactic density variations following DC2 (thanks to J. Sanchez)
+                \item Primitive Star saturation and fake bleed trails
+                \item TODO realistic astrometric distortions, more realistic bright star
+                  effects (Jim Chiang helping to use DC2 examples)
+            \end{itemize}
+}
+
+\frame
+{
+
+
+    \frametitle{Current Results}
+
+    % \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=white]
+	% \setbeamercolor{palette primary}{fg=black,bg=white}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+
+            %{\color{black}
+            \item Turn on features one by one
+            \item Use wide confidence regions (99.7\%)
+            \item Results for metacalibration shown at the right
+            %    }
+
+        \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{{mvals-fig.png}}
+            \end{center}
+            
+        \end{column}
+    \end{columns}
+
 
 }
 
