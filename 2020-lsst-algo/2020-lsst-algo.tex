@@ -177,8 +177,9 @@
 
         \item  Over the years there have been at most a few persons full time
             sustained effort (FTE) spent on this problem within DES, at a given
-            time.  At times it may have been more like 1.0, shared between a few
-            people, as most people have multiple duties.
+            time.
+
+        \item With hindsight we should have dedicated more effort to it.
 
             %At times this effort has been {\em less than one}.
 
@@ -193,12 +194,12 @@
 
     \begin{itemize}
 
-        \item The situation is very similar in LSST right now, with about 1.3
-            FTE to make existing WL algorithms work for LSST, but zero officially for
-            research (PS are not funded to do research).
+        \item The situation is similar in LSST right now, with about 1.3
+            FTE to make existing WL algorithms work for LSST (zero officially for
+            research, PS are not funded to do research).
 
-        \item A difference is that we have excellent candidates
-            (metacalibration, BFD).
+        \item A difference is that we {\em think} we have excellent candidates
+            (metacalibration, BFD, ...).
 
         \item If we fail we must fall back to {\em calibration from simulations}.  More
             on this later.
@@ -221,8 +222,7 @@
         \item These solutions might not fit perfectly, we may have to bend
             them out of shape or adapt to their idiosyncrasies
 
-        \item In most cases it will save so much time and frustration that it
-            is worth it
+        \item In most cases it will save so much time that it is worth it
 
         \item There is often more than one solution available, especially in
             cases where the software industry has already solved the problem.
@@ -238,7 +238,6 @@
 {
     \frametitle{Lesson: Aggressively test algorithms with validation simulations}
 
-    \setbeamerfont*{itemize/enumerate body}{size=\large}
 
     \begin{itemize}
 
@@ -249,15 +248,40 @@
             will try to fix or b) we reach full planned simulation complexity
             and the algorithm provides acceptable accuracy.
 
+
+    \end{itemize}
+
+}
+
+\frame
+{
+    \frametitle{Lesson: Aggressively test algorithms with validation simulations (cont.)}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\large}
+
+    \begin{itemize}
+
+
         \item Each test must be much more precise than the expected precision
             of the measurements we plan to make on real data.  For example, we
             want to be confident the bias is less than our requirements with at
             least 99.7\% confidence.  This is necessary but can be resource
             intensive.
 
+        \item Don't waste your time thinking about 1 sigma error bars:  always
+            quote least 99.7\% confidence regions.  We will run thousands of
+            tests and 2 sigma fluctuations will be seen regularly. I've
+            seen results move my more than 3 sigma.
+
+            \begin{itemize}
+                \item This applies to real data analysis too
+            \end{itemize}
+
     \end{itemize}
 
 }
+
+
 
 \frame
 {
@@ -293,10 +317,14 @@
         \item We tend to stop when we measure no bias and move on to the next
             test.
 
-        \item Don't waste your time thinking about 1 sigma error bars:  always
-            quote least 99.7\% confidence regions.  We will run thousands of
-            tests and 2 sigma fluctuations will be seen regularly. I've
-            seen results move my more than 3 sigma.
+        \item I'm not sure how to combat this except through diligence.
+            \begin{itemize}
+
+                \item We could try to have two completely independent simulation
+                    packages, with one not influenced by the testing results.  But
+                    this does not seem practical.
+
+            \end{itemize}
 
     \end{itemize}
 
@@ -311,9 +339,9 @@
 
         \item There may be some remaining biases in our measurements which we
             either have good reason to think we can't fix, or we don't
-            have time; think of a year 5 release deadline.
+            have time; think of a year 1 cosmology deadline.
 
-        \item For lensing we have no calibration sources, so we may need to use
+        \item For lensing we have no absolute calibration sources, so we may need to use
             simulations to make the correction.
 
         \item How should we approach these corrections?
@@ -339,8 +367,7 @@
 
                 \item We don't do absolute photometric calibration by
                     simulating the instrument.  We calibrate to reference
-                    sources in a regime where the machine response is
-                    approximately linear.
+                    sources.
 
             \end{itemize}
 
@@ -378,9 +405,9 @@
         \item Pipeline scientists (PS) Sheldon, Becker and Armstrong
             are working on this at about 1.3 FTE
             
-        \item DESC PS are technically not funded to do research, only to
+        \item (DESC PS are technically not funded to do research, only to
             implement existing algorithms.  So the research happens outside of
-            DESC or ``in our spare time''.
+            DESC or ``in our spare time'').
 
 
     \end{itemize}
@@ -429,18 +456,21 @@
     \begin{itemize}
 
         \item We coadd in small regions of sky
+        \item For lensing we need a {\em continuous PSF}.
+        \item We must only coadd images that do not have an edge in the region of sky.
+        \item We waste less if we use smaller regions
+
             \begin{itemize}
-                \item For lensing we need a {\em continuous PSF}.
-                \item We must only coadd images that do not have an edge in the region of sky.
-                \item We waste less if we use smaller regions
+
+                \item Technical points
 
                 \item Too small is difficult for metacal, as we also need to
                     rerun detection on sheared versions of the images. About an
                     arcminute is what we currently use, but we have not
                     optimized this.
 
-                \item Technically, we may be able to simply redefine the patch size and remove CCD images
-                  with edges, this is TBD.
+                \item We may be able to simply redefine the patch size in the standard
+                    DM code. This is TBD, currently we are defining the regions arbitrarily.
 
             \end{itemize}
 
@@ -454,9 +484,12 @@
     \frametitle{PSF Coadding}
 
     \begin{itemize}
-        \item We coadd the PSF exactly the same way we coadd the images
+
+        \item We coadd the PSF exactly the same way we coadd the images, at
+            least statistically.
 
         \item This is different than the stack PSF coadding, more on that later.
+
     \end{itemize}
 
 }
@@ -535,7 +568,7 @@
 \frame
 {
 
-    \frametitle{How are we in DESC doing the work?}
+    \frametitle{Details of how are we in DESC doing the work}
 
     \begin{itemize}
 
@@ -578,11 +611,11 @@
 
                 \item We had to write code to include the sub-pixel shifts in
                     the PSF coaddition.  Important because the resampling
-                    causes a small amount of blurring and we need this to be in
-                    the PSF.
+                    causes a small amount of blurring and we need this to be
+                    fully reflected in the PSF.
 
                 \item Not currently possible to propagate noise images through the image
-                  CR interpolation, for technical reasons, so we are doing our own noise
+                  stack CR interpolation, for technical reasons, so we are doing our own noise
                   propagation and interpolation.  We will work with DM to make
                   this a stack feature.
 
@@ -604,10 +637,9 @@
 
     \begin{itemize}
 
-        \item Using existing external codes for metacalibration \texttt{ngmix + galsim}.  (Development
+        \item Using existing external codes for metacalibration \texttt{ngmix + galsim}, available
+            on github.  (Development
             officially happens outside of DESC)
-
-        \item BFD is under development but should be ready for testing soon.
 
     \end{itemize}
 
@@ -620,7 +652,9 @@
 
     \begin{itemize}
 
-        \item We are developing image simulations in parallel with the analysis code.
+        \item We are developing image simulations in parallel with the analysis
+            code (much of the 1.3 FTE goes towards the simulations)
+
         \item We can toggle each feature independently.
 
     \end{itemize}
@@ -630,14 +664,17 @@
 \frame
 {
 
-    \frametitle{Simulation Features}
+    \frametitle{Current Simulation Features}
 
 
     \begin{itemize}
 
                 \item field dithers, rotations
-                \item TAN WCS with variations in pixel scale and wcs shear
+
+                \item TAN WCS with variations in pixel scale and wcs shear (need more realism)
+
                 \item cosmic rays, bad columns
+
                 \item realistic galaxy size and mag distributions and bulge+disk+AGN model
                   (WeakLensingDeblending)
 
@@ -650,7 +687,7 @@
 \frame
 {
 
-    \frametitle{Simulation Features cont..}
+    \frametitle{Current Simulation Features cont..}
 
 
     \begin{itemize}
@@ -726,6 +763,39 @@
 
 
 }
+
+\frame
+{
+
+
+    \frametitle{Example of something that needs exploration}
+
+    % \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=white]
+	% \setbeamercolor{palette primary}{fg=black,bg=white}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+
+            \item High stellar density is causing a bias
+
+            \item Not clear yet what the cause is: for metacal we would
+                expect stars to produce a negative bias at much
+                lower amplitude.
+
+        \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{{m-vs-density.png}}
+            \end{center}
+            
+        \end{column}
+    \end{columns}
+
+
+}
+
 
 
 \end{document}
