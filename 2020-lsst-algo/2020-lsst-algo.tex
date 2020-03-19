@@ -202,8 +202,8 @@
             FTE to make existing WL algorithms work for LSST (zero officially for
             research, PS are not funded to do research).
 
-        \item A difference is that we {\em think} we have excellent candidates
-            (metacalibration, BFD, ...).
+        \item We understand a lot more now.  We have good reason to {\em think}
+            we have excellent candidates (BFD, \mcal\ etc) but....
 
         \item If we fail we must fall back to {\em calibration from simulations}.  More
             on this later.
@@ -252,7 +252,8 @@
             will try to fix or b) we reach full planned simulation complexity
             and the algorithm provides acceptable accuracy.
 
-        \item This requires dedication and effort that can equal the
+        \item This requires dedication and effort that can equal or
+            exceed the
             work on the algorithm itself.
 
     \end{itemize}
@@ -275,7 +276,7 @@
             intensive.
 
         \item Don't waste your time thinking about 1 sigma error bars:  always
-            quote least 99.7\% confidence regions.  We will run thousands of
+            quote at least 99.7\% confidence regions.  We will run thousands of
             tests and 2 sigma fluctuations will be seen regularly. I've
             seen results move my more than 3 sigma.
 
@@ -318,7 +319,7 @@
         \item The process is by definition iterative, we look for problems, fix
             them and rerun.  It's easy to subconsciously create a situation
             within the simulation or analysis that artificially produces
-            accurate results.
+            a zero bias result.
 
         \item We tend to stop when we measure no bias and move on to the next
             test.
@@ -452,8 +453,8 @@
         \item We in DESC plan to deliver at least two algorithms.
 
             \begin{itemize}
-                \item Metacalibration (DESC PS Sheldon \& Becker)
                 \item BFD (DESC PS Armstrong)
+                \item \Mcal\ (DESC PS Sheldon \& Becker)
             \end{itemize}
 
         \item I'm not going to go into details of our algorithms because they
@@ -462,7 +463,7 @@
 
                 \item Both methods work well enough for isolated sources.
                     
-                \item Metacalibration includes a detection phase to deal with
+                \item \Mcal\ includes a detection phase to deal with
                     blending (Sheldon et al. 2019).
             \end{itemize}
 
@@ -490,7 +491,7 @@
 
                 \item Technical points
 
-                \item Too small is difficult for metacal, as we also need to
+                \item Too small is difficult for \mcal, as we also need to
                     rerun detection on sheared versions of the images. About an
                     arcminute is what we currently use, but we have not
                     optimized this.
@@ -537,7 +538,7 @@
             \item Interpolation of bad regions produces biases and correlated
                 noise
 
-            \item Modern algorithms such as metacalibration and BFD can
+            \item Algorithms such as BFD and \mcal\ can
                 propagate these effects using the noise image in order to
                 produce unbiased results, all else being equal.
 
@@ -560,7 +561,7 @@
             measuring the effect of undetected sources in the data (Eckert, Bernstein et
             al. 2020, in prep).
 
-        \item For metacal the noise field should match the background noise (Sheldon \& Huff 2017).
+        \item For \mcal\ the noise field should match the background noise (Sheldon \& Huff 2017).
             Undetected sources are part of the signal.
             
 
@@ -584,7 +585,7 @@
 
             \begin{itemize}
 
-                \item Note after coadding metacal and BFD work separately
+                \item Note after coadding BFD and \mcal\ work separately
 
             \end{itemize}
 
@@ -614,7 +615,7 @@
 
     \begin{itemize}
 
-        \item All code for working with the stack, metacal, and the sims is
+        \item All code for working with the stack, \mcal, and the sims is
             open source on github, heavily unit tested with continuous
             integration.
 
@@ -636,6 +637,8 @@
                         \item Take the calibrated exposures as input
 
                         \item Use the stack coadding code
+
+                        \item Use the stack PSF
 
                         \item Use the stack detection code
 
@@ -681,21 +684,6 @@
 \frame
 {
 
-    \frametitle{Using externally developed codes}
-
-    \begin{itemize}
-
-        \item Using existing external codes for metacalibration \texttt{ngmix + galsim}, available
-            on github.  (Development
-            officially happens outside of DESC)
-
-    \end{itemize}
-
-}
-
-\frame
-{
-
     \frametitle{Aggressive testing with validation simulations}
 
     \begin{itemize}
@@ -723,7 +711,7 @@
 
                 \item cosmic rays, bad columns
 
-                \item realistic galaxy size and mag distributions and bulge+disk+AGN model
+                \item Realistic galaxy size and mag distributions and bulge+disk+AGN model
                   (WeakLensingDeblending)
 
                   \begin{itemize}
@@ -745,7 +733,7 @@
 
     \begin{itemize}
 
-        \item realistic multi-band star mags and galactic density variations
+        \item Realistic multi-band star mags and galactic stellar density variations
             following DC2 (thanks to J. Sanchez)
 
         \item Primitive Star saturation and fake bleed trails
@@ -807,7 +795,7 @@
             %{\color{black}
             \item Turn on features one by one
             \item Use wide confidence regions (99.7\%)
-            \item Results for metacalibration shown at the right
+            \item Results for \mcal\ shown at the right
             %    }
 
         \end{itemize}
@@ -838,7 +826,7 @@
 
             \item High stellar density is causing a bias
 
-            \item Not clear yet what the cause is: for metacal we would
+            \item Not clear yet what the cause is: for \mcal\ we would
                 expect stars to produce a negative bias at much
                 lower amplitude.
 
