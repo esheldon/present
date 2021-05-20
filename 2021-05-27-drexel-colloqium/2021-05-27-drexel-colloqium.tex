@@ -239,9 +239,9 @@
     \frametitle{What did we leave out?}
 
     \begin{itemize}
-        \item We could include pressure {\color{gold} $p$} as well
+        \item We could include pressure {\color{gold} $p(t)$} as well
             \begin{equation}
-                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p}\right]
+                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)}\right]
             \end{equation}
             But normal matter doesn't have enough pressure, and even if it did it
             has the wrong sign:  $p = w \rho$ with $w$ positive.
@@ -254,23 +254,43 @@
     \frametitle{What did we leave out?}
 
     \begin{itemize}
-        \item We could include Einstein's cosmological constant fudge factor $\Lambda$:
+        \item We could include Einstein's cosmological constant fudge factor
+            {\color{gold} $\Lambda$} (ironically meant to keep the universe static)
             \begin{equation} 
                 G_{\mu, \nu} + \Lambda g_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
             \end{equation}
 
             \begin{equation}
-                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p} - \frac{{\color{gold} \Lambda}}{3}\right]
+                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)} - \frac{{\color{gold} \Lambda}}{3}\right]
             \end{equation}
 
-        \item Either we need a cosmological constant {\color{gold} $\Lambda$} or we need
-            some bizarre field with negative pressure {\color{gold} $p$}.
+        \item Either we need a cosmological constant {\color{gold} $\Lambda$}
+            or we need some bizarre field ``dark energy'' with negative pressure {\color{gold}
+            $p_{\mathrm{DE}}(t) = w \rho_{\mathrm{DE}}(t)$} with {\color{gold}$w < 0$}.
 
-        \item If these are small compared to the matter density $\rho$ early, but becomes
-            dominate late, we can explain the universe decelerating then accelerating.
+        \item If this component is small compared to the matter density $\rho$
+            in the early universe, but comes to dominate later, we can explain
+            the universe decelerating then accelerating.
 
     \end{itemize}
 }
+
+\frame
+{
+    \frametitle{Is it {\color{gold} $\Lambda$} or Dark Energy?}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\Large}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{itemize}
+
+        \item We don't have enough information to tell these apart.
+        \item We need more data.  In cosmology this means {\it surveys}.
+
+    \end{itemize}
+}
+
 
 
 
