@@ -212,6 +212,66 @@
 
 }
 
+\frame
+{
+    \frametitle{Why is this a mystery?}
+
+    \begin{itemize}
+        \item We can use the Einstein field equations to derive the
+            acceleration.
+            \begin{equation}
+                G_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+            \end{equation}
+            Putting in a homogeneous and isotropic universe with
+            density $\rho(t)$ we can
+            derive the dynamics for, say, the distance $R$ between
+            two distant galaxies
+            \begin{equation}
+                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \rho(t)
+            \end{equation}
+
+        \item All the terms on the right hand side are positive!
+    \end{itemize}
+}
+
+\frame
+{
+    \frametitle{What did we leave out?}
+
+    \begin{itemize}
+        \item We could include pressure {\color{gold} $p$} as well
+            \begin{equation}
+                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p}\right]
+            \end{equation}
+            But normal matter doesn't have enough pressure, and even if it did it
+            has the wrong sign:  $p = w \rho$ with $w$ positive.
+
+    \end{itemize}
+}
+
+\frame
+{
+    \frametitle{What did we leave out?}
+
+    \begin{itemize}
+        \item We could include Einstein's cosmological constant fudge factor $\Lambda$:
+            \begin{equation} 
+                G_{\mu, \nu} + \Lambda g_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+            \end{equation}
+
+            \begin{equation}
+                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p} - \frac{{\color{gold} \Lambda}}{3}\right]
+            \end{equation}
+
+        \item Either we need a cosmological constant {\color{gold} $\Lambda$} or we need
+            some bizarre field with negative pressure {\color{gold} $p$}.
+
+        \item If these are small compared to the matter density $\rho$ early, but becomes
+            dominate late, we can explain the universe decelerating then accelerating.
+
+    \end{itemize}
+}
+
 
 
 \frame
