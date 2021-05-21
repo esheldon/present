@@ -31,7 +31,20 @@
 \newcommand{\prelim}{{\bf{\it Preliminary}}}
 
 \definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{brightred}{rgb}{1.,0.4,0.4}
+\definecolor{mygray}{RGB}{200,200,200}
+\definecolor{lightsteelblue}{RGB}{176,196,222}
+\definecolor{lightskyblue}{RGB}{135,206,250}
+\definecolor{cadetblue}{RGB}{95,158,160}
 
+
+\newcommand{\glambda}{\mbox{{\color{brightred} $\Lambda$}}}
+\newcommand{\gw}{\mbox{{\color{gold} $w$}}}
+\newcommand{\gsigma}{\mbox{{\color{gold} $\sigma_8$}}}
+\newcommand{\gH}{\mbox{{\color{gold} $H_0$}}}
+\newcommand{\gomegam}{\mbox{{\color{gold} $\Omega_m$}}}
+\newcommand{\grhom}{\mbox{{\color{gold} $\rho_m$}}}
+\newcommand{\gdarkenergy}{{\color{cadetblue} Dark Energy}}
 
 \title{Measuring Dark Energy with the\\Dark Energy Survey}
 \author{Erin Sheldon}
@@ -128,6 +141,44 @@
 
 \frame
 {
+    \frametitle{Basic Cosmology Parameters}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\Large}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item \grhom: the mass density of the universe $\sim 3 \times
+                    10^{-3}$g/cm$^3$, or \gomegam$\sim 0.3$ in normalized
+                    units (30\% of the total energy density)
+
+                \item \gsigma: the variance of the mass field on 8 Mpc
+                    scales, relative to the mean density $\sigma_8 \sim 0.8$
+
+                \item \gH: the current expansion rate $\sim 70~ $km/s/Mpc:
+                    things farther away are moving faster away\newline
+                    {\color{cadetblue}(1 pc = 3.3 light years)}
+
+                \item Age of the universe 13.8 billion years
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}    
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{M51-4x4-crop.jpg}
+                \includegraphics[width=0.8\textwidth]{macs-cluster-crop.jpg}
+                \includegraphics[width=0.8\textwidth]{sdss-gals-blanton.jpg}
+            \end{center}
+        \end{column}
+    \end{columns}
+}
+
+
+\frame
+{
     \frametitle{Cosmology and Dark Energy}
 
     \setbeamerfont*{itemize/enumerate body}{size=\Large}
@@ -146,7 +197,8 @@
 
             \item Light element abundance
 
-            \item Cosmic microwave background
+            \item Relic background radiation from the big bang
+                (Cosmic Microwave Background, CMB)
 
         \end{itemize}
 
@@ -193,7 +245,7 @@
 
                 \item Discovered using a type of supernova that is a ``standard
                     candle'', given their apparent brightness we can determine
-                    how far away it is (Riess et al. 1998, Perlmutter et al. 1999)
+                    how far away they are (Riess et al. 1998, Perlmutter et al. 1999)
                         
                 \item The curve of brightness vs. distance doesn't look right.
 
@@ -219,15 +271,21 @@
     \begin{itemize}
         \item We can use the Einstein field equations to derive the
             acceleration.
+            % \begin{equation}
+            %     G_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+            % \end{equation}
             \begin{equation}
-                G_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+                G_{\mu, \nu} \propto T_{\mu, \nu}
             \end{equation}
             Putting in a homogeneous and isotropic universe with
-            density $\rho(t)$ we can
+            density $\rho_m(t)$ we can
             derive the dynamics for, say, the distance $R$ between
             two distant galaxies
+            % \begin{equation}
+            %     \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \rho(t)
+            % \end{equation}
             \begin{equation}
-                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \rho(t)
+                \ddot{R} \propto - R(t) \rho_m(t)
             \end{equation}
 
         \item All the terms on the right hand side are positive!
@@ -240,11 +298,25 @@
 
     \begin{itemize}
         \item We could include pressure {\color{gold} $p(t)$} as well
+            % \begin{equation}
+            %     \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)}\right]
+            % \end{equation}
             \begin{equation}
-                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)}\right]
+                \ddot{R} \propto - R(t) \left[\rho_m(t) + 3~ {\color{gold} p_m(t)}\right]
             \end{equation}
-            But normal matter doesn't have enough pressure, and even if it did it
-            has the wrong sign:  $p = w \rho$ with $w$ positive.
+            But normal matter (stars, diffuse gas) has $p_m \sim 0$
+            and even if it did have pressure it has the wrong sign.  The equation
+            of state for normal matter is
+            \begin{align}
+                p_m &= w_m \times \rho_m \\
+                w_m & > 0
+            \end{align}
+            Note: I've set $c = 1$
+
+        \item So the pressure would not come from matter but some new substance or field, 
+            people call it \gdarkenergy, with $p = w \times \rho$
+
+        \item We need $w < -1/3$ to get any acceleration
 
     \end{itemize}
 }
@@ -255,20 +327,30 @@
 
     \begin{itemize}
         \item We could include Einstein's cosmological constant fudge factor
-            {\color{gold} $\Lambda$} (ironically meant to keep the universe static)
+            \glambda\ (ironically introduced to keep the universe static)
+            % \begin{equation} 
+            %     G_{\mu, \nu} + \Lambda g_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+            % \end{equation}
             \begin{equation} 
-                G_{\mu, \nu} + \Lambda g_{\mu, \nu} = \frac{8 \pi G}{c^4} T_{\mu, \nu}
+                G_{\mu, \nu} + \glambda\ g_{\mu, \nu} \propto T_{\mu, \nu}
             \end{equation}
 
+            % \begin{equation}
+            %     \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)} - \frac{{\color{gold} \Lambda}}{3}\right]
+            % \end{equation}
+            % \begin{equation}
+            %     \ddot{R} \propto R(t) \left[\rho(t) + 3 ~ {\color{gold} p(t)} - \frac{{\color{gold} \Lambda}}{3}\right]
+            % \end{equation}
             \begin{equation}
-                \ddot{R} = -\frac{4 \pi G c^2}{3} R(t) \left[\rho(t) + \frac{3}{c^2} {\color{gold} p(t)} - \frac{{\color{gold} \Lambda}}{3}\right]
+                \ddot{R} \propto R(t) \left[\rho_m + {\color{gold} \rho(t) + 3 ~ p(t)} - \frac{\glambda}{4 \pi G}\right]
             \end{equation}
+            %(just showing Dark Energy and \glambda).
 
-        \item Either we need a cosmological constant {\color{gold} $\Lambda$}
-            or we need some bizarre field ``dark energy'' with negative pressure {\color{gold}
-            $p_{\mathrm{DE}}(t) = w \rho_{\mathrm{DE}}(t)$} with {\color{gold}$w < 0$}.
+        \item Either we need a positive cosmological constant {\color{gold} $\Lambda$}
+            or we need some bizarre field \gdarkenergy\ with negative pressure {\color{gold}
+            $p(t) = w \times \rho(t), ~ w < -1/3$}.
 
-        \item If this component is small compared to the matter density $\rho$
+        \item If this component is small compared to the matter density \grhom\
             in the early universe, but comes to dominate later, we can explain
             the universe decelerating then accelerating.
 
@@ -284,6 +366,15 @@
     \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
 
     \begin{itemize}
+
+        \item $p = w \times \rho$
+
+        \item \glambda\ is equivalent to a constant ${\color{gold}w = -1}$,
+            and is spatially homogeneous and isotropic.
+
+        \item Dark Energy could have any ${\color{gold} w(t) < -1/3}$ to
+            produce acceleration.  Not required to be perfectly homogeneous
+            and isotropic.
 
         \item We don't currently have enough information to tell these apart.
 
