@@ -1,0 +1,16 @@
+New Constraints on the Accelerating Universe from the Dark Energy Survey
+
+The accelerated expansion of the universe remains a mystery more than twenty
+years after its discovery.  While various explanations have been proposed,
+from Einstein's cosmological constant to exotic forms of "Dark Energy", we
+need more data to distinguish the many possibilities.  I will describe how we
+use data from the Dark Energy Survey (DES) to measure the properties of Dark
+Energy using an effect known as Gravitational Lensing, the bending of the path
+of light as it passes massive bodies.  We combine lensing with a measurement
+of the spatial clustering of galaxy positions, also measured with DES data.  I
+will show new results from the third year of DES data taking that provide the
+most powerful lensing+clustering results to date. We find consistency with
+other data sets, and in combination we provide the best constraints yet on
+Dark Energy.  I will conclude with plans for the full six years of DES data
+and the next generation Vera C. Rubin Observatory Legacy Survey of Space and
+Time.
