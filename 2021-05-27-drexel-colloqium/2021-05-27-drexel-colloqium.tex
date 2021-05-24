@@ -413,6 +413,108 @@
     \end{columns}
 }
 
+\frame
+{
+
+    \frametitle{Dark Energy Survey (DES)}
+
+    \fontsize{9}{0.8\baselineskip}
+
+    \begin{columns}
+
+        \begin{column}{0.4\textwidth}
+            \includegraphics[scale=0.17]{ctio_blanco_crew_2013Oct-30-small-balance.jpg}
+            \newline
+            \hfill {\tiny Image: Brian Nord, FNAL}
+        \end{column}
+
+
+        \begin{column}{0.6\textwidth}
+
+            \begin{itemize}
+
+                \item Imaging survey of 5000 square degrees in the southern
+                    sky in Chile.  5 optical filters
+
+                \item New 500 Megapixel camera
+
+                \item First light Fall 2012, data taking now finished
+
+                \item Study Dark Energy using weak gravitational lensing,
+                    clustering of galaxies and supernovae.
+
+            \end{itemize}
+
+        \end{column}
+
+    \end{columns}
+
+}
+
+{
+	\definecolor{mblack}{RGB}{0,0,0}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
+	
+    \frame
+    {
+
+        \begin{center}
+            \includegraphics[width=1.1\textwidth]{DES-2013-01-medres.jpg}
+
+            {\tiny \hfill NGC 1398, Erin Sheldon, Martin Murphy, DES}
+        \end{center}
+    }
+
+	\definecolor{mblack}{RGB}{50,50,50}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+}
+
+{
+	\definecolor{mblack}{RGB}{0,0,0}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
+	
+    \frame
+    {
+
+        \begin{center}
+            \includegraphics[width=0.81\textwidth]{ngc0253-small.jpg}
+
+            {\tiny \hfill NGC 0253, Erin Sheldon, DES}
+        \end{center}
+    }
+
+	\definecolor{mblack}{RGB}{50,50,50}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+}
+
+{
+	\definecolor{mblack}{RGB}{0,0,0}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
+	
+    \frame
+    {
+
+        \begin{center}
+            \includegraphics[width=0.81\textwidth]{DES0421-5457-gri-ngc1566.jpg}
+
+            {\tiny \hfill NGC 1566, Erin Sheldon, DES}
+        \end{center}
+    }
+
+	\definecolor{mblack}{RGB}{50,50,50}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+}
+
+
+\frame
+{
+
+    {\Huge Gravitational Lensing}
+
+}
 
 
 \frame
@@ -440,7 +542,7 @@
         \item Newton's first Query, Opticks, 1704
             \begin{itemize}
                 \item One can naively ``cancel'' the zero masses and predict
-                    the effect
+                    bending of light rays, but mathematically bogus
             \end{itemize}
 
         \item Einstein 1911
@@ -529,7 +631,7 @@
         \begin{column}{0.5\textwidth}    
             \begin{itemize}
 
-                \item Two quasars discovered in 1979 (Walsh, Carswell, Weyman)
+                \item Two interesting quasars discovered in 1979 (Walsh, Carswell, Weyman)
 
                 \item Extremely close together, nearly identical spectrum and redshift
 
@@ -648,10 +750,11 @@
         \begin{column}{0.5\textwidth}    
             \begin{itemize}
 
-                \item The shape of extended background sources is changed.
-
                 \item The differential deflections across the surface
-                    of the background image produces a shear.
+                    of the background image produces a ``shear'' in a
+                    bundle of light rays.
+
+                \item The shape of extended background sources is changed.
 
                 \item For strong lensing a round source becomes a ``banana''
 
@@ -687,13 +790,16 @@
             \begin{itemize}
 
                 \item Strong lensing requires special, fortuitous alignments.
-                    Not that useful as a general tool
+                    % Not that useful as a general tool
 
                 \item But everything is lensed slightly, and the {\color{gold} tangential shear}
                     pattern is imprinted all over the sky.
 
                 \item Taking a statistical approach, we can study the mass
                     distribution around any set of objects.
+
+                \item Can also look for the general pattern on the sky, rather
+                    than around specific lenses
 
             \end{itemize}
         \end{column}
@@ -732,6 +838,32 @@
 	\definecolor{mblack}{RGB}{50,50,50}
     \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
 
+}
+
+\frame
+{
+    \frametitle{How can we measure shear?}
+
+    \begin{itemize}
+
+        \item Shear induces ellipticity
+
+        \item Ellipticity is also altered by the atmosphere, the optics
+            of the telescope, and the pixelization.
+        
+        \item These effects we call the Point Spread Function (PSF),
+            must be modeled by studying stars.
+
+        \item Surprisingly, the noise is the biggest problem:  All
+            naive ellipticity measures are biased in the presence of
+            noise.
+
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=\textwidth]{great08-forward-process.png}
+        \newline
+        {\tiny GREAT3 Team}
+    \end{center}
 }
 
 
@@ -1791,50 +1923,6 @@
             \end{center}
         \end{column}
     \end{columns}
-}
-
-\frame
-{
-
-    \frametitle{Dark Energy Survey (DES)}
-
-    \fontsize{9}{0.8\baselineskip}
-
-    \begin{columns}
-
-        \begin{column}{0.4\textwidth}
-            \includegraphics[scale=0.17]{ctio_blanco_crew_2013Oct-30-small-balance.jpg}
-            \newline
-            \hfill {\tiny Image: Brian Nord, FNAL}
-        \end{column}
-
-
-        \begin{column}{0.6\textwidth}
-
-            \begin{itemize}
-
-                \item Imaging survey of 5000 square degrees in the southern
-                    sky in Chile.  5 optical filters
-
-                \item New 500 Megapixel camera
-
-                \item About 7 times the volume of SDSS: Study lensing as a
-                    function of {\color{gold}cosmic time $\Rightarrow$ dark
-                    energy}
-
-                \item First light Fall 2012, survey start Aug. 31, 2013, end 2018.
-
-                \item Study Dark Energy using weak lensing, galaxy clusters,
-                    large scale structure and supernovae.
-
-                \item Measure {\color{gold} $w$} to {\color{gold} $\pm 0.02$}
-
-            \end{itemize}
-
-        \end{column}
-
-    \end{columns}
-
 }
 
 {
