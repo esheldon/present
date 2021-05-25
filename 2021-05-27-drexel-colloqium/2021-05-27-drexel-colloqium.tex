@@ -1026,9 +1026,9 @@
 {
     \frametitle{How do we get the redshifts?}
 
-    \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}    
@@ -1042,23 +1042,51 @@
                     the colors to statistically determine the distribution
                     of redshifts
 
-                \item Clever method to get $P(z | \mathrm{color})$: Get very
-                    deep imaging of objects with known redshifts.  Inject fake
-                    images of galaxies into real data to see how the colors
-                    scatter when measured
-
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-            % \begin{center}
-            %     \includegraphics[width=\textwidth]{ggl-example.png}
-            %     Cross-correlation Zacharegkas et al. 2021 (in prep)
-            % \end{center}
+            \begin{center}
+                \includegraphics[width=\textwidth]{lrg_spectrum_inv.png}
+                {\tiny Padmanabhan (2007)}
+            \end{center}
         \end{column}
     \end{columns}
 
 
 }
+\frame
+{
+    \frametitle{How do we get the redshifts?}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item Clever method to get $P(z | \mathrm{colors})$: Get very
+                    deep imaging of objects with known redshifts, then inject
+                    fake images of these galaxies into real data to get
+                    $P(\mathrm{color} | z)$ and use Bayes rule
+
+                \item Myles et al. 2021, Gatti et al.
+                    2021, Sanchez et al. 2021, DES Collaboration
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{nz.png}
+            \end{center}
+        \end{column}
+    \end{columns}
+
+
+}
+
+
 
 \frame
 {
@@ -1134,16 +1162,6 @@
     \end{columns}
 }
 
-
-\frame
-{
-    \frametitle{TODO results: ggl, cosmic shear, clustering, cosmological parameters with and with out free w}
-
-    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
-    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
-
-}
 
 \frame
 {
