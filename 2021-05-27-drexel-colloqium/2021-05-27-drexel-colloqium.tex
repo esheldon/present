@@ -235,6 +235,33 @@
     \end{itemize}
 }
 
+{
+    \definecolor{mblack}{RGB}{0,0,0}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
+
+
+    \frame
+    {
+        The universe {\em is} homogeneous
+        \begin{columns}[T]
+            \begin{column}{0.55\textwidth}
+                \includegraphics[trim=50 50 50 50,clip,width=\textwidth]{CMB-Tegmark.jpeg}
+            \end{column}
+            \begin{column}{0.55\textwidth}
+                \vspace{10 mm}
+                \includegraphics[width=\textwidth]{sdss-gals-blanton.jpg}
+            \end{column}
+        \end{columns}
+        {\tiny \hfill WMAP (M. Tegmark), SDSS Galaxies (M. Blanton)}
+    }
+    \definecolor{mblack}{RGB}{50,50,50}
+    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
+
+}
+
+
+
+
 \frame
 {
     \frametitle{The Accelerating Universe}
@@ -1036,7 +1063,120 @@
 
 \frame
 {
-    \frametitle{TODO before results: photoz, simulations}
+    \frametitle{How do we get the redshifts?}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item The prediction of the theory is distance vs redshift, but
+                    its too expensive and time consuming to get a spectrum
+                    for all galaxies
+
+                \item Galaxies look redder at higher redshift, so we can use
+                    the colors to statistically determine the distribution
+                    of redshifts
+
+                \item Clever method to get $P(z | \mathrm{color})$: Get very
+                    deep imaging of objects with known redshifts.  Inject fake
+                    images of galaxies into real data to see how the colors
+                    scatter when measured
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            % \begin{center}
+            %     \includegraphics[width=\textwidth]{ggl-example.png}
+            %     Cross-correlation Zacharegkas et al. 2021 (in prep)
+            % \end{center}
+        \end{column}
+    \end{columns}
+
+
+}
+
+\frame
+{
+    \frametitle{Final Calibration from Simulations}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+    %
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item We have a small, few percent calibration that is determined
+                    from semi-realistic simulatons
+
+                \item Put in gravitational shear signals and measure the bias.
+
+                \item Includes effects in the redshift distribution due to
+                    blending of background objects with foreground objects
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            % \begin{center}
+            %     \includegraphics[width=\textwidth]{ggl-example.png}
+            %     Cross-correlation Zacharegkas et al. 2021 (in prep)
+            % \end{center}
+        \end{column}
+    \end{columns}
+
+
+}
+
+
+
+\frame
+{
+    \frametitle{Weak Lensing: The Program}
+
+    \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{enumerate}
+
+                \item Identify $\sim$foreground galaxies to be lenses
+
+                \item Identify $\sim$background sources and measure their
+                    ellipticities % {\color{gold}(that's the hard part!)}
+
+                \item Average the ellipticities of background galaxies
+
+                \item Average over lots of lenses to get the correlation
+                    function
+
+                \item Apply calibrations and determine the distribution
+                    of redshifts
+
+                \item Interpret in terms of cosmology
+
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{DES0012-5705-gri-group.jpg}
+                \newline
+                {\tiny Erin Sheldon, DES}
+            \end{center}
+        \end{column}
+    \end{columns}
+}
+
+
+\frame
+{
+    \frametitle{TODO results: ggl, cosmic shear, clustering, cosmological parameters with and with out free w}
 
     % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
     % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -1044,1202 +1184,6 @@
 
 }
 
-
-
-
-
-
-\frame
-{
-
-    {\Huge Dark Matter}
-
-}
-
-
-
-\frame
-{
-    \frametitle{Dark Matter}
-
-    \begin{columns}
-
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{comacluster_rowe_big_crop.jpg}
-                \newline
-                {\tiny Dean Rowe}
-            \end{center}
-        \end{column}
-
-
-
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item Fritz Zwicky 1933
-
-                \item He found the galaxies in the Coma cluster were moving far
-                    too fast.
-
-                \item Assuming equilibrium (good to factor of two) he calculated
-                    the binding mass is $\sim$ 100 times the mass in stars
-
-            \end{itemize}
-        \end{column}
-
-    \end{columns}
-}
-
-\frame
-{
-
-    {\Large 
-        {\em The observation of such gravitational lens effects promises to furnish us with
-        the simplest and most accurate determination of nebular masses.}
-        \newline
-
-        \hfill - Fritz Zwicky, 1937
-    }
-}
-
-
-\frame
-{
-    \frametitle{Dark Matter: Galaxy Rotation Curves}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item Rubin studied the rotation curves of galaxies in the 70s
-
-                \item The light density falls exponentially with radius.
-
-                \item The mass density implied by the velocities falls like a power law
-
-                \item Extrapolation seemed to imply the mass continued well
-                    beyond the region of visible stars
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                %\includegraphics[width=0.8\textwidth]{m104-2013-03-01-HLA-5238-HLA-crop-scaled.jpg}
-                \includegraphics[width=0.8\textwidth]{M104b_peris2048_scale_small.jpg}
-                \newline
-                \hfill {\tiny NASA/ESA/V. Peris}
-
-                \includegraphics[width=0.8\textwidth]{ngc-6503-rotation-curve.jpg}
-                \newline
-                {\tiny Begeman, Broels and Sanders (1991)}
-            \end{center}
-        \end{column}
-    \end{columns}
-}
-
-\frame
-{
-    \frametitle{Cold Dark Matter (CDM)}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
-
-    \begin{itemize}
-
-        \item Some form of matter that does not significantly emit or absorb light
-
-        \item Cold:  $v \ll c$
-
-        \item Favored idea is an elementary particle, weakly interacting
-
-        \item So far CDM successfully explains most observations, and has been
-            predictive
-
-    \end{itemize}
-
-
-}
-
-\frame
-{
-    \frametitle{Early Successes of CDM}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{itemize}
-
-        \item Explains rotation curves of galaxies
-
-        \item Explains the dynamics of galaxy clusters
-
-        \item Explains the large scale distribution of galaxies: without it we
-          would predict a wildly different universe
-
-        \item Essential component needed to explain the cosmic microwave
-          background
-
-    \end{itemize}
-
-}
-
-\frame
-{
-    \frametitle{Predictions of CDM}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{itemize}
-
-        \item  ``Universal'' radial profile of gravitationally bound dark matter
-            structures, ``halos'' (NFW, simulations)
-            \begin{itemize}
-                \item Running power law with one free parameter for shape
-                \item Mass extends orders of magnitude farther beyond visible portion of galaxy,
-                    merges with neighbors
-            \end{itemize}
-
-
-        \item  Dark matter should be distributed smoothly throughout the
-            universe
-            \begin{itemize}
-                \item Unlike dissipative baryons that collapse to more compact objects
-            \end{itemize}
-
-    \end{itemize}
-
-}
-
-\frame
-{
-    \frametitle{Predictions of CDM}
-
-    \fontsize{9}{0.8\baselineskip}
-    \begin{columns}
-
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{nfw.png}
-                \newline
-                {\tiny Navarro, Frenk, White 1996}
-            \end{center}
-        \end{column}
-
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item  ``Universal'' radial profile of gravitationally bound dark matter
-                    structures, ``halos'' {\color{gold} (NFW)}
-
-                    %\begin{itemize}
-                        \item Running power law with one free parameter for shape
-
-                        \item Mass extends orders of magnitude farther than visible portion of galaxy,
-                            merges with neighbors
-                    %\end{itemize}
-
-                \item  Dark matter distributed smoothly throughout the
-                    universe, unlike dissipative baryons clumped in galaxies.
-
-                {\color{gold} {\tiny 1pc = 3.2 ly}}
-
-            \end{itemize}
-        \end{column}
-
-    \end{columns}
-}
-
-
-
-
-\frame
-{
-    \frametitle{Limits of dynamical approaches}
-
-    \begin{itemize}
-
-        \item visible tracers are required
-        \item cannot trace out the orbits, the timescales are too long
-        \item assumptions must be made about the dynamical state of the system
-        \item limits the scale over which it this can be used
-
-    \end{itemize}
-
-    %\begin{minipage}{\paperwidth}
-    %    \centering
-        %\begin{center}
-            %{\small Scale 10 kpc}
-            %\includegraphics[width=\textwidth]{m104-2013-03-01-HLA-5238-HLA-crop-scaled.jpg}
-    \centerline{Scale 10 kpc}
-    \centerline{\includegraphics[trim=0 400 0 500,clip,width=\paperwidth]{M104b_peris2048.jpg}}
-            \hfill {\tiny NASA/ESA/V. Peris}
-        %\end{center}
-    %\end{minipage}
-}
-
-
-\frame
-{
-    \frametitle{Weak Lensing is a Better Option}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item The weak effect can be observed anywhere
-                \item The distribution of matter can be studied on a large range of scales
-                \begin{itemize}
-                    \item galaxies, galaxy clusters, bound objects
-                    \item structure on the largest scales in the universe
-                \end{itemize}
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{macs-cluster.jpg}
-                \newline
-                {\tiny NASA/ESA}
-            \end{center}
-        \end{column}
-    \end{columns}
-}
-
-
-\frame
-{
-    \frametitle{Weak Lensing Limitations}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    %\begin{columns}
-    %    \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item The effect is very weak, percent level change in
-                    ellipticity
-
-                \item Statistical approach is required: average signal from
-                    many lenses and many background sources
-
-                \item But these are unimportant limitations. The theory doesn't
-                    predict anything about individual objects anyway: these are
-                    messy systems with a complicated history
-
-            \end{itemize}
-    %    \end{column}
-
-    %    \begin{column}{0.5\textwidth}
-    %        \begin{center}
-    %            \includegraphics[width=\textwidth]{macs-cluster.jpg}
-    %            \newline
-    %            {\tiny NASA/ESA}
-    %        \end{center}
-    %    \end{column}
-
-    %\end{columns}
-}
-
-
-\frame
-{
-    \frametitle{Weak Lensing: The Program}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{enumerate}
-
-                \item Identify lenses, such as galaxies or cluster of galaxies
-
-                \item Identify background sources and measure their
-                    ellipticities {\color{gold}(that's the hard part!)}
-
-
-                \item Average the ellipticities of background galaxies
-
-                \item Average over lots of lenses
-
-                \item Infer the mean radial distribution of mass
-
-            \end{enumerate}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{hickson44_masil_big.jpg}
-                \newline
-                {\tiny MASIL Imaging Team}
-            \end{center}
-        \end{column}
-    \end{columns}
-}
-
-
-\frame
-{
-    \frametitle{Shear Measurement}
-
-    \begin{itemize}
-
-        \item Shear induces ellipticity
-
-        \item Ellipticity is also altered by the atmosphere, the optics
-            of the telescope, and the pixelization.
-        
-        \item These effects we call the Point Spread Function (PSF),
-            must be modeled by studying stars.
-
-        \item Surprisingly, the noise is the biggest problem:  All
-            naive ellipticity measures are biased in the presence of
-            noise.
-
-    \end{itemize}
-    \begin{center}
-        \includegraphics[width=\textwidth]{great3-systematics.pdf}
-        \newline
-        {\tiny GREAT3 Team}
-    \end{center}
-}
-
-
-\frame
-{
-    \frametitle{Ellipticity Measurement}
-
-    \begin{itemize}
-
-        \item Find the elliptical model that best fits the image
-
-        \item In the presence of of noise, the best ellipticity yields a
-            biased shear estimate: {\color{gold} $\sim 10$\%} for faint galaxies!
-        \item Need to measure shear to {\color{gold} 0.1\%}.
-
-    \end{itemize}
-    \begin{center}
-
-        % the trim values are the number of "big pixels" to trim off each side
-        % or you can specify other units
-
-        %\includegraphics[trim=left bottom right top, clip]{file}
-        \includegraphics[trim=0 200 0 50,clip,width=0.8\textwidth]{example-fit-hi-s2n-invert.pdf}
-    \end{center}
-}
-
-
-
-\frame
-{
-    \frametitle{Unbiased Shear Measurement}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{itemize}
-
-        \item In 2014 the first unbiased estimator was derived (Bernstein \&
-            Armstrong, 2014):  theoretical only
-
-            \begin{itemize}
-                \item Using Bayesian principles: prior informatioin required from
-                    low-noise data.
-
-                \item Forget about individual galaxy, estimate shear of population
-            \end{itemize}
-
-        \item I developed an implementation for use on real images.
-
-
-    \end{itemize}
-}
-
-\frame
-{
-    \frametitle{First Unbiased Shear Estimator}
-
-    \begin{columns}
-
-        \begin{column}{0.5\textwidth}    
-            \begin{center}
-                \hfill {\tiny Sheldon 2014}
-                \newline
-            \includegraphics[width=\textwidth]{ngmix-flux-s2n-sigrat-20-invert.pdf}
-            \end{center}
-        \end{column}
-
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item Image simulations
-                    \begin{itemize}
-                        \item Galaxies
-                        \item PSF
-                        \item noise
-                    \end{itemize}
-
-                \item Tested shear recovery for different galaxy types
-                    and noise levels
-
-                \item Unbiased at the level required for current and future surveys.
-
-                \item {\color{gold} Published (Sheldon 2014)}
-
-            \end{itemize}
-        \end{column}
-
-
-    \end{columns}
-}
-
-\frame
-{
-
-    {\Huge Dark Matter Distribution in Galaxies and Clusters}
-
-}
-
-
-
-\frame
-{
-    \frametitle{Dark Matter Distribution}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
-
-    \begin{itemize}
-
-        \item The program:
-            \begin{enumerate}
-
-                \item Identify lenses (galaxies or clusters)
-
-                \item Identify background source galaxies.
-
-                \item Measure the ellipticities of the source galaxies
-
-                \item Average the ellipticities of background galaxies.
-
-                \item Further average over many lenses
-
-                \item Interpret in terms of the mean surface mass density {\color{gold}
-                    $\Sigma$}
-
-            \end{enumerate}
-    \end{itemize}
-
-    \begin{center}
-        {\color{gold}
-            {\huge
-                $\overline{e}_{T}(R) \propto \overline{\Sigma}(<R) - \overline{\Sigma}(R)$
-            }
-        }
-    \end{center}
-}
-
-
-\frame
-{
-    \frametitle{Sloan Digital Sky Survey}
-
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item 2.5 Telescope at Apache Point New Mexico
-
-                \item Imaged 10,000 sq. deg. in the northern sky through 5
-                    filters, 126 Mpixel camera
-
-                \item Imaging taken from 1999-2009
-
-                \item Spectroscopy and redshifts for 1 million galaxies used
-                    as {\color{gold} lenses }
-
-                \item 50 million faint background galaxies used as {\color{gold} sources}
-                    
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{sdss-telescope.jpg}
-                \newline
-                {\tiny SDSS Telescope}
-            \end{center}
-        \end{column}
-    \end{columns}
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-    \frame
-    {	
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=0 0 0 100,clip,width=0.85\textwidth]{M51-4x4.jpg}
-            \newline
-            \hfill {\tiny Whirlpool Galaxy, SDSS/Robert Lupton}
-        \end{center}
-
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Mass Distribution Around Galaxies}
-
-        \begin{columns}
-            \begin{column}{0.5\textwidth}    
-                \begin{itemize}
-
-                    \item Mean mass density in radial bins
-
-                    \item Min radius 20 kpc max 10 Mpc {\color{gold} (1pc = 3.2ly)}
-
-                    \item Light concentrated within 10 kpc
-
-                    \item About 100 times more mass than in stars
-
-                    \item On large scales looks like distribution of galaxies:
-                        neighbors
-
-
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    %\includegraphics[trim=left bottom right top, clip]{file}
-                    \includegraphics[trim=100 10 20 250,clip,width=\textwidth]{xi_all_idit_bias_icolor.png}
-                    \newline
-                    {\color{gold}Sheldon et al. 2004}
-                \end{center}
-            \end{column}
-        \end{columns}
-    }
-
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-
-
-\begin{comment}
-
-    {
-        \definecolor{mblack}{RGB}{0,0,0}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-        \frame
-        {
-            \frametitle{Mass Distribution for Larger Galaxies}
-
-                    \begin{center}
-                        \includegraphics[trim=0 0 5 9,clip,width=0.8\textwidth]{deltasig_all_allband_bylum_icolor_crop.png}
-                        \newline
-                        {\color{gold}Sheldon et al. 2004}
-                    \end{center}
-        }
-
-        \definecolor{mblack}{RGB}{50,50,50}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-    }
-
-    {
-        \definecolor{mblack}{RGB}{0,0,0}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-
-        \frame
-        {
-            \frametitle{As Predicted by CDM}
-
-            \begin{itemize}
-
-                \item Extended running power-law profile
-
-                \item Shape of profile changes with size of galaxies
-
-            \end{itemize}
-
-
-            \begin{columns}
-                \begin{column}{0.5\textwidth}    
-                    \includegraphics[width=\textwidth]{nfw.png}
-                    \newline
-                    {\tiny Navarro, Frenk, White 1996}
-                \end{column}
-                \begin{column}{0.5\textwidth}
-                    %\includegraphics[trim=left bottom right top, clip]{file}
-                    \includegraphics[trim=0 0 5 8,clip,width=\textwidth]{deltasig_all_allband_bylum_icolor_crop.png}
-                    \newline
-                    {\color{gold}Sheldon et al. 2004}
-                \end{column}
-            \end{columns}
-        }
-
-        \definecolor{mblack}{RGB}{50,50,50}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-    }
-
-
-\frame
-{
-
-    {\Huge Dark Matter Distribution in Clusters of Galaxies}
-
-}
-
-\end{comment}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Galaxy Clusters}
-
-        \begin{itemize}
-
-            \item More useful than galaxies for learning about Dark Matter
-            \begin{itemize}
-
-                \item 100-1000 times more massive than galaxies: higher signal
-
-                \item 10 times larger in extent: better resolution in radius to
-                    study the mass profile
-
-            \end{itemize}
-
-        \end{itemize}
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=0 300 0 500,clip,width=\textwidth]{abell1689_hubble_1280.jpg}
-        \end{center}
-            \hfill {\tiny NASA/ESA}
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Mass Distriution in and around Galaxy Clusters}
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=0 0 0 800,clip,width=0.9\textwidth]{maxbcg_sample21-22_ngals200_12_jackknife_icolor.png}
-        \end{center}
-        \hfill {\color{gold} Sheldon et al. 2009}
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-
-
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Interpretation in Terms of Universal Profile}
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=20 0 50 800,clip,width=0.9\textwidth]{m2l-ngals200_12-m21-22-l4-massfits-icolor.png}
-        \end{center}
-        \hfill {\color{gold} Sheldon et al. 2009}
-    }
-
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Interpretation in Terms of Universal Profile}
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=100 50 850 1390,clip,width=1\textwidth]{m2l-ngals200_12-m21-22-l4-massfits-icolor.png}
-        \end{center}
-        \hfill {\color{gold} Sheldon et al. 2009}
-    }
-
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-
-
-\begin{comment}
-    {
-        \definecolor{mblack}{RGB}{0,0,0}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-        \frame
-        {
-            \frametitle{Interpretation in Terms of Universal Profile}
-
-            \begin{center}
-                %\includegraphics[trim=left bottom right top, clip]{file}
-                \includegraphics[trim=10 10 10 10,clip,width=0.7\textwidth]{Ngal200_DS_hfits_icolor.png}
-            \end{center}
-            \hfill {\color{gold} Johnston et al.}
-        }
-
-        \definecolor{mblack}{RGB}{50,50,50}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-    }
-
-
-    {
-        \definecolor{mblack}{RGB}{0,0,0}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-        \frame
-        {
-            \frametitle{Interpretation in Terms of Universal Profile}
-
-            \begin{center}
-                %\includegraphics[trim=left bottom right top, clip]{file}
-                \includegraphics[trim=1050 450 50 480,clip,width=0.7\textwidth]{Ngal200_DS_hfits_icolor.png}
-            \end{center}
-            \hfill {\color{gold} Johnston et al.}
-        }
-
-        \definecolor{mblack}{RGB}{50,50,50}
-        \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-    }
-
-\end{comment}
-
-
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Mass-to-light Ratio: CDM Predicts Light Should be More Concentrated}
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[trim=0 0 0 800,clip,width=0.9\textwidth]{m2l-ngals200_12-m21-22-l4-m2lfits-color.png}
-        \end{center}
-        \hfill {\color{gold} Sheldon et al. 2009}
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Mass-to-light Ratios and $\Omega_m$}
-
-        \begin{columns}
-            \begin{column}{0.6\textwidth}
-                \begin{itemize}
-                    \item $M/L$ reaches constant at large radius, same for all samples
-                    \item Universal $M/L$
-
-                    \item Multiply by the luminosity density in the universe to
-                        get the universal mass density {\color{gold} $\rho_m = \bar{\ell} \times M/L$ }
-
-
-                    \item Express as fraction of the universal energy density
-                    %, independent of hubble parameter $H_0$
-
-                    \item {\color{gold} $\Omega_m b_{M/L}^{-2} = 0.20 \pm 0.03$ }
-
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.4\textwidth}
-                \centering
-                %\includegraphics[trim=left bottom right top, clip]{file}
-                \includegraphics[trim=0 0 930 800,clip,height=0.7\textheight]{m2l-ngals200_12-m21-22-l4-m2lfits-color.png}
-                \newline
-                {\color{gold}Sheldon et al. 2009}
-            \end{column}
-        \end{columns}
-    }
-
-
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        \frametitle{Total Mass in the Cluster}
-
-        \begin{center}
-            %\includegraphics[trim=left bottom right top, clip]{file}
-            \includegraphics[width=0.7\textwidth]{mass-rich-plot-icolors.png}
-            \newline
-            \hfill {\color{gold} Johnston, Sheldon et al.}
-        \end{center}
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-\frame
-{
-    \frametitle{Cosmological Parameters}
-    \begin{itemize}
-
-        \item CDM also predicts $dN/dM$, the number of objects of a given mass, and
-            this depends on {\color{gold} $\Omega_m$}.
-
-            \begin{itemize}
-                \item We know $dN/dn_{gals}$ and $M(n_{gals})$!
-
-                \item Combine  $dN/dn_{gals}$ and $M(n_{gals})$ to get $dN/dM$ and infer
-                    $\Omega_m$
-                    (Rozo et al. 2010)
-
-                    {\color{gold}
-                        \begin{equation}
-                            \Omega_m = 0.28 \pm 0.07 \nonumber
-                        \end{equation}
-                    }
-            \end{itemize}
-
-        \item Combine Mass/Number radial profiles with galaxy clustering 
-            (Tinker et al. 2012)
-
-            {\color{gold}
-                \begin{equation}
-                    \Omega_m = 0.29 \pm 0.03 \nonumber
-                \end{equation}
-            }
-
-
-    \end{itemize}
-}
-
-\frame
-{
-
-    {\Huge Dark Energy }
-
-}
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-    \frame
-    {
-        \frametitle{Dark Energy}
-
-        %\fontsize{9}{0.8\baselineskip}
-        \begin{columns}
-            \begin{column}{0.4\textwidth}    
-                \begin{itemize}
-
-                    \item Astronomers tried to predict the brightness of a
-                        standard candels at a known redshifts (type Ia
-                        Supernovae)
-
-                    \item They got the wrong answer assuming the universe is
-                        homogeneous and filled with normal matter
-
-                    \item Most easily explained if the universal expansion is accelerating.
-
-                \end{itemize}
-            \end{column}
-            \begin{column}{0.6\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{riess-distmodulus.png}
-                    \newline
-                    {\tiny Riess et al. 2007}
-                \end{center}
-            \end{column}
-        \end{columns}
-    }
-
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-}
-
-
-
-{
-    \definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-
-
-    \frame
-    {
-        The universe {\em is} homogeneous
-        \begin{columns}[T]
-            \begin{column}{0.55\textwidth}
-                \includegraphics[trim=50 50 50 50,clip,width=\textwidth]{CMB-Tegmark.jpeg}
-            \end{column}
-            \begin{column}{0.55\textwidth}
-                \vspace{10 mm}
-                \includegraphics[width=\textwidth]{sdss-gals-blanton.jpg}
-            \end{column}
-        \end{columns}
-        {\tiny \hfill WMAP (M. Tegmark), SDSS Galaxies (M. Blanton)}
-    }
-    \definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-
-}
-
-
-
-
-\frame
-{
-    \frametitle{Dark Energy Equation of State}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\Large}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{itemize}
-
-        \item The universe seems to be accelerating
-
-        \item The simplest approach is to add a term to Einstein's equations
-        \begin{itemize}
-            \item Cosmological Constant
-
-            \item Or maybe exotic stuff.  Simplest model is uniform field with
-
-                \vspace{5 mm}
-                \begin{center}
-                    {\color{gold}
-                        {\huge $p = w \rho$}
-                    }
-                \end{center}
-                \vspace{5 mm}
-
-            \item Cosmological Constant has $w=-1$
-
-            \item Current constraints $w \sim -1 \pm 0.1$
-
-        \end{itemize}
-    \end{itemize}
-
-}
-
-
-\frame
-{
-    \frametitle{Using Lensing to Measure Dark Energy}
-
-    %\fontsize{9}{0.8\baselineskip}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item Lensing is geometrical, depends on the distances to all
-                    components of the lens system
-
-                \item Look at the dependence of the shear effect as a function
-                    of the source redshift
-                    
-                \item Current lensing data does not probe a sufficent volume of
-                    the universe
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{scinv-example-invert.pdf}
-            \end{center}
-        \end{column}
-    \end{columns}
-}
-
-{
-	\definecolor{mblack}{RGB}{0,0,0}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=black,top=black]
-	
-    \frame
-    {
-
-        \begin{center}
-            %\includegraphics[width=1.1\textwidth]{ngc_new_v0-1398_20130130-mm1-2-950px.jpg}
-            \includegraphics[width=1.1\textwidth]{DES-2013-01-medres.jpg}
-
-            {\tiny \hfill NGC 1398, Erin Sheldon, Martin Murphy}
-        \end{center}
-    }
-
-	\definecolor{mblack}{RGB}{50,50,50}
-    \setbeamertemplate{background canvas}[vertical shading][bottom=mgray,top=mblack]
-
-}
-
-\frame
-{
-
-    \frametitle{DES at BNL}
-
-    \setbeamerfont*{itemize/enumerate body}{size=\small}
-    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item I've been working on DES since 2003
-
-                \item I am a {\color{gold} builder} and {\color{gold} associate
-                    member} with data rights for self, postdoc, students.
-
-                \item Co-convener of weak lensing working group
-
-                \item Responsible for one of the two shear measurement codes
-
-                \item Leading the effort to measure lensing around galaxy clusters
-
-                \item Andres Plazas BNL postdoc worked on detector
-                    characterization and weak lensing of galaxy clusters
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-                \centering
-                %\newline
-                %\includegraphics[width=\textwidth]{ngc0894-rebin4.jpg}
-                %\newline
-                %\includegraphics[width=\textwidth]{decam-image-1-medres-crop.jpg}
-                %\newline
-                %{\tiny Camera Installation}
-                \includegraphics[angle=90,origin=c,height=0.6\textheight,trim=0 0 200 0,clip]{ngc0894-rebin4.jpg}
-                \newline
-                {\tiny Image: Erin Sheldon}
-        \end{column}
-    \end{columns}
-
-}
-
-\frame
-{
-
-    \frametitle{\prelim\ Lensing Results from DES}
-
-    %\setbeamerfont*{itemize/enumerate body}{size=\small}
-    %\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    %\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
- 
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-            \begin{itemize}
-
-                \item Results from science verification period
-
-                \item {\color{gold} 3\% of final data }
-
-                \item Mean lensing signal for 12,000 galaxy clusters found
-                    using the RedMapper algorithm
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                \includegraphics[width=\textwidth]{run-rm008-bin-zwide-jack-icolor.pdf}
-                \newline
-            \end{center}
-        \end{column}
-    \end{columns}
-
-}
-
-\begin{comment}
-    \frame
-    {
-
-        \frametitle{Preliminary Lensing Results from DES}
-
-        \begin{minipage}{\linewidth}
-            \vspace{5mm}
-            Binned by number of galaxies in the cluster
-            \vspace{5mm}
-        \end{minipage}
-
-        \begin{minipage}{\linewidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{run-rm008-bin-lbin12-zwide-jack-icolor.pdf}
-        \end{minipage}
-
-    }
-\end{comment}
-
-\frame
-{
-
-    \frametitle{Lensing as a Function of Cosmic Time}
- 
-    \begin{minipage}{\linewidth}
-        \vspace{5mm}
-        Binned by redshift, or cosmic time.  {\color{gold} Not possible with SDSS }
-        \vspace{5mm}
-    \end{minipage}
-    \begin{minipage}{\linewidth}
-        \centering
-        \includegraphics[width=0.6\textwidth]{run-rm008-bin-lgt05-zbin4-jack-icolor.pdf}
-    \end{minipage}
-
-}
 
 \frame
 {
@@ -2251,15 +1195,7 @@
  
     \begin{itemize}
 
-        \item Process more data!
-
-        \item The codes are vetted, good enough for studies on early data
-
-        \item Look in detail at the dark matter profiles: Do they evolve over
-            time as predicted by CDM?
-
-        \item Cosmological analysis requires more data.  Approximately 2 years
-            timescale.
+        \item TODO Year 6
 
     \end{itemize}
 
@@ -2268,7 +1204,7 @@
 
 \frame
 {
-    \frametitle{The Long View: LSST}
+    \frametitle{The Long View: LSST TODO new picutures}
 
     %\setbeamerfont*{itemize/enumerate body}{size=\Large}
     %\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
@@ -2303,72 +1239,6 @@
     \end{columns}
 }
 
-\frame
-{
-    \frametitle{LSST}
-
-    %\setbeamerfont*{itemize/enumerate body}{size=\Large}
-    %\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    %\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
-    %\begin{columns}
-    %    \begin{column}{0.5\textwidth}    
-
-            \begin{itemize}
-
-                \item BNL has been involved since 2004
-
-                \item BNL Instrumentation responsible for CCDs, electronics
-                    and rafts.
-
-
-            \end{itemize}
-    %    \end{column}
-    %    \begin{column}{0.5\textwidth}    
-            \centerline{\includegraphics[width=0.7\textwidth]{lsst-folks.jpg}}
-            %\newline
-            \hfill {\tiny Some BNL LSST Folks}
-    %    \end{column}
-    %\end{columns}
-}
-
-\frame
-{
-    \frametitle{LSST}
-
-    %\setbeamerfont*{itemize/enumerate body}{size=\Large}
-    %\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    %\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}    
-
-            \begin{itemize}
-
-                \item I am transitioning to LSST from DES work, full time by
-                    2019
-
-                \item I am incorporating my shear code into the LSST framework
-                    now. 
-
-                \item Raw shear sensitivity of LSST is $\sim$ 5 times that of
-                    DES, {\color{gold} with more leverage over cosmic time}
-
-                \item Constrain  {\color{gold} $w$} to the sub-percent level.
-
-                \item Study time dependence of dark energy properties: is {\color{gold} $w$ } constant?
-
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}    
-            \includegraphics[width=\textwidth]{mirror-casting-banner.jpg}
-            \newline
-            \vspace{2mm}
-            \includegraphics[width=\textwidth]{Group_photo-half-scaled.jpg}
-            \newline
-            \hfill {\tiny Image: LSST Collaboration}
-        \end{column}
-    \end{columns}
-}
-
 
 %\includegraphics[width=\paperwidth,height=\paperheight]{ngc_new_v0-1398_20130130-mm1-2-950px.jpg}}
 \usebackgroundtemplate{%
@@ -2376,7 +1246,7 @@
 \frame
 {
 
-    {\Huge Summary}
+    {\Huge Summary TODO}
 
     \begin{columns}
         \begin{column}{0.65\textwidth}
