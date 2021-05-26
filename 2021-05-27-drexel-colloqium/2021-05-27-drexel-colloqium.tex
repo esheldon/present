@@ -45,6 +45,7 @@
 \newcommand{\gomegam}{\mbox{{\color{gold} $\Omega_m$}}}
 \newcommand{\grhom}{\mbox{{\color{gold} $\rho_m$}}}
 \newcommand{\gdarkenergy}{{\color{cadetblue} Dark Energy}}
+\newcommand{\gseight}{\mbox{{\color{gold} $S_8$}}}
 
 \title{Measuring Dark Energy with the\\Dark Energy Survey}
 \author{Erin Sheldon}
@@ -163,6 +164,32 @@
                     {\color{cadetblue}(1 pc = 3.3 light years)}
 
                 \item Age of the universe 13.8 billion years
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}    
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{M51-4x4-crop.jpg}
+                \includegraphics[width=0.8\textwidth]{macs-cluster-crop.jpg}
+                \includegraphics[width=0.8\textwidth]{sdss-gals-blanton.jpg}
+            \end{center}
+        \end{column}
+    \end{columns}
+}
+
+\frame
+{
+    \frametitle{Basic Cosmology Parameters}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\Large}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item Convenient, well-constrained parameter combination {\color{gold} $S_8 = \sigma_8 \left( \Omega_m / 0.3 \right)^{0.5}$}
 
             \end{itemize}
         \end{column}
@@ -1226,23 +1253,34 @@
 {
     \frametitle{Cosmology from cosmic shear alone}
 
-    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
-    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
-    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}    
             \begin{itemize}
 
-                \item fill in
+                \item Assuming the dark energy is \glambda, meaning
+                    exactly \gw{\color{gold}$~=1$}
+
+                \item Explore 32-dimensional parameter space
+
+                \item Cosmological parameters, but also additional parameters
+                    to describe astrophysics (e.g. bias parameters) and
+                    systematics with bayesian priors
+
+                \item These are the two cosmological parameters best constrained by our data
+
+                \item Recall {\color{gold} $S_8 = \sigma_8 \left( \Omega_m / 0.3 \right)^{0.5}$}
 
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-            % \begin{center}
-            %     \includegraphics[width=\textwidth]{ggl-example.png}
-            %     Cross-correlation Zacharegkas et al. 2021 (in prep)
-            % \end{center}
+            \begin{center}
+                \includegraphics[width=\textwidth]{lcdm-xi-ggl-inv.png}
+                {\tiny Secco et al. 2021, Abbot et al. 2021, Dark Energy Survey}
+            \end{center}
         \end{column}
     \end{columns}
 
@@ -1319,19 +1357,79 @@
         \begin{column}{0.5\textwidth}    
             \begin{itemize}
 
-                \item fill in
+                \item The blue shows the results for the lensing cross-correlation
+                    and the clustering of galaxies
+
+                \item These results are consistent, so we can combine them 
 
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-            % \begin{center}
-            %     \includegraphics[width=\textwidth]{ggl-example.png}
-            %     Cross-correlation Zacharegkas et al. 2021 (in prep)
-            % \end{center}
+            \begin{center}
+                \includegraphics[width=\textwidth]{lcdm-xi-ggl-inv.png}
+                {\tiny Secco et al. 2021, Abbot et al. 2021, Dark Energy Survey}
+            \end{center}
         \end{column}
     \end{columns}
 
 }
+
+\frame
+{
+    \frametitle{Cosmology combining all three}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item Now showing is the combined constraints
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{lcdm-xi-ggl-combined-inv.png}
+                {\tiny Secco et al. 2021, Abbot et al. 2021, Dark Energy Survey}
+            \end{center}
+        \end{column}
+    \end{columns}
+
+}
+
+\frame
+{
+    \frametitle{Comparing to the early universe: CMB}
+
+    % \setbeamerfont*{itemize/enumerate body}{size=\scriptsize}
+    % \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    % \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}    
+            \begin{itemize}
+
+                \item Recall the CMB is the relic radiation from the early
+                    universe
+
+                \item Good agreement
+
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{lcdm-compare-planck-inv.png}
+                {\tiny Secco et al. 2021, Abbot et al. 2021, Dark Energy Survey}
+            \end{center}
+        \end{column}
+    \end{columns}
+
+}
+
+
 
 \frame
 {
